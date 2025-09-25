@@ -1,1 +1,10 @@
-<p>title works!</p>
+<section class="hero-title" aria-labelledby="hero-title-heading">
+    <p class="hero-title__subtitle">{{ subtitle }}</p>
+    <h1 class="hero-title__headline" id="hero-title-heading">{{ headline }}</h1>
+    <nav class="hero-title__actions" aria-label="Primary actions">
+        <a *ngFor="let action of callToActions; let i = index" class="hero-title__button"
+            [class.hero-title__button--primary]="i === 0" [href]="action.href">
+            {{ action.label }}
+        </a>
+    </nav>
+</section>

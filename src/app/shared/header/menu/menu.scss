@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.menu__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1rem;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.menu__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: rgba(61, 207, 182, 0.6);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.menu__link:hover,
+.menu__link:focus {
+  color: #3dcfb6;
+}
+
+.menu__link:hover::after,
+.menu__link:focus::after {
+  transform: scaleX(1);
+}
+
+.menu__link:focus-visible {
+  outline: 2px solid rgba(61, 207, 182, 0.6);
+  outline-offset: 4px;
+}

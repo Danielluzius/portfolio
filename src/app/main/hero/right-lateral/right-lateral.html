@@ -1,1 +1,15 @@
-<p>right-lateral works!</p>
+<div class="right-lateral">
+    <a class="right-lateral__email" [href]="mailtoHref">{{ email }}</a>
+
+    <nav class="right-lateral__icons" aria-label="Social links">
+        <a *ngFor="let social of socialLinks" class="right-lateral__icon" [href]="social.href" target="_blank"
+            rel="noopener noreferrer" [attr.aria-label]="social.label">
+            <img class="right-lateral__icon-image right-lateral__icon-image--default" [src]="social.icon"
+                [alt]="social.label" width="32" height="32" loading="lazy" decoding="async" />
+            <img class="right-lateral__icon-image right-lateral__icon-image--hover" [src]="social.hoverIcon"
+                [alt]="social.label" width="32" height="32" loading="lazy" decoding="async" />
+        </a>
+    </nav>
+
+    <span class="right-lateral__divider" aria-hidden="true"></span>
+</div>

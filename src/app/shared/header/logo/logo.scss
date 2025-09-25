@@ -1,0 +1,48 @@
+:host {
+  display: block;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(125deg, #3dcfb6 0%, #0f5649 100%);
+  color: #041410;
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.04em;
+}
+
+.logo__wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo__wordmark-first,
+.logo__wordmark-last {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.04em;
+}
+
+.logo__wordmark-first {
+  font-size: 1.1rem;
+  opacity: 0.75;
+}
+
+.logo__wordmark-last {
+  margin-top: 2px;
+  font-size: 1.45rem;
+}

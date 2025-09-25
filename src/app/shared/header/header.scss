@@ -1,0 +1,78 @@
+:host {
+  display: block;
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  width: 100%;
+  pointer-events: none;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+  pointer-events: auto;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+  backdrop-filter: blur(10px);
+  opacity: 0.95;
+  z-index: -1;
+}
+
+.header__inner {
+  width: min(100%, 1920px);
+  margin: 0 auto;
+  padding: clamp(16px, 3vh, 28px) clamp(24px, 7vw, 96px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(24px, 15vw, 96px);
+}
+
+.header__menu-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 32px);
+  flex: 1;
+}
+
+.header__menu-group app-language-switch {
+  flex: 0 0 auto;
+}
+
+.header__menu-group app-menu {
+  flex: 1 1 auto;
+}
+
+app-logo {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .header__inner {
+    gap: 16px;
+  }
+
+  .header__menu-group {
+    gap: 16px;
+  }
+
+  .header__menu-group app-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .header__inner {
+    padding: 16px 20px;
+  }
+
+  app-logo {
+    margin-left: auto;
+  }
+}
