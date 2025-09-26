@@ -13,6 +13,11 @@
   color: #fff;
   text-decoration: none;
   height: 22px;
+  transition: all 0.2s ease;
+}
+:hover {
+  color: #3dcfb6;
+  transition: all 0.2s ease;
 }
 
 .icons {
@@ -21,7 +26,8 @@
   align-items: center;
   gap: 12px;
   width: 32px;
-  height: 76px;
+  height: auto;
+  overflow: visible;
 }
 
 .icon {
@@ -30,12 +36,64 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: visible;
+  cursor: pointer;
 }
 
-.icon svg {
-  fill: #3dcfb6;
-  width: 26px;
-  height: 26px;
+.icon__image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.icon__image--hover {
+  opacity: 0;
+}
+
+.icon__circle {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 4px);
+  transform: translateY(-50%) scale(0.6);
+  width: 8px;
+  height: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.icon:hover .icon__image--default {
+  opacity: 0;
+}
+
+.icon:hover .icon__image--hover {
+  opacity: 1;
+}
+
+.icon:hover .icon__circle {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.icon:focus-visible {
+  outline: none;
+}
+
+.icon:focus-visible .icon__image--default {
+  opacity: 0;
+}
+
+.icon:focus-visible .icon__image--hover,
+.icon:focus-visible .icon__circle {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
 }
 
 .line {
