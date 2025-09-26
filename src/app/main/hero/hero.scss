@@ -9,11 +9,26 @@
   overflow: hidden;
 }
 
+.hero__left-lateral,
+.hero__right-lateral {
+  position: absolute;
+  bottom: 0;
+}
+
+.hero__left-lateral {
+  left: 5.67vw;
+}
+
+.hero__right-lateral {
+  right: 5.67vw;
+}
+
 .hero__inner {
   --hero-inline-padding: clamp(24px, 6vw, 96px);
+  --hero-bottom-gap: clamp(112px, 18vh, 160px);
   position: relative;
   width: min(100%, 1920px);
-  padding: clamp(128px, 22vh, 200px) var(--hero-inline-padding) clamp(112px, 18vh, 160px);
+  padding: clamp(128px, 22vh, 200px) var(--hero-inline-padding) 0;
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -27,6 +42,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  padding-bottom: var(--hero-bottom-gap);
 }
 
 .hero__marquee {
@@ -42,8 +58,9 @@
 
 @media (max-width: 1200px) {
   .hero__inner {
-    padding: clamp(112px, 24vh, 180px) clamp(24px, 7vw, 64px) clamp(104px, 20vh, 144px);
+    padding: clamp(112px, 24vh, 180px) clamp(24px, 7vw, 64px) 0;
     --hero-inline-padding: clamp(24px, 7vw, 64px);
+    --hero-bottom-gap: clamp(104px, 20vh, 144px);
   }
 }
 
@@ -55,8 +72,9 @@
 
 @media (max-width: 640px) {
   .hero__inner {
-    padding: clamp(120px, 32vh, 180px) clamp(20px, 8vw, 40px) clamp(96px, 26vh, 140px);
+    padding: clamp(120px, 32vh, 180px) clamp(20px, 8vw, 40px) 0;
     --hero-inline-padding: clamp(20px, 8vw, 40px);
+    --hero-bottom-gap: clamp(96px, 26vh, 140px);
   }
 
   .hero__marquee {
