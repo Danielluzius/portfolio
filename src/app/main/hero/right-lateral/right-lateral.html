@@ -1,15 +1,14 @@
-<div class="right-lateral">
-    <a class="right-lateral__email" [href]="mailtoHref">{{ email }}</a>
+<aside class="right-lateral">
+    <a class="email" href="mailto:danielluzius@mail.de">DANIELLUZIUS@MAIL.DE</a>
 
-    <nav class="right-lateral__icons" aria-label="Social links">
-        <a *ngFor="let social of socialLinks" class="right-lateral__icon" [href]="social.href" target="_blank"
-            rel="noopener noreferrer" [attr.aria-label]="social.label">
-            <img class="right-lateral__icon-image right-lateral__icon-image--default" [src]="social.icon"
-                [alt]="social.label" width="32" height="32" loading="lazy" decoding="async" />
-            <img class="right-lateral__icon-image right-lateral__icon-image--hover" [src]="social.hoverIcon"
-                [alt]="social.label" width="32" height="32" loading="lazy" decoding="async" />
+    <div class="icons">
+        <a class="icon" aria-label="GitHub">
+            <img src="assets/icon/github_icon.png" alt="GitHub Icon">
         </a>
-    </nav>
+        <a class="icon" aria-label="LinkedIn">
+            <img src="assets/icon/linkedin_icon.png" alt="LinkedIn Icon">
+        </a>
+    </div>
 
-    <span class="right-lateral__divider" aria-hidden="true"></span>
-</div>
+    <div class="line"></div>
+</aside>

@@ -29,20 +29,8 @@
   justify-content: center;
 }
 
-.hero__left-lateral,
-.hero__right-lateral,
 .hero__marquee {
   position: absolute;
-}
-
-.hero__left-lateral {
-  left: var(--hero-inline-padding);
-  bottom: 0;
-}
-
-.hero__right-lateral {
-  right: var(--hero-inline-padding);
-  bottom: 0;
 }
 
 .hero__marquee {
@@ -60,11 +48,6 @@
 }
 
 @media (max-width: 1024px) {
-  .hero__left-lateral,
-  .hero__right-lateral {
-    display: none;
-  }
-
   .hero__marquee {
     width: calc(100% - (var(--hero-inline-padding) * 2));
   }

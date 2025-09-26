@@ -1,104 +1,49 @@
 .right-lateral {
-  width: 20px;
-  height: 466px;
+  position: absolute;
+  bottom: 0;
+  right: 6.67vw;
+  width: 32px;
+  height: 480px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: clamp(42px, 7.5vh, 64px);
-  mix-blend-mode: normal;
-  pointer-events: auto;
+  gap: 24px;
 }
 
-.right-lateral__email {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Karla', 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: clamp(0.95rem, 1vw + 0.75rem, 1.125rem);
-  line-height: 1.2;
-  letter-spacing: 0.08em;
-  color: #ffffff;
+.email {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font: 400 18px/1.2 Karla, sans-serif;
+  color: #fff;
   text-decoration: none;
-  transform: rotate(-90deg);
-  transform-origin: center;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-  white-space: nowrap;
+  height: 22px;
 }
 
-.right-lateral__email:focus-visible {
-  outline: none;
-  text-shadow: 0 0 12px rgba(61, 207, 182, 0.8);
-  color: #3dcfb6;
-}
-
-.right-lateral__email:hover {
-  color: #3dcfb6;
-}
-
-.right-lateral__icons {
+.icons {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   gap: 12px;
   width: 32px;
-  margin-top: clamp(32px, 6.5vh, 60px);
+  height: 76px;
 }
-
-.right-lateral__icon {
-  position: relative;
-  display: inline-flex;
+.icon {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.right-lateral__icon-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: opacity 0.2s ease;
+.icon svg {
+  fill: #3dcfb6;
+  width: 26px;
+  height: 26px;
 }
 
-.right-lateral__icon-image--hover {
-  opacity: 0;
-}
-
-.right-lateral__icon:hover .right-lateral__icon-image--default,
-.right-lateral__icon:focus-visible .right-lateral__icon-image--default {
-  opacity: 0;
-}
-
-.right-lateral__icon:hover .right-lateral__icon-image--hover,
-.right-lateral__icon:focus-visible .right-lateral__icon-image--hover {
-  opacity: 1;
-}
-
-.right-lateral__icon:focus-visible {
-  outline: 2px solid rgba(61, 207, 182, 0.8);
-  outline-offset: 3px;
-}
-
-.right-lateral__divider {
-  display: block;
-  width: 1px;
-  height: clamp(280px, 38vh, 360px);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
-  margin-top: auto;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .right-lateral__email {
-    transition: none;
-  }
-
-  .right-lateral__icon-image {
-    transition: none;
-  }
+.line {
+  width: 0;
+  height: 186px;
+  border-left: 1px solid #fff;
 }
