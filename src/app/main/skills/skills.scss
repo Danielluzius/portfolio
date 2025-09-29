@@ -1,0 +1,214 @@
+.skills {
+  max-width: 1920px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(32px, 5vw, 72px);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 560px;
+    padding: 0 clamp(32px, 5vw, 72px) clamp(32px, 5vw, 72px);
+    border-radius: 36px;
+    background: radial-gradient(
+      22.43% 43.85% at 1.22% 52.45%,
+      rgba(8, 70, 59, 0.3) 0%,
+      #1c1c1c 100%
+    );
+    box-sizing: border-box;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 2vw, 20px);
+    color: #ffffff;
+
+    &--info {
+      flex: 1 1 480px;
+      max-width: 540px;
+      align-self: stretch;
+      justify-content: flex-start;
+    }
+
+    &--icons {
+      flex: 1 1 520px;
+      max-width: 680px;
+    }
+  }
+
+  &__section-heading {
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: clamp(18px, 3vw, 24px);
+    line-height: 1.2;
+    color: #3dcfb6;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__info-card {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(24px, 4vw, 40px);
+    padding: clamp(24px, 4vw, 32px);
+    border: 1px solid #3dcfb6;
+    border-radius: 30px;
+    background: rgba(61, 207, 182, 0.1);
+    min-height: clamp(360px, 50vw, 520px);
+    box-sizing: border-box;
+  }
+
+  &__headline {
+    margin: 0;
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #3dcfb6;
+  }
+
+  &__copy {
+    max-width: 456px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 2.2vw, 18px);
+    line-height: 1.2;
+    color: #ffffff;
+    text-align: justify;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__cta-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    max-width: 360px;
+  }
+
+  &__cta-title {
+    margin: 0;
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    font-size: clamp(20px, 3vw, 24px);
+    line-height: 1.2;
+    color: #ffffff;
+    text-align: left;
+
+    .skills__cta-highlight {
+      color: #3dcfb6;
+    }
+  }
+
+  &__cta-text {
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.2;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  &__cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    height: 48px;
+    border-radius: 100px;
+    border: 1px solid #ffffff;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #ffffff;
+    text-decoration: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+
+    &:hover,
+    &:focus-visible {
+      border-color: #3dcfb6;
+      background-color: rgba(61, 207, 182, 0.15);
+      color: #3dcfb6;
+      outline: none;
+    }
+  }
+
+  &__icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: clamp(24px, 4vw, 40px) clamp(24px, 5vw, 72px);
+    width: 100%;
+  }
+
+  &__icon-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    height: 116px;
+    border-radius: 22px;
+    border: 1px dashed rgba(255, 255, 255, 0.24);
+    padding: 16px 12px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+
+    &::before {
+      content: '';
+      display: block;
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 12px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  @media (max-width: 960px) {
+    &__inner {
+      border-radius: 28px;
+    }
+
+    &__panel--info,
+    &__panel--icons {
+      max-width: none;
+    }
+
+    &__info-card {
+      min-height: 320px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    padding: clamp(48px, 10vw, 64px) clamp(16px, 6vw, 32px);
+
+    &__inner {
+      padding: clamp(24px, 8vw, 48px);
+      gap: 32px;
+    }
+
+    &__icons-grid {
+      gap: 24px;
+    }
+  }
+}
