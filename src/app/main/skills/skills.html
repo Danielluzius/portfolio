@@ -26,20 +26,14 @@
         </div>
 
         <div class="skills__panel skills__panel--icons">
-            <div class="skills__icons-grid">
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-                <div class="skills__icon-placeholder" aria-hidden="true"></div>
-            </div>
+            <ul class="skills__icons-grid" role="list">
+                <li class="skills__icon" *ngFor="let skill of skillIcons">
+                    <span class="skills__icon-image" aria-hidden="true">
+                        <img [src]="skill.icon" [alt]="skill.label" loading="lazy" />
+                    </span>
+                    <span class="skills__icon-label">{{ skill.label }}</span>
+                </li>
+            </ul>
         </div>
     </div>
 </section>
