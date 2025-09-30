@@ -11,7 +11,7 @@ $accent: #3dcfb6;
 }
 
 .projects__container {
-  max-width: clamp(20rem, 90vw, 1200px);
+  max-width: clamp(20rem, 90vw, 1300px);
   margin-inline: auto;
   display: flex;
   flex-direction: column;
@@ -157,11 +157,26 @@ $accent: #3dcfb6;
 }
 
 .projects__preview-card {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+}
+
+.projects__preview-card::before {
+  content: '';
+  position: absolute;
+  top: 1.25rem;
+  right: -1.25rem;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/img/capa_2.png') center/cover no-repeat;
+  border-radius: 20px;
+  opacity: 0.65;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .projects__preview-frame {
@@ -171,14 +186,11 @@ $accent: #3dcfb6;
   overflow: hidden;
   position: relative;
   isolation: isolate;
-  background: url('/assets/img/capa_2.png') center/cover no-repeat;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 
   &::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(28, 28, 28, 0) 0%, rgba(28, 28, 28, 0.45) 100%);
     pointer-events: none;
   }
 }

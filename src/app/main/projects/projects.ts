@@ -17,22 +17,22 @@ export class Projects {
 
   protected readonly projects = [
     {
-      title: 'Join',
-      technologies: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
-      preview: 'assets/img/capa_2.png',
-      previewAlt: 'Placeholder preview for Join project',
-    },
-    {
-      title: 'El Pollo Loco',
+      title: 'Pokedex',
       technologies: ['HTML', 'CSS', 'JavaScript'],
-      preview: 'assets/img/capa_2.png',
-      previewAlt: 'Placeholder preview for El Pollo Loco project',
+      preview: 'assets/img/projects/pokedex.png',
+      previewAlt: 'Placeholder preview for Pokedex project',
     },
     {
-      title: 'DA Bubble',
+      title: 'Goblin Slayer',
+      technologies: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+      preview: 'assets/img/projects/goblin_slayer.png',
+      previewAlt: 'Placeholder preview for Goblin Slayer project',
+    },
+    {
+      title: 'Placeholder Project',
       technologies: ['Angular', 'Firebase', 'TypeScript'],
-      preview: 'assets/img/capa_2.png',
-      previewAlt: 'Placeholder preview for DA Bubble project',
+      preview: 'assets/img/projects/placeholder.png',
+      previewAlt: 'Placeholder preview for Placeholder Project',
     },
   ];
 
