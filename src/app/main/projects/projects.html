@@ -1,1 +1,39 @@
-<p>projects works!</p>
+<section class="projects" id="projects">
+    <div class="projects__container">
+        <header class="projects__header">
+            <span class="projects__eyebrow">Portfolio</span>
+            <h2 class="projects__title">Featured Projects</h2>
+            <p class="projects__lead">
+                Explore a selection of my work here – interact with projects to see my skills in action.
+            </p>
+        </header>
+
+        <div class="projects__layout" #projectsLayout>
+            <div class="projects__list" role="list">
+                <article class="projects__item" *ngFor="let project of projects; let i = index" role="listitem"
+                    #projectItem (mouseenter)="showPreview(i, projectItem)" (mouseleave)="hidePreview()"
+                    [class.is-active]="selectedProjectIndex === i">
+                    <h3 class="projects__item-title">
+                        <span class="projects__item-label">{{ project.title }}</span>
+                        <img class="projects__item-icon" src="assets/icon/project icon/arrow_outward.png" alt=""
+                            aria-hidden="true" />
+                    </h3>
+
+                    <ul class="projects__tech" aria-label="Technologies">
+                        <li class="projects__tech-item" *ngFor="let tech of project.technologies">
+                            <span>{{ tech }}</span>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+
+            <aside class="projects__preview" aria-live="polite" #projectsPreview [style.top.px]="previewTop">
+                <div class="projects__preview-card" *ngIf="selectedProject as project">
+                    <div class="projects__preview-frame">
+                        <img class="projects__preview-img" [src]="project.preview" [alt]="project.previewAlt" />
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
