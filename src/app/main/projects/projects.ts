@@ -1,5 +1,13 @@
-import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  OnDestroy,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   standalone: true,
@@ -8,36 +16,122 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
-export class Projects {
+export class Projects implements OnDestroy {
   @ViewChild('projectsLayout', { static: true })
   private layoutRef!: ElementRef<HTMLElement>;
 
   @ViewChild('projectsPreview', { static: true })
   private previewRef!: ElementRef<HTMLElement>;
 
+  private readonly bodyScrollClass = 'body--no-scroll';
+
   protected readonly projects = [
     {
       title: 'Pokedex',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
+      subtitle: 'API-driven Pokédex',
+      description:
+        'Responsive Pokédex powered by the PokéAPI. Search, filter, and explore Pokémon stats with smooth animations and offline caching.',
+      technologies: ['CSS', 'HTML', 'JavaScript'],
+      stack: [
+        {
+          label: 'CSS',
+          icon: 'assets/icon/skill icon/css_icon.png',
+          alt: 'CSS icon',
+        },
+        {
+          label: 'HTML',
+          icon: 'assets/icon/skill icon/html_icon.png',
+          alt: 'HTML icon',
+        },
+        {
+          label: 'JavaScript',
+          icon: 'assets/icon/skill icon/javascript_icon.png',
+          alt: 'JavaScript icon',
+        },
+      ],
       preview: 'assets/img/projects/pokedex.png',
-      previewAlt: 'Placeholder preview for Pokedex project',
+      previewAlt: 'Join project board preview',
+      githubUrl: 'https://github.com/Danielluzius',
+      liveUrl: 'https://danielluzius.de',
     },
     {
       title: 'Goblin Slayer',
-      technologies: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+      subtitle: 'Jump n Run Web Game',
+      description:
+        'A browser-based tactical battle prototype with responsive UI, modular enemy AI, and reusable component-based architecture.',
+      technologies: ['CSS', 'HTML', 'JavaScript', 'API'],
+      stack: [
+        {
+          label: 'CSS',
+          icon: 'assets/icon/skill icon/css_icon.png',
+          alt: 'CSS icon',
+        },
+        {
+          label: 'HTML',
+          icon: 'assets/icon/skill icon/html_icon.png',
+          alt: 'HTML icon',
+        },
+        {
+          label: 'JavaScript',
+          icon: 'assets/icon/skill icon/javascript_icon.png',
+          alt: 'JavaScript icon',
+        },
+        {
+          label: 'API',
+          icon: 'assets/icon/skill icon/api_icon.png',
+          alt: 'API icon',
+        },
+      ],
       preview: 'assets/img/projects/goblin_slayer.png',
-      previewAlt: 'Placeholder preview for Goblin Slayer project',
+      previewAlt: 'Goblin Slayer gameplay preview',
+      githubUrl: 'https://github.com/Danielluzius',
     },
     {
-      title: 'Placeholder Project',
-      technologies: ['Angular', 'Firebase', 'TypeScript'],
+      title: 'Placeholder',
+      subtitle: 'Placeholder Subtitle',
+      description: 'Placeholder description',
+      technologies: ['Angular', 'TypeScript', 'Firebase', 'CSS'],
+      stack: [
+        {
+          label: 'Angular',
+          icon: 'assets/icon/skill icon/angular_icon.png',
+          alt: 'Angular icon',
+        },
+        {
+          label: 'TypeScript',
+          icon: 'assets/icon/skill icon/typescript_icon.png',
+          alt: 'TypeScript icon',
+        },
+        {
+          label: 'Firebase',
+          icon: 'assets/icon/skill icon/firebase_icon.png',
+          alt: 'Firebase icon',
+        },
+        {
+          label: 'CSS',
+          icon: 'assets/icon/skill icon/css_icon.png',
+          alt: 'CSS icon',
+        },
+      ],
       preview: 'assets/img/projects/placeholder.png',
-      previewAlt: 'Placeholder preview for Placeholder Project',
+      previewAlt: 'Placeholder application preview',
+      githubUrl: 'https://github.com/Danielluzius',
+      liveUrl: 'https://danielluzius.de',
     },
   ];
 
   protected selectedProjectIndex: number | null = null;
+  protected activeDialogIndex: number | null = null;
   protected previewTop = 0;
+
+  constructor(
+    @Inject(DOCUMENT) private readonly documentRef: Document,
+    private readonly renderer: Renderer2
+  ) {}
+
+  ngOnDestroy(): void {
+    this.unlockBodyScroll();
+  }
 
   protected get selectedProject() {
     if (this.selectedProjectIndex === null) {
@@ -47,12 +141,28 @@ export class Projects {
     return this.projects[this.selectedProjectIndex] ?? null;
   }
 
+  protected get activeDialogProject() {
+    if (this.activeDialogIndex === null) {
+      return null;
+    }
+
+    return this.projects[this.activeDialogIndex] ?? null;
+  }
+
+  protected formatProjectNumber(index: number) {
+    return (index + 1).toString().padStart(2, '0');
+  }
+
   protected showPreview(index: number, element: HTMLElement) {
     if (index < 0 || index >= this.projects.length) {
       return;
     }
 
     this.selectedProjectIndex = index;
+
+    if (this.activeDialogIndex !== null) {
+      return;
+    }
 
     setTimeout(() => {
       const preview = this.previewRef?.nativeElement;
@@ -81,6 +191,86 @@ export class Projects {
   }
 
   protected hidePreview() {
+    if (this.activeDialogIndex !== null) {
+      return;
+    }
+
     this.selectedProjectIndex = null;
+  }
+
+  protected openProjectDialog(index: number) {
+    if (index < 0 || index >= this.projects.length) {
+      return;
+    }
+
+    const wasDialogOpen = this.activeDialogIndex !== null;
+
+    this.activeDialogIndex = index;
+    this.selectedProjectIndex = index;
+
+    if (!wasDialogOpen) {
+      this.lockBodyScroll();
+    }
+  }
+
+  protected closeProjectDialog() {
+    const wasDialogOpen = this.activeDialogIndex !== null;
+
+    this.activeDialogIndex = null;
+    this.selectedProjectIndex = null;
+
+    if (wasDialogOpen) {
+      this.unlockBodyScroll();
+    }
+  }
+
+  protected openNextProject(event?: Event) {
+    event?.preventDefault();
+    event?.stopPropagation();
+
+    if (this.projects.length === 0 || this.activeDialogIndex === null) {
+      return;
+    }
+
+    const nextIndex = (this.activeDialogIndex + 1) % this.projects.length;
+    this.openProjectDialog(nextIndex);
+  }
+
+  protected activateProject(event: KeyboardEvent, index: number) {
+    const keys = ['Enter', ' '];
+    if (!keys.includes(event.key)) {
+      return;
+    }
+
+    event.preventDefault();
+    this.openProjectDialog(index);
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  protected onDocumentKeydown(event: KeyboardEvent) {
+    if (event.key !== 'Escape' || this.activeDialogIndex === null) {
+      return;
+    }
+
+    event.preventDefault();
+    this.closeProjectDialog();
+  }
+
+  private lockBodyScroll() {
+    const body = this.documentRef.body;
+    if (!body || body.classList.contains(this.bodyScrollClass)) {
+      return;
+    }
+
+    this.renderer.addClass(body, this.bodyScrollClass);
+  }
+
+  private unlockBodyScroll() {
+    const body = this.documentRef.body;
+    if (!body || !body.classList.contains(this.bodyScrollClass)) {
+      return;
+    }
+
+    this.renderer.removeClass(body, this.bodyScrollClass);
   }
 }

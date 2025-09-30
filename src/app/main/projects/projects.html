@@ -12,7 +12,9 @@
             <div class="projects__list" role="list">
                 <article class="projects__item" *ngFor="let project of projects; let i = index" role="listitem"
                     #projectItem (mouseenter)="showPreview(i, projectItem)" (mouseleave)="hidePreview()"
-                    [class.is-active]="selectedProjectIndex === i">
+                    (focus)="showPreview(i, projectItem)" (blur)="hidePreview()" (click)="openProjectDialog(i)"
+                    (keydown)="activateProject($event, i)" tabindex="0" role="button" aria-haspopup="dialog"
+                    [attr.aria-expanded]="activeDialogIndex === i" [class.is-active]="selectedProjectIndex === i">
                     <h3 class="projects__item-title">
                         <span class="projects__item-label">{{ project.title }}</span>
                         <img class="projects__item-icon" src="assets/icon/project icon/arrow_outward.png" alt=""
@@ -36,4 +38,66 @@
             </aside>
         </div>
     </div>
+
+    <ng-container *ngIf="activeDialogProject as modalProject">
+        <div class="projects__dialog-backdrop" (click)="closeProjectDialog()" aria-hidden="true"></div>
+
+        <div class="projects__dialog-wrapper" (click)="closeProjectDialog()">
+            <article class="projects__dialog" role="dialog" aria-modal="true" [attr.aria-label]="modalProject.title"
+                (click)="$event.stopPropagation()">
+                <button class="projects__dialog-close" type="button" (click)="closeProjectDialog()"
+                    aria-label="Close project dialog">
+                    <img class="projects__dialog-close-icon projects__dialog-close-icon--default"
+                        src="assets/icon/project icon/close_button.png" alt="" aria-hidden="true" />
+                    <img class="projects__dialog-close-icon projects__dialog-close-icon--hover"
+                        src="assets/icon/project icon/close_button_hover.png" alt="" aria-hidden="true" />
+                </button>
+
+                <div class="projects__dialog-info">
+                    <div class="projects__dialog-header">
+                        <span class="projects__dialog-counter" aria-hidden="true">{{ activeDialogIndex !== null ?
+                            formatProjectNumber(activeDialogIndex) : '' }}</span>
+                        <div class="projects__dialog-title">
+                            <h3 class="projects__dialog-name">{{ modalProject.title }}</h3>
+                            <p class="projects__dialog-subtitle">{{ modalProject.subtitle }}</p>
+                        </div>
+                    </div>
+
+                    <div class="projects__dialog-summary">
+                        <h4 class="projects__dialog-question">What is this project about?</h4>
+                        <p class="projects__dialog-description">{{ modalProject.description }}</p>
+                    </div>
+
+                    <ul class="projects__dialog-stack" aria-label="Technologies used">
+                        <li class="projects__dialog-stack-item" *ngFor="let tech of modalProject.stack">
+                            <img class="projects__dialog-stack-icon" [src]="tech.icon" [alt]="tech.alt" />
+                            <span>{{ tech.label }}</span>
+                        </li>
+                    </ul>
+
+                    <div class="projects__dialog-actions">
+                        <a *ngIf="modalProject.githubUrl" class="projects__dialog-button"
+                            [href]="modalProject.githubUrl" target="_blank" rel="noopener noreferrer">
+                            <span>GitHub</span>
+                            <img src="assets/icon/project icon/arrow_outward.png" alt="" aria-hidden="true" />
+                        </a>
+                        <a *ngIf="modalProject.liveUrl" class="projects__dialog-button" [href]="modalProject.liveUrl"
+                            target="_blank" rel="noopener noreferrer">
+                            <span>Live Test</span>
+                            <img src="assets/icon/project icon/arrow_outward.png" alt="" aria-hidden="true" />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="projects__dialog-visual">
+                    <img class="projects__dialog-image" [src]="modalProject.preview" [alt]="modalProject.previewAlt" />
+                </div>
+
+                <button class="projects__dialog-next" type="button" (click)="openNextProject($event)">
+                    <span>Next project</span>
+                    <img src="assets/icon/project icon/arrow_outward.png" alt="" aria-hidden="true" />
+                </button>
+            </article>
+        </div>
+    </ng-container>
 </section>
