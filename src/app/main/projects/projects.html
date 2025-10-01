@@ -93,9 +93,12 @@
                     <img class="projects__dialog-image" [src]="modalProject.preview" [alt]="modalProject.previewAlt" />
                 </div>
 
-                <button class="projects__dialog-next" type="button" (click)="openNextProject($event)">
+                <button class="projects__dialog-next" type="button" (click)="openNextProject($event)"
+                    (mouseenter)="setNextHover(true)" (mouseleave)="setNextHover(false)" (focus)="setNextHover(true)"
+                    (blur)="setNextHover(false)">
                     <span>Next project</span>
-                    <img src="assets/icon/project icon/arrow_outward.png" alt="" aria-hidden="true" />
+                    <img [src]="isNextHovered ? 'assets/icon/project icon/arrow_right_hover.png' : 'assets/icon/project icon/arrow_right.png'"
+                        alt="" aria-hidden="true" />
                 </button>
             </article>
         </div>

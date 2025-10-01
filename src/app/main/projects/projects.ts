@@ -123,6 +123,7 @@ export class Projects implements OnDestroy {
   protected selectedProjectIndex: number | null = null;
   protected activeDialogIndex: number | null = null;
   protected previewTop = 0;
+  protected isNextHovered = false;
 
   constructor(
     @Inject(DOCUMENT) private readonly documentRef: Document,
@@ -151,6 +152,10 @@ export class Projects implements OnDestroy {
 
   protected formatProjectNumber(index: number) {
     return (index + 1).toString().padStart(2, '0');
+  }
+
+  protected setNextHover(state: boolean) {
+    this.isNextHovered = state;
   }
 
   protected showPreview(index: number, element: HTMLElement) {

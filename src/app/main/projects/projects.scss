@@ -441,19 +441,18 @@ $accent: #3dcfb6;
   font-family: var(--font-body);
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
-
-  img {
-    width: 1.75rem;
-    height: 1.75rem;
-    filter: brightness(1.1);
-  }
+  transition: transform 0.3s ease;
 
   &:hover,
   &:focus-visible {
     color: #fff;
-    transform: translateX(4px);
     outline: none;
+  }
+
+  img {
+    width: 2rem;
+    height: 2rem;
+    filter: brightness(1.1);
   }
 }
 
