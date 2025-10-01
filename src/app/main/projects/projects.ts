@@ -35,17 +35,17 @@ export class Projects implements OnDestroy {
       stack: [
         {
           label: 'CSS',
-          icon: 'assets/icon/skill icon/css_icon.png',
+          icon: 'assets/icon/skill-icon/css_icon.png',
           alt: 'CSS icon',
         },
         {
           label: 'HTML',
-          icon: 'assets/icon/skill icon/html_icon.png',
+          icon: 'assets/icon/skill-icon/html_icon.png',
           alt: 'HTML icon',
         },
         {
           label: 'JavaScript',
-          icon: 'assets/icon/skill icon/javascript_icon.png',
+          icon: 'assets/icon/skill-icon/javascript_icon.png',
           alt: 'JavaScript icon',
         },
       ],
@@ -63,22 +63,22 @@ export class Projects implements OnDestroy {
       stack: [
         {
           label: 'CSS',
-          icon: 'assets/icon/skill icon/css_icon.png',
+          icon: 'assets/icon/skill-icon/css_icon.png',
           alt: 'CSS icon',
         },
         {
           label: 'HTML',
-          icon: 'assets/icon/skill icon/html_icon.png',
+          icon: 'assets/icon/skill-icon/html_icon.png',
           alt: 'HTML icon',
         },
         {
           label: 'JavaScript',
-          icon: 'assets/icon/skill icon/javascript_icon.png',
+          icon: 'assets/icon/skill-icon/javascript_icon.png',
           alt: 'JavaScript icon',
         },
         {
           label: 'API',
-          icon: 'assets/icon/skill icon/api_icon.png',
+          icon: 'assets/icon/skill-icon/api_icon.png',
           alt: 'API icon',
         },
       ],
@@ -94,22 +94,22 @@ export class Projects implements OnDestroy {
       stack: [
         {
           label: 'Angular',
-          icon: 'assets/icon/skill icon/angular_icon.png',
+          icon: 'assets/icon/skill-icon/angular_icon.png',
           alt: 'Angular icon',
         },
         {
           label: 'TypeScript',
-          icon: 'assets/icon/skill icon/typescript_icon.png',
+          icon: 'assets/icon/skill-icon/typescript_icon.png',
           alt: 'TypeScript icon',
         },
         {
           label: 'Firebase',
-          icon: 'assets/icon/skill icon/firebase_icon.png',
+          icon: 'assets/icon/skill-icon/firebase_icon.png',
           alt: 'Firebase icon',
         },
         {
           label: 'CSS',
-          icon: 'assets/icon/skill icon/css_icon.png',
+          icon: 'assets/icon/skill-icon/css_icon.png',
           alt: 'CSS icon',
         },
       ],
