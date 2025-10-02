@@ -6,6 +6,9 @@
             <ul class="carousel" #carouselContainer>
                 @for (reference of carouselItems; track $index; let i = $index) {
                 <li class="carousel-item">
+                    <div class="quote-icon">
+                        <img src="assets/icon/references-icon/quotes.png" alt="Quote" />
+                    </div>
                     <blockquote>
                         <p class="reference-text">{{ reference.text }}</p>
                         <footer>
