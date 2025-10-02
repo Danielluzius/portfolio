@@ -1,0 +1,56 @@
+<form class="contact-form">
+    <!-- Form Fields Container -->
+    <div class="form-fields">
+        <!-- Name Field -->
+        <div class="form-field" [class.error]="nameError">
+            <div class="field-content">
+                <label for="name" class="field-label">What's your name?</label>
+                <input type="text" id="name" name="name" class="field-input" [(ngModel)]="name" (input)="onNameInput()"
+                    (focus)="onNameInput()" [placeholder]="nameError ? nameErrorMessage : 'Your name goes here'" />
+            </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-field" [class.error]="emailError">
+            <div class="field-content">
+                <label for="email" class="field-label">What's your email?</label>
+                <input type="email" id="email" name="email" class="field-input" [(ngModel)]="email"
+                    (input)="onEmailInput()" (focus)="onEmailInput()"
+                    [placeholder]="emailError ? emailErrorMessage : 'youremail@email.com'" />
+            </div>
+        </div>
+
+        <!-- Message Field -->
+        <div class="form-field" [class.error]="messageError">
+            <div class="field-content">
+                <label for="message" class="field-label">How can I help you?</label>
+                <input type="text" id="message" name="message" class="field-input" [(ngModel)]="message"
+                    (input)="onMessageInput()" (focus)="onMessageInput()"
+                    [placeholder]="messageError ? messageErrorMessage : 'Hello Daniel, I am interested in...'" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy & Submit Section -->
+    <div class="form-footer" [class.error]="privacyError">
+        <!-- Privacy Policy Checkbox -->
+        <div class="privacy-section">
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="privacy" name="privacy" class="checkbox-input" [(ngModel)]="privacyAccepted"
+                    (change)="onPrivacyChange()" />
+                <label for="privacy" class="checkbox-label">
+                    <span class="checkbox-text">I've read the </span><a href="#" class="privacy-link"
+                        (click)="$event.preventDefault()">privacy policy</a><span class="checkbox-text"> and agree to
+                        the processing of my data as outlined.</span>
+                </label>
+            </div>
+            <p class="error-message" [class.show]="privacyError">Please accept the privacy policy.</p>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="button-wrapper">
+            <button type="button" class="submit-button" [class.active]="privacyAccepted" (click)="onSubmit()">Let's
+                talk!</button>
+        </div>
+    </div>
+</form>
