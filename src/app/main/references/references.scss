@@ -30,7 +30,6 @@
     margin: 0 auto;
     overflow: hidden;
 
-    // Fade shadow gradient on sides
     &::before {
       content: '';
       position: absolute;
@@ -92,12 +91,10 @@
       outline-offset: 2px;
     }
 
-    // Left arrow hover effect
     &.scroll-button-left:hover img {
       content: url('/assets/icon/references-icon/arrow_left_hover.png');
     }
 
-    // Right arrow hover effect
     &.scroll-button-right:hover img {
       content: url('/assets/icon/references-icon/arrow_right_hover.png');
     }
@@ -145,7 +142,6 @@
     opacity: 0.6;
     transform: scale(0.9);
 
-    // Quote icon in each card - hidden by default
     .quote-icon {
       position: absolute;
       left: -18px;
@@ -165,13 +161,11 @@
       }
     }
 
-    // Center/active item styling
     &.active {
       opacity: 1;
       background: rgba(61, 207, 182, 0.3);
       transform: scale(1.05);
 
-      // Show quote icon only on active card
       .quote-icon {
         opacity: 1;
       }
@@ -197,7 +191,6 @@
         align-items: center;
         gap: 16px;
 
-        // Line before name
         &::before {
           content: '';
           flex: 1;
@@ -217,12 +210,11 @@
         }
 
         .reference-role {
-          display: none; // Role is combined with name in Figma
+          display: none;
         }
       }
     }
 
-    // Active/center card has different colors and scale
     &.active {
       background: rgba(61, 207, 182, 0.3);
       transform: scale(1.05);
