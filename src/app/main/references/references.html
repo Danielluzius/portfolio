@@ -1,53 +1,37 @@
-<section class="references" id="references">
-    <div class="references__container">
-        <header class="references__header">
-            <h3 class="references__eyebrow">What my colleagues say about me</h3>
-        </header>
+<section class="references-section">
+    <div class="container">
+        <h2 class="section-title">What colleagues say about me</h2>
 
-        <div class="references__carousel" role="region" aria-label="Testimonials carousel" tabindex="0"
-            (keydown)="handleKeydown($event)">
-            <div class="references__fade references__fade--left" aria-hidden="true"></div>
-            <div class="references__fade references__fade--right" aria-hidden="true"></div>
-
-            <div class="references__track" aria-live="polite">
-                <article class="references__card" *ngFor="let slide of slides; trackBy: trackBySlide"
-                    [class.is-active]="slide.isActive">
-                    <p class="references__quote">{{ slide.quote }}</p>
-
-                    <div class="references__meta">
-                        <span class="references__divider" aria-hidden="true"></span>
-                        <p class="references__attribution">
-                            <span class="references__name">{{ slide.author }}</span>
-                            <span class="references__role">– {{ slide.role }}</span>
-                        </p>
-                    </div>
-                </article>
-            </div>
+        <div class="carousel-wrapper">
+            <ul class="carousel" #carouselContainer>
+                @for (reference of carouselItems; track $index; let i = $index) {
+                <li class="carousel-item">
+                    <blockquote>
+                        <p class="reference-text">{{ reference.text }}</p>
+                        <footer>
+                            <cite class="reference-name">{{ reference.name }} - {{ reference.role }}</cite>
+                        </footer>
+                    </blockquote>
+                </li>
+                }
+            </ul>
         </div>
 
-        <div class="references__controls">
-            <button class="references__arrow references__arrow--previous" type="button"
-                aria-label="Show previous testimonial" (click)="showPrevious()">
-                <img class="references__arrow-icon references__arrow-icon--default"
-                    src="assets/icon/references-icon/arrow_left.png" alt="" aria-hidden="true" />
-                <img class="references__arrow-icon references__arrow-icon--hover"
-                    src="assets/icon/references-icon/arrow_left_hover.png" alt="" aria-hidden="true" />
+        <div class="navigation-wrapper">
+            <button class="scroll-button scroll-button-left" (click)="scrollCarousel('left')"
+                aria-label="Previous reference">
+                <img src="assets/icon/references-icon/arrow_left.png" alt="" />
             </button>
 
-            <ul class="references__dots" aria-label="Select testimonial">
-                <li *ngFor="let reference of references; let index = index">
-                    <button type="button" class="references__dot" [class.is-active]="index === currentIndex"
-                        (click)="goToSlide(index)" [attr.aria-label]="'Show testimonial ' + (index + 1)"
-                        [attr.aria-pressed]="index === currentIndex"></button>
-                </li>
-            </ul>
+            <div class="scroll-markers">
+                @for (reference of references; track $index; let i = $index) {
+                <span class="scroll-marker" [class.active]="currentIndex === i"></span>
+                }
+            </div>
 
-            <button class="references__arrow references__arrow--next" type="button" aria-label="Show next testimonial"
-                (click)="showNext()">
-                <img class="references__arrow-icon references__arrow-icon--default"
-                    src="assets/icon/references-icon/arrow_right.png" alt="" aria-hidden="true" />
-                <img class="references__arrow-icon references__arrow-icon--hover"
-                    src="assets/icon/references-icon/arrow_right_hover.png" alt="" aria-hidden="true" />
+            <button class="scroll-button scroll-button-right" (click)="scrollCarousel('right')"
+                aria-label="Next reference">
+                <img src="assets/icon/references-icon/arrow_right.png" alt="" />
             </button>
         </div>
     </div>
