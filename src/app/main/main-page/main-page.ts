@@ -5,11 +5,12 @@ import { Skills } from '../skills/skills';
 import { Projects } from '../projects/projects';
 import { References } from '../references/references';
 import { Contact } from '../contact/contact';
+import { Footer } from '../../shared/footer/footer';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [Hero, AboutMe, Skills, Projects, References, Contact],
+  imports: [Hero, AboutMe, Skills, Projects, References, Contact, Footer],
   templateUrl: './main-page.html',
   styleUrl: './main-page.scss',
 })

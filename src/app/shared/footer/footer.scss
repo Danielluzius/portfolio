@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   padding: 64px 96px;
+  background: transparent;
   isolation: isolate;
 
   &::before {
@@ -11,6 +12,7 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
     opacity: 0.95;
     z-index: -1;
+    pointer-events: none;
   }
 
   .footer-content {
