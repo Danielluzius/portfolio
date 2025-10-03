@@ -1,0 +1,135 @@
+.legal-notice {
+  position: relative;
+  min-height: calc(100vh - 98px);
+  padding: 149px 0 80px;
+
+  .content-wrapper {
+    max-width: 1248px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .title {
+    font-family: 'Fira Code', monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 120%;
+    color: #3dcfb6;
+    text-align: center;
+    margin: 0;
+  }
+
+  .text-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-left: 120px;
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      h2 {
+        font-family: 'Karla', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 120%;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      p {
+        font-family: 'Karla', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        color: #ffffff;
+        margin: 0;
+
+        &.info-text {
+          color: #3dcfb6;
+        }
+      }
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 1024px) {
+    padding: 120px 0 60px;
+
+    .content-wrapper {
+      gap: 48px;
+    }
+
+    .title {
+      font-size: 48px;
+    }
+
+    .text-content {
+      padding-left: 60px;
+
+      .section {
+        h2 {
+          font-size: 18px;
+        }
+
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 100px 0 40px;
+
+    .content-wrapper {
+      gap: 32px;
+    }
+
+    .title {
+      font-size: 36px;
+    }
+
+    .text-content {
+      padding-left: 0;
+
+      .section {
+        h2 {
+          font-size: 17px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title {
+      font-size: 28px;
+    }
+
+    .text-content {
+      .section {
+        h2 {
+          font-size: 16px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

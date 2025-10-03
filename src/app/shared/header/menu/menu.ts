@@ -23,7 +23,7 @@ export class Menu {
     { id: 'projects', label: 'Projects', href: '#projects' },
   ];
 
-  activeItem: MenuItemId = this.menuItems[0].id;
+  activeItem: MenuItemId | null = null;
 
   setActive(id: MenuItemId): void {
     if (this.activeItem === id) {
