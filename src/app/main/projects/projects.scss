@@ -224,13 +224,13 @@ $accent: #3dcfb6;
 
 .projects__dialog {
   position: relative;
-  width: min(78.5rem, 100%);
+  width: min(78rem, 100%);
   height: clamp(30rem, calc(100vh - 6rem), 41rem);
   max-height: calc(100vh - 6rem);
   display: grid;
-  grid-template-columns: minmax(20rem, 30rem) minmax(20rem, 1fr);
-  gap: clamp(2rem, 5vw, 3.5rem);
-  padding: clamp(2rem, 5vw, 3rem);
+  grid-template-columns: 30rem 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: 5rem;
   background: linear-gradient(55.22deg, #1c1c1c 36.26%, #08463b 93.28%);
   border: 1px solid $accent;
   border-radius: 30px;
@@ -241,8 +241,8 @@ $accent: #3dcfb6;
 
 .projects__dialog-close {
   position: absolute;
-  top: clamp(1rem, 3vw, 2.5rem);
-  right: clamp(1rem, 3vw, 2.5rem);
+  top: 3.5rem;
+  right: 5rem;
   width: 3rem;
   height: 3rem;
   border: none;
@@ -290,21 +290,23 @@ $accent: #3dcfb6;
 .projects__dialog-info {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  gap: 2.5rem;
   height: 100%;
+  width: 30rem;
 }
 
 .projects__dialog-header {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1.5rem;
 }
 
 .projects__dialog-counter {
-  font-family: var(--font-display);
+  font-family: 'Karla', var(--font-display);
   font-weight: 700;
-  font-size: clamp(3.5rem, 8vw, 8rem);
-  line-height: 0.8;
+  font-size: 8rem;
+  line-height: 6.25rem;
+  letter-spacing: -0.02em;
   color: $accent;
 }
 
@@ -315,17 +317,10 @@ $accent: #3dcfb6;
 }
 
 .projects__dialog-name {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: 'Fira Code', var(--font-display);
+  font-size: 4rem;
   font-weight: 700;
-  line-height: 1;
-  color: #fff;
-}
-
-.projects__dialog-subtitle {
-  font-family: var(--font-code, var(--font-body));
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: 600;
+  line-height: 0.8;
   letter-spacing: -0.03em;
   color: #fff;
 }
@@ -333,22 +328,23 @@ $accent: #3dcfb6;
 .projects__dialog-summary {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1.25rem;
   flex: 1 1 auto;
 }
 
 .projects__dialog-question {
-  font-family: var(--font-code, var(--font-body));
-  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-family: 'Fira Code', var(--font-code, var(--font-body));
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
   color: $accent;
 }
 
 .projects__dialog-description {
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 2.3vw, 1.125rem);
-  line-height: 1.4;
+  font-family: 'Karla', var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.2;
   color: #fff;
   max-width: 30rem;
 }
@@ -356,7 +352,7 @@ $accent: #3dcfb6;
 .projects__dialog-stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
+  gap: 1rem;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -365,9 +361,11 @@ $accent: #3dcfb6;
 .projects__dialog-stack-item {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-body);
+  gap: 0.25rem;
+  font-family: 'Karla', var(--font-body);
   font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
   color: #fff;
 }
 
@@ -381,34 +379,52 @@ $accent: #3dcfb6;
 .projects__dialog-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   margin-top: auto;
 }
 
 .projects__dialog-button {
+  position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  min-width: 136px;
+  height: 3rem;
+  padding: 0 1.5rem;
   border: 1px solid #fff;
   border-radius: 999px;
+  background: transparent;
   color: #fff;
-  font-family: var(--font-body);
-  font-size: 1rem;
+  font-family: 'Karla', var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.2;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  overflow: hidden;
 
   img {
     width: 1.25rem;
     height: 1.25rem;
+    transition: transform 0.3s ease;
   }
 
   &:hover,
   &:focus-visible {
-    background: #fff;
-    color: #0a1f1b;
-    transform: translateY(-2px);
+    background: transparent;
+    border-color: $accent;
+    color: $accent;
     outline: none;
+
+    img {
+      transform: translate(3px, -3px);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(61, 207, 182, 0.6);
+    outline-offset: 3px;
   }
 }
 
@@ -416,8 +432,9 @@ $accent: #3dcfb6;
   position: relative;
   align-self: center;
   width: 100%;
-  max-width: 32rem;
-  aspect-ratio: 16 / 11;
+  max-width: 32.5rem;
+  height: auto;
+  aspect-ratio: 520 / 370;
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
@@ -431,16 +448,18 @@ $accent: #3dcfb6;
 
 .projects__dialog-next {
   position: absolute;
-  right: clamp(1.5rem, 4vw, 3rem);
-  bottom: clamp(1.5rem, 4vw, 3rem);
+  right: 5rem;
+  bottom: 3.4375rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   background: transparent;
   border: none;
   color: $accent;
-  font-family: var(--font-body);
-  font-size: 1rem;
+  font-family: 'Karla', var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.2;
   cursor: pointer;
   transition: transform 0.3s ease;
 
@@ -451,9 +470,40 @@ $accent: #3dcfb6;
   }
 
   img {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     filter: brightness(1.1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .projects__dialog {
+    grid-template-columns: 1fr;
+    padding: 3rem;
+    gap: 2rem;
+  }
+
+  .projects__dialog-info {
+    width: 100%;
+  }
+
+  .projects__dialog-counter {
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: clamp(3.125rem, 7.8vw, 6.25rem);
+  }
+
+  .projects__dialog-name {
+    font-size: clamp(2rem, 6vw, 4rem);
+  }
+
+  .projects__dialog-close {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .projects__dialog-next {
+    right: 3rem;
+    bottom: 2rem;
   }
 }
 
@@ -484,10 +534,18 @@ $accent: #3dcfb6;
   .projects__dialog {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding: clamp(1.5rem, 5vw, 2rem);
+    gap: 2rem;
+    padding: 2rem;
     height: auto;
     max-height: none;
+  }
+
+  .projects__dialog-info {
+    gap: 2rem;
+  }
+
+  .projects__dialog-header {
+    gap: 1rem;
   }
 
   .projects__dialog-info,
