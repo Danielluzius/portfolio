@@ -2,6 +2,7 @@
   max-width: 1920px;
   margin: 0 auto;
   box-sizing: border-box;
+  scroll-margin-top: clamp(5rem, 8vw, 8rem);
 
   &__inner {
     position: relative;

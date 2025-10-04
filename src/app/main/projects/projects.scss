@@ -8,6 +8,7 @@ $accent: #3dcfb6;
   position: relative;
   padding: clamp(4rem, 6vw, 6rem) clamp(1.5rem, 6vw, 6rem);
   color: var(--color-text);
+  scroll-margin-top: 2rem;
 }
 
 .projects__container {
