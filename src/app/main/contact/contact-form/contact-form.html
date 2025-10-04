@@ -1,7 +1,5 @@
 <form class="contact-form">
-    <!-- Form Fields Container -->
     <div class="form-fields">
-        <!-- Name Field -->
         <div class="form-field" [class.error]="nameError">
             <div class="field-content">
                 <label for="name" class="field-label">What's your name?</label>
@@ -10,7 +8,6 @@
             </div>
         </div>
 
-        <!-- Email Field -->
         <div class="form-field" [class.error]="emailError">
             <div class="field-content">
                 <label for="email" class="field-label">What's your email?</label>
@@ -20,7 +17,6 @@
             </div>
         </div>
 
-        <!-- Message Field -->
         <div class="form-field" [class.error]="messageError">
             <div class="field-content">
                 <label for="message" class="field-label">How can I help you?</label>
@@ -31,9 +27,7 @@
         </div>
     </div>
 
-    <!-- Privacy Policy & Submit Section -->
     <div class="form-footer" [class.error]="privacyError">
-        <!-- Privacy Policy Checkbox -->
         <div class="privacy-section">
             <div class="checkbox-wrapper">
                 <input type="checkbox" id="privacy" name="privacy" class="checkbox-input" [(ngModel)]="privacyAccepted"
@@ -47,10 +41,10 @@
             <p class="error-message" [class.show]="privacyError">Please accept the privacy policy.</p>
         </div>
 
-        <!-- Submit Button -->
         <div class="button-wrapper">
-            <button type="button" class="submit-button" [class.active]="privacyAccepted" (click)="onSubmit()">Let's
-                talk!</button>
+            <button type="button" class="submit-button" [class.active]="privacyAccepted" (click)="onSubmit()">
+                <span class="button-text">Let's talk!</span>
+            </button>
         </div>
     </div>
 </form>
