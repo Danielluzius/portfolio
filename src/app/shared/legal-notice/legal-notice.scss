@@ -105,7 +105,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    color: #ffffff;
+    color: #3dcfb6;
     margin: 0;
 
     flex: none;
@@ -115,6 +115,11 @@
 
   .imprint-info {
     color: #3dcfb6;
+  }
+
+  .highlight {
+    color: #ffffff;
+    font-weight: 500;
   }
 
   .date-info {
