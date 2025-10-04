@@ -14,6 +14,34 @@
   scroll-behavior: smooth;
 }
 
+body,
+p,
+span,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  cursor: default;
+}
+
+a,
+button,
+[role='button'],
+.clickable,
+a img,
+a *,
+button * {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -23,4 +51,31 @@ body {
 
 body.body--no-scroll {
   overflow: hidden;
+}
+
+.cursor-shadow {
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(61, 207, 182, 0.05);
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease, background 0.5s ease, opacity 0.3s ease,
+    filter 0.5s ease;
+
+  &.cursor-hover {
+    width: 40px;
+    height: 40px;
+    background: rgba(61, 207, 182, 0.35);
+    filter: blur(20px);
+  }
+}
+
+body.cursor-hidden {
+  .cursor-shadow {
+    opacity: 0;
+  }
 }
