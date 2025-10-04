@@ -4,7 +4,7 @@
     <nav class="hero-title__actions" aria-label="Primary actions">
         <a *ngFor="let action of callToActions; let i = index" class="hero-title__button"
             [class.hero-title__button--primary]="i === 0" [href]="action.href">
-            {{ action.label }}
+            <span class="hero-title__button-text">{{ action.label }}</span>
         </a>
     </nav>
 </section>

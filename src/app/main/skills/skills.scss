@@ -121,11 +121,13 @@
   }
 
   &__cta-button {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0 24px;
     height: 48px;
+    margin-top: 32px;
     border-radius: 100px;
     border: 1px solid #ffffff;
     font-family: 'Karla', sans-serif;
@@ -135,13 +137,31 @@
     color: #ffffff;
     text-decoration: none;
     transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    overflow: hidden;
 
     &:hover,
     &:focus-visible {
       border-color: #3dcfb6;
-      background-color: rgba(61, 207, 182, 0.15);
       color: #3dcfb6;
       outline: none;
+    }
+
+    &:hover .skills__cta-button-text {
+      animation: slideTextLoop 2s linear infinite;
+    }
+  }
+
+  &__cta-button-text {
+    position: relative;
+    display: block;
+  }
+
+  @keyframes slideTextLoop {
+    0% {
+      transform: translateX(150%);
+    }
+    100% {
+      transform: translateX(-150%);
     }
   }
 
