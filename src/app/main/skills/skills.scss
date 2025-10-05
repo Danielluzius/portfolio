@@ -168,11 +168,23 @@
   &__icons-grid {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: clamp(24px, 4vw, 40px) clamp(24px, 5vw, 72px);
     width: 100%;
     margin: 0;
     padding: 0;
+
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 420px) {
+      gap: 0;
+    }
+
+    @media (max-width: 360px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__icon {
@@ -189,8 +201,8 @@
   &__icon-image {
     display: grid;
     place-items: center;
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     box-sizing: border-box;
     border-radius: 20px;
     transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
