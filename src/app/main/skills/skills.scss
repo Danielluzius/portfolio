@@ -76,7 +76,6 @@
   }
 
   &__copy {
-    max-width: 456px;
     font-family: 'Karla', sans-serif;
     font-weight: 400;
     font-size: clamp(16px, 2.2vw, 18px);
@@ -215,37 +214,5 @@
   &__icon:hover &__icon-image,
   &__icon:focus-visible &__icon-image {
     transform: translateY(-4px);
-  }
-
-  @media (max-width: 960px) {
-    &__inner {
-      border-radius: 28px;
-    }
-
-    &__panel--info,
-    &__panel--icons {
-      max-width: none;
-    }
-
-    &__info-card {
-      min-height: 320px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    padding: clamp(48px, 10vw, 64px) clamp(16px, 6vw, 32px);
-
-    &__inner {
-      padding: clamp(24px, 8vw, 48px);
-      gap: 32px;
-    }
-
-    &__icons-grid {
-      gap: 24px;
-    }
-
-    &__icon {
-      width: 96px;
-    }
   }
 }

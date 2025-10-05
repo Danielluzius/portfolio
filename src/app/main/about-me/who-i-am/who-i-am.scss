@@ -110,19 +110,8 @@
   color: rgba(255, 255, 255, 1);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1060px) {
   .about-me__panel {
-    max-width: 640px;
     margin-top: 0;
-  }
-}
-
-@media (max-width: 640px) {
-  .about-me__panel {
-    gap: 1.5rem;
-  }
-
-  .about-me__item {
-    gap: 1rem;
   }
 }
