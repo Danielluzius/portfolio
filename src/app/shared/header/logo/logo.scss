@@ -62,3 +62,13 @@
 .logo:hover .logo__wordmark-last {
   color: #3dcfb6;
 }
+
+@media (max-width: 390px) {
+  .logo__mark {
+    display: none;
+  }
+
+  .logo__wordmark {
+    margin-top: 0;
+  }
+}

@@ -1,1 +1,36 @@
-<p>burger-menu works!</p>
+@if (isOpen) {
+<div class="burger-menu__backdrop" (click)="onBackdropClick()"></div>
+}
+
+<div class="burger-menu" [class.burger-menu--open]="isOpen">
+    <nav class="burger-menu__content">
+        <ul class="burger-menu__nav-list">
+            <li class="burger-menu__nav-item">
+                <a href="#about" class="burger-menu__nav-link" (click)="onLinkClick($event)">
+                    About me
+                </a>
+            </li>
+            <li class="burger-menu__nav-item">
+                <a href="#skills" class="burger-menu__nav-link" (click)="onLinkClick($event)">
+                    Skills
+                </a>
+            </li>
+            <li class="burger-menu__nav-item">
+                <a href="#projects" class="burger-menu__nav-link" (click)="onLinkClick($event)">
+                    Projects
+                </a>
+            </li>
+        </ul>
+
+        <div class="burger-menu__language-switch">
+            <button class="burger-menu__language-btn"
+                [class.burger-menu__language-btn--active]="currentLanguage === 'en'" (click)="switchLanguage('en')">
+                EN
+            </button>
+            <button class="burger-menu__language-btn"
+                [class.burger-menu__language-btn--active]="currentLanguage === 'de'" (click)="switchLanguage('de')">
+                DE
+            </button>
+        </div>
+    </nav>
+</div>

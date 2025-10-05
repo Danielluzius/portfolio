@@ -49,8 +49,33 @@
   flex: 1 1 auto;
 }
 
-app-logo {
+.header__logo {
   flex: 0 0 auto;
+}
+
+.header__burger-menu {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition: transform 0.2s ease;
+
+  img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 @media (max-width: 900px) {
@@ -59,20 +84,21 @@ app-logo {
   }
 
   .header__menu-group {
-    gap: 16px;
+    display: none;
   }
 
-  .header__menu-group app-menu {
-    display: none;
+  .header__logo {
+    margin-right: auto;
+  }
+
+  .header__burger-menu {
+    display: block;
+    margin-left: auto;
   }
 }
 
 @media (max-width: 600px) {
   .header__inner {
     padding: 16px 20px;
-  }
-
-  app-logo {
-    margin-left: auto;
   }
 }
