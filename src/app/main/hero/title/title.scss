@@ -31,6 +31,7 @@
   letter-spacing: -0.018em;
   color: #d9d9d9;
   margin: 0 0 clamp(24px, 6vh, 40px);
+  white-space: nowrap;
 }
 
 .hero-title__actions {
@@ -115,8 +116,35 @@
     font-size: clamp(2.5rem, 13vw, 4rem);
   }
 
+  .hero-title__actions {
+    flex-wrap: nowrap;
+    gap: clamp(8px, 3vw, 16px);
+  }
+
   .hero-title__button {
-    width: 100%;
+    border-color: #3dcfb6;
+    color: #3dcfb6;
+    width: 50%;
     min-width: 0;
+    padding: 0 clamp(12px, 4vw, 24px);
+    font-size: clamp(0.875rem, 3.5vw, 1.125rem);
+    height: clamp(40px, 12vw, 48px);
+  }
+
+  .hero-title__button-text {
+    animation: slideTextLoop 5s linear infinite;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 350px) {
+  .hero-title__actions {
+    gap: 8px;
+  }
+
+  .hero-title__button {
+    padding: 0 12px;
+    font-size: 0.875rem;
+    height: 40px;
   }
 }
