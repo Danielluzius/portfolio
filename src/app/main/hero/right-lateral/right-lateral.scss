@@ -101,3 +101,17 @@
   height: 186px;
   border-left: 1px solid #fff;
 }
+
+.icon--email {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .email {
+    display: none;
+  }
+
+  .icon--email {
+    display: flex;
+  }
+}
