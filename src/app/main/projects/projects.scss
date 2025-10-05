@@ -476,6 +476,16 @@ $accent: #3dcfb6;
   }
 }
 
+@media (max-width: 1200px) {
+  .projects__layout {
+    padding-inline-end: 0;
+  }
+
+  .projects__preview {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .projects__dialog {
     grid-template-columns: 1fr;
@@ -504,6 +514,17 @@ $accent: #3dcfb6;
   .projects__dialog-next {
     right: 3rem;
     bottom: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects__item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projects__tech {
+    width: 100%;
   }
 }
 
