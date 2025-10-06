@@ -1,0 +1,61 @@
+<ng-container *ngIf="isOpen && project">
+    <div class="dialog-backdrop" (click)="onBackdropClick()" aria-hidden="true"></div>
+
+    <div class="dialog-wrapper" (click)="onBackdropClick()">
+        <article class="dialog" role="dialog" aria-modal="true" [attr.aria-label]="project.title"
+            (click)="onDialogClick($event)">
+            <button class="dialog__close" type="button" (click)="onClose()" aria-label="Close project dialog">
+                <img class="dialog__close-icon dialog__close-icon--default"
+                    src="assets/icon/project-icon/close_button.png" alt="" aria-hidden="true" />
+                <img class="dialog__close-icon dialog__close-icon--hover"
+                    src="assets/icon/project-icon/close_button_hover.png" alt="" aria-hidden="true" />
+            </button>
+
+            <div class="dialog__info">
+                <div class="dialog__header">
+                    <span class="dialog__counter" aria-hidden="true">{{ projectIndex !== null ?
+                        formatProjectNumber(projectIndex) : '' }}</span>
+                    <div class="dialog__title">
+                        <h3 class="dialog__name">{{ project.title }}</h3>
+                    </div>
+                </div>
+
+                <div class="dialog__summary">
+                    <h4 class="dialog__question">What is this project about?</h4>
+                    <p class="dialog__description">{{ project.description }}</p>
+                </div>
+
+                <ul class="dialog__stack" aria-label="Technologies used">
+                    <li class="dialog__stack-item" *ngFor="let tech of project.stack">
+                        <img class="dialog__stack-icon" [src]="tech.icon" [alt]="tech.alt" />
+                        <span>{{ tech.label }}</span>
+                    </li>
+                </ul>
+
+                <div class="dialog__actions">
+                    <a *ngIf="project.githubUrl" class="dialog__button" [href]="project.githubUrl" target="_blank"
+                        rel="noopener noreferrer">
+                        <span>GitHub</span>
+                        <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+                    </a>
+                    <a *ngIf="project.liveUrl" class="dialog__button" [href]="project.liveUrl" target="_blank"
+                        rel="noopener noreferrer">
+                        <span>Live Test</span>
+                        <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="dialog__visual">
+                <img class="dialog__image" [src]="project.preview" [alt]="project.previewAlt" />
+            </div>
+
+            <button class="dialog__next" type="button" (click)="onNext($event)" (mouseenter)="setNextHover(true)"
+                (mouseleave)="setNextHover(false)" (focus)="setNextHover(true)" (blur)="setNextHover(false)">
+                <span>Next project</span>
+                <img [src]="isNextHovered ? 'assets/icon/project-icon/arrow_right_hover.png' : 'assets/icon/project-icon/arrow_right.png'"
+                    alt="" aria-hidden="true" />
+            </button>
+        </article>
+    </div>
+</ng-container>

@@ -8,11 +8,12 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
+import { Project, ProjectDialog } from './project-dialog/project-dialog';
 
 @Component({
   standalone: true,
   selector: 'app-projects',
-  imports: [CommonModule],
+  imports: [CommonModule, ProjectDialog],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
@@ -25,7 +26,7 @@ export class Projects implements OnDestroy {
 
   private readonly bodyScrollClass = 'body--no-scroll';
 
-  protected readonly projects = [
+  protected readonly projects: Project[] = [
     {
       title: 'Pokedex',
       subtitle: 'API-driven Pokédex',
@@ -123,7 +124,6 @@ export class Projects implements OnDestroy {
   protected selectedProjectIndex: number | null = null;
   protected activeDialogIndex: number | null = null;
   protected previewTop = 0;
-  protected isNextHovered = false;
 
   constructor(
     @Inject(DOCUMENT) private readonly documentRef: Document,
@@ -152,10 +152,6 @@ export class Projects implements OnDestroy {
 
   protected formatProjectNumber(index: number) {
     return (index + 1).toString().padStart(2, '0');
-  }
-
-  protected setNextHover(state: boolean) {
-    this.isNextHovered = state;
   }
 
   protected showPreview(index: number, element: HTMLElement) {
@@ -229,10 +225,7 @@ export class Projects implements OnDestroy {
     }
   }
 
-  protected openNextProject(event?: Event) {
-    event?.preventDefault();
-    event?.stopPropagation();
-
+  protected openNextProject() {
     if (this.projects.length === 0 || this.activeDialogIndex === null) {
       return;
     }
