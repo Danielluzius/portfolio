@@ -1,0 +1,33 @@
+<div class="info">
+    <div class="info__header">
+        <span class="info__counter" aria-hidden="true">{{ formatProjectNumber(projectIndex) }}</span>
+        <div class="info__title">
+            <h3 class="info__name">{{ project.title }}</h3>
+        </div>
+    </div>
+
+    <div class="info__summary">
+        <h4 class="info__question">What is this project about?</h4>
+        <p class="info__description">{{ project.description }}</p>
+    </div>
+
+    <ul class="info__stack" aria-label="Technologies used">
+        <li class="info__stack-item" *ngFor="let tech of project.stack">
+            <img class="info__stack-icon" [src]="tech.icon" [alt]="tech.alt" />
+            <span>{{ tech.label }}</span>
+        </li>
+    </ul>
+
+    <div class="info__actions">
+        <a *ngIf="project.githubUrl" class="info__button" [href]="project.githubUrl" target="_blank"
+            rel="noopener noreferrer">
+            <span>GitHub</span>
+            <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+        </a>
+        <a *ngIf="project.liveUrl" class="info__button" [href]="project.liveUrl" target="_blank"
+            rel="noopener noreferrer">
+            <span>Live Test</span>
+            <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+        </a>
+    </div>
+</div>

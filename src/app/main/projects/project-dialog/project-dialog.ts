@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ProjectInfo } from './project-info/project-info';
 
 export interface ProjectStack {
   label: string;
@@ -22,7 +23,7 @@ export interface Project {
 @Component({
   standalone: true,
   selector: 'app-project-dialog',
-  imports: [CommonModule],
+  imports: [CommonModule, ProjectInfo],
   templateUrl: './project-dialog.html',
   styleUrl: './project-dialog.scss',
 })
@@ -35,10 +36,6 @@ export class ProjectDialog {
   @Output() nextProject = new EventEmitter<void>();
 
   protected isNextHovered = false;
-
-  protected formatProjectNumber(index: number): string {
-    return (index + 1).toString().padStart(2, '0');
-  }
 
   protected setNextHover(state: boolean): void {
     this.isNextHovered = state;
