@@ -5,37 +5,14 @@
         <div class="carousel-wrapper">
             <ul class="carousel" #carouselContainer>
                 @for (reference of carouselItems; track $index; let i = $index) {
-                <li class="carousel-item">
-                    <div class="quote-icon">
-                        <img src="assets/icon/references-icon/quotes.png" alt="Quote" />
-                    </div>
-                    <blockquote>
-                        <p class="reference-text">{{ reference.text }}</p>
-                        <footer>
-                            <cite class="reference-name">{{ reference.name }} - {{ reference.role }}</cite>
-                        </footer>
-                    </blockquote>
+                <li>
+                    <app-reference-card [reference]="reference" />
                 </li>
                 }
             </ul>
         </div>
 
-        <div class="navigation-wrapper">
-            <button class="scroll-button scroll-button-left" (click)="scrollCarousel('left')"
-                aria-label="Previous reference">
-                <img src="assets/icon/references-icon/arrow_left.png" alt="" />
-            </button>
-
-            <div class="scroll-markers">
-                @for (reference of references; track $index; let i = $index) {
-                <span class="scroll-marker" [class.active]="currentIndex === i"></span>
-                }
-            </div>
-
-            <button class="scroll-button scroll-button-right" (click)="scrollCarousel('right')"
-                aria-label="Next reference">
-                <img src="assets/icon/references-icon/arrow_right.png" alt="" />
-            </button>
-        </div>
+        <app-reference-navigation [currentIndex]="currentIndex" [totalItems]="references.length"
+            (navigate)="scrollCarousel($event)" />
     </div>
 </section>

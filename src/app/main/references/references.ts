@@ -1,17 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-
-interface Reference {
-  name: string;
-  role: string;
-  text: string;
-  image?: string;
-}
+import { ReferenceCard, Reference } from './reference-card/reference-card';
+import { ReferenceNavigation } from './reference-navigation/reference-navigation';
 
 @Component({
   standalone: true,
   selector: 'app-references',
-  imports: [CommonModule],
+  imports: [CommonModule, ReferenceCard, ReferenceNavigation],
   templateUrl: './references.html',
   styleUrl: './references.scss',
 })
@@ -24,24 +19,24 @@ export class References implements AfterViewInit {
 
   references: Reference[] = [
     {
-      name: 'Michael Schmidt',
-      role: 'Product Manager at TechCorp',
-      text: 'Daniel is an exceptional developer who delivers high-quality work on time. His attention to detail and problem-solving skills are outstanding.',
+      name: 'S. Heinze',
+      role: 'Team Partner',
+      text: 'Platzhalter.',
     },
     {
-      name: 'Sarah Johnson',
-      role: 'Lead Developer at StartupXYZ',
-      text: 'Working with Daniel was a pleasure. He brought fresh ideas to our team and his code is always clean and well-documented.',
+      name: 'P. Schmidt',
+      role: 'Team Partner',
+      text: 'Platzhalter.',
     },
     {
-      name: 'Thomas Müller',
-      role: 'CEO at Digital Solutions',
-      text: 'Daniel transformed our vision into reality. His technical expertise and professional approach made our project a great success.',
+      name: 'Platzhalter',
+      role: 'Platzhalter',
+      text: 'Platzhalter.',
     },
     {
-      name: 'Emma Williams',
-      role: 'Project Manager at Innovation Labs',
-      text: "A reliable and skilled developer who goes above and beyond. Daniel's communication and dedication to quality are remarkable.",
+      name: 'Platzhalter',
+      role: 'Platzhalter',
+      text: 'Platzhalter.',
     },
   ];
 
@@ -150,7 +145,6 @@ export class References implements AfterViewInit {
       const opacity = Math.max(0.6, 1 - (distance / maxDistance) * 0.4);
       htmlItem.style.opacity = opacity.toString();
 
-      // Add active class to center item
       if (distance < itemRect.width / 4) {
         htmlItem.classList.add('active');
       } else {
