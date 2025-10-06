@@ -25,6 +25,30 @@
   padding-bottom: 80px;
 }
 
+.back-button {
+  display: none;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 0;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateX(-4px);
+
+    .arrow-icon {
+      content: url('/assets/icon/project-icon/arrow_left_hover.png');
+    }
+  }
+
+  .arrow-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+}
+
 .legal-notice-title {
   display: flex;
   flex-direction: row;
@@ -147,37 +171,15 @@
   }
 }
 
-// Responsive Design
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+  .back-button {
+    display: flex;
+    align-self: flex-start;
+    padding: 12px 0;
+  }
+
   .legal-notice-container {
     max-width: 90%;
-    margin-top: 120px;
-    gap: 48px;
-  }
-
-  .legal-notice-title {
-    font-size: 48px;
-  }
-
-  .text-content {
-    padding: 0 0 0 60px;
-  }
-
-  .text-section {
-    max-width: 100%;
-
-    h2 {
-      font-size: 18px;
-    }
-
-    p {
-      font-size: 15px;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .legal-notice-container {
     margin-top: 100px;
     gap: 32px;
     padding-bottom: 60px;
@@ -185,6 +187,11 @@
 
   .legal-notice-title {
     font-size: 36px;
+    color: #ffffff;
+    justify-content: flex-start;
+    text-align: left;
+    margin-top: 0;
+    padding: 0 16px;
   }
 
   .text-content {
@@ -192,6 +199,8 @@
   }
 
   .text-section {
+    max-width: 100%;
+
     h2 {
       font-size: 17px;
     }
@@ -206,7 +215,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 390px) {
   .legal-notice-container {
     margin-top: 80px;
     gap: 24px;

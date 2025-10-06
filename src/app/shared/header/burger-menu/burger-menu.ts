@@ -11,6 +11,7 @@ import {
   HostListener,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -28,7 +29,8 @@ export class BurgerMenu implements OnChanges, OnDestroy {
 
   constructor(
     @Inject(DOCUMENT) private readonly documentRef: Document,
-    private readonly renderer: Renderer2
+    private readonly renderer: Renderer2,
+    private readonly router: Router
   ) {}
 
   @HostListener('document:keydown', ['$event'])
@@ -60,9 +62,23 @@ export class BurgerMenu implements OnChanges, OnDestroy {
     const href = target.getAttribute('href');
 
     if (href) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Prüfe, ob wir auf einer anderen Route sind (z.B. legal-notice)
+      if (this.router.url !== '/') {
+        // Navigiere erst zur Hauptseite, dann scrolle zum Element
+        this.router.navigate(['/']).then(() => {
+          setTimeout(() => {
+            const element = document.querySelector(href);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100); // Kurze Verzögerung, damit die Hauptseite geladen ist
+        });
+      } else {
+        // Wir sind schon auf der Hauptseite, einfach scrollen
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     }
 
