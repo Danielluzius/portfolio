@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { Project } from '../project-dialog';
 
 @Component({
   selector: 'app-project-info',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoPipe],
   templateUrl: './project-info.html',
   styleUrl: './project-info.scss',
 })

@@ -2,27 +2,28 @@
     <div class="form-fields">
         <div class="form-field" [class.error]="nameError">
             <div class="field-content">
-                <label for="name" class="field-label">What's your name?</label>
+                <label for="name" class="field-label">{{ 'contact.form.nameLabel' | transloco }}</label>
                 <input type="text" id="name" name="name" class="field-input" [(ngModel)]="name" (input)="onNameInput()"
-                    (focus)="onNameInput()" [placeholder]="nameError ? nameErrorMessage : 'Your name goes here'" />
+                    (focus)="onNameInput()"
+                    [placeholder]="nameError ? nameErrorMessage : ('contact.form.namePlaceholder' | transloco)" />
             </div>
         </div>
 
         <div class="form-field" [class.error]="emailError">
             <div class="field-content">
-                <label for="email" class="field-label">What's your email?</label>
+                <label for="email" class="field-label">{{ 'contact.form.emailLabel' | transloco }}</label>
                 <input type="email" id="email" name="email" class="field-input" [(ngModel)]="email"
                     (input)="onEmailInput()" (focus)="onEmailInput()"
-                    [placeholder]="emailError ? emailErrorMessage : 'youremail@email.com'" />
+                    [placeholder]="emailError ? emailErrorMessage : ('contact.form.emailPlaceholder' | transloco)" />
             </div>
         </div>
 
         <div class="form-field" [class.error]="messageError">
             <div class="field-content">
-                <label for="message" class="field-label">How can I help you?</label>
+                <label for="message" class="field-label">{{ 'contact.form.messageLabel' | transloco }}</label>
                 <input type="text" id="message" name="message" class="field-input" [(ngModel)]="message"
                     (input)="onMessageInput()" (focus)="onMessageInput()"
-                    [placeholder]="messageError ? messageErrorMessage : 'Hello Daniel, I am interested in...'" />
+                    [placeholder]="messageError ? messageErrorMessage : ('contact.form.messagePlaceholder' | transloco)" />
             </div>
         </div>
     </div>
@@ -33,17 +34,17 @@
                 <input type="checkbox" id="privacy" name="privacy" class="checkbox-input" [(ngModel)]="privacyAccepted"
                     (change)="onPrivacyChange()" />
                 <label for="privacy" class="checkbox-label">
-                    <span class="checkbox-text">I've read the </span><a routerLink="/privacy-policy"
-                        class="privacy-link">privacy policy</a><span class="checkbox-text"> and agree to
-                        the processing of my data as outlined.</span>
+                    <span class="checkbox-text">{{ 'contact.form.privacyText1' | transloco }}</span><a
+                        routerLink="/privacy-policy" class="privacy-link">{{ 'contact.form.privacyLink' | transloco
+                        }}</a><span class="checkbox-text">{{ 'contact.form.privacyText2' | transloco }}</span>
                 </label>
             </div>
-            <p class="error-message" [class.show]="privacyError">Please accept the privacy policy.</p>
+            <p class="error-message" [class.show]="privacyError">{{ 'contact.form.privacyError' | transloco }}</p>
         </div>
 
         <div class="button-wrapper">
             <button type="button" class="submit-button" [class.active]="privacyAccepted" (click)="onSubmit()">
-                <span class="button-text">Let's talk!</span>
+                <span class="button-text">{{ 'contact.form.submit' | transloco }}</span>
             </button>
         </div>
     </div>

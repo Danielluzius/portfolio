@@ -3,9 +3,9 @@
         <img src="assets/icon/references-icon/quotes.png" alt="Quote" />
     </div>
     <blockquote>
-        <p class="reference-text">{{ reference.text }}</p>
+        <p class="reference-text">{{ reference.text | transloco }}</p>
         <footer>
-            <cite class="reference-name">{{ reference.name }} - {{ reference.role }}</cite>
+            <cite class="reference-name">{{ reference.name | transloco }} - {{ reference.role | transloco }}</cite>
         </footer>
     </blockquote>
 </div>

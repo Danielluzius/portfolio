@@ -1,25 +1,24 @@
 <section class="skills" id="skills" aria-labelledby="skills-section-heading">
     <div class="skills__inner">
         <div class="skills__panel skills__panel--info">
-            <div class="skills__section-heading" id="skills-section-heading">Technologies</div>
+            <div class="skills__section-heading" id="skills-section-heading">{{ 'skills.sectionHeading' | transloco }}
+            </div>
             <article class="skills__info-card">
-                <h2 class="skills__headline">Skill Set</h2>
+                <h2 class="skills__headline">{{ 'skills.title' | transloco }}</h2>
                 <div class="skills__copy">
                     <p>
-                        A short introduction of your skills. Highlight your experience of using different
-                        front-end technologies and emphasise your openness to learning and adapting to new
-                        technologies. Show how important it is for you to keep up with the rapid changes in web
-                        development.
+                        {{ 'skills.description' | transloco }}
                     </p>
                 </div>
                 <div class="skills__cta-block">
-                    <h3 class="skills__cta-title">You need <span class="skills__cta-highlight">another skill?</span>
+                    <h3 class="skills__cta-title">{{ 'skills.cta.title' | transloco }} <span
+                            class="skills__cta-highlight">{{ 'skills.cta.highlight' | transloco }}</span>
                     </h3>
                     <p class="skills__cta-text">
-                        Feel free to contact me. I look forward to expanding on my previous knowledge.
+                        {{ 'skills.cta.text' | transloco }}
                     </p>
                     <a class="skills__cta-button" href="#contact" aria-label="Contact me to talk about skills">
-                        <span class="skills__cta-button-text">Let's Talk</span>
+                        <span class="skills__cta-button-text">{{ 'skills.cta.button' | transloco }}</span>
                     </a>
                 </div>
             </article>

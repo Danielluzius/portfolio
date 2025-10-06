@@ -1,13 +1,9 @@
-:host {
+.legal-notice-section {
   position: relative;
   display: block;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(55.22deg, #1c1c1c 36.26%, #08463b 93.28%);
-}
-
-.legal-notice-section {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -54,14 +50,15 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  padding: 0;
+  padding: 0 20px;
   width: 100%;
   text-align: center;
+  white-space: nowrap;
 
   font-family: 'Fira Code', monospace;
   font-style: normal;
   font-weight: 700;
-  font-size: 64px;
+  font-size: clamp(20px, 5.5vw, 64px);
   line-height: 120%;
   color: #3dcfb6;
   margin: 0;
@@ -186,7 +183,7 @@
   }
 
   .legal-notice-title {
-    font-size: 36px;
+    font-size: clamp(18px, 6vw, 36px);
     color: #ffffff;
     justify-content: flex-start;
     text-align: left;
@@ -223,7 +220,7 @@
   }
 
   .legal-notice-title {
-    font-size: 28px;
+    font-size: clamp(16px, 7vw, 28px);
   }
 
   .text-content {

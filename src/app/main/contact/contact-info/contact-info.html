@@ -1,18 +1,15 @@
 <div class="contact-info-container">
     <!-- Header Section -->
     <div class="header-section">
-        <h3 class="contact-label">Contact me</h3>
-        <h1 class="contact-title">Let's work together</h1>
+        <h3 class="contact-label">{{ 'contact.label' | transloco }}</h3>
+        <h1 class="contact-title">{{ 'contact.title' | transloco }}</h1>
     </div>
 
     <!-- About Section -->
     <div class="about-section">
         <div class="about-content">
-            <h2 class="about-title">Got a problem to solve?</h2>
-            <p class="about-description">
-                Encourage people to contact you and describe what role you are interested in.
-                Show that you will add value to their projects through your work.
-                Need a Fullstack developer? <strong>Let's talk!</strong>
+            <h2 class="about-title">{{ 'contact.problem.title' | transloco }}</h2>
+            <p class="about-description" [innerHTML]="'contact.problem.description' | transloco">
             </p>
         </div>
     </div>

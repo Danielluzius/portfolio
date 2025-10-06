@@ -2,7 +2,7 @@
     <div class="marquee__mask">
         <div class="marquee__track" role="presentation">
             <ng-container *ngFor="let item of repeatedItems">
-                <span class="marquee__item">{{ item }}</span>
+                <span class="marquee__item">{{ item | transloco }}</span>
                 <span class="marquee__bullet" aria-hidden="true"></span>
             </ng-container>
         </div>

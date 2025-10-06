@@ -1,12 +1,10 @@
 <article class="about-me__panel" aria-labelledby="about-me-heading">
-    <span class="about-me__tag">Who I Am</span>
+    <span class="about-me__tag">{{ 'aboutMe.tag' | transloco }}</span>
     <div class="about-me__card">
         <header class="about-me__header">
-            <h2 class="about-me__title" id="about-me-heading">About me</h2>
+            <h2 class="about-me__title" id="about-me-heading">{{ 'aboutMe.title' | transloco }}</h2>
             <p class="about-me__intro">
-                Hi, I'm Daniel — a fullstack developer who loves translating ideas into fast, accessible interfaces. I
-                get the
-                biggest thrill when a tricky UI interaction finally clicks and users feel right at home.
+                {{ 'aboutMe.intro' | transloco }}
             </p>
         </header>
 
@@ -16,8 +14,7 @@
                     <img src="assets/icon/hightlight-icon/location_icon.png" alt="" loading="lazy" />
                 </span>
                 <p>
-                    Based in Seligenstadt, Germany — I collaborate happily across time zones and I'm open to
-                    remote-first teams.
+                    {{ 'aboutMe.highlights.location' | transloco }}
                 </p>
             </li>
             <li class="about-me__item">
@@ -25,7 +22,7 @@
                     <img src="assets/icon/hightlight-icon/cognition_icon.png" alt="" loading="lazy" />
                 </span>
                 <p>
-                    Curious and open-minded — I explore new web tech every sprint and share findings with the crew.
+                    {{ 'aboutMe.highlights.mindset' | transloco }}
                 </p>
             </li>
             <li class="about-me__item">
@@ -33,8 +30,7 @@
                     <img src="assets/icon/hightlight-icon/quality_icon.png" alt="" loading="lazy" />
                 </span>
                 <p>
-                    Problem solver at heart — I break challenges into experiments, measure impact, and iterate toward
-                    polish.
+                    {{ 'aboutMe.highlights.problem' | transloco }}
                 </p>
             </li>
         </ul>

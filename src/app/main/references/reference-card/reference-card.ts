@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 export interface Reference {
   name: string;
@@ -9,7 +10,7 @@ export interface Reference {
 
 @Component({
   selector: 'app-reference-card',
-  imports: [],
+  imports: [TranslocoPipe],
   templateUrl: './reference-card.html',
   styleUrl: './reference-card.scss',
 })

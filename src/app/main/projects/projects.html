@@ -1,10 +1,10 @@
 <section class="projects" id="projects">
     <div class="projects__container">
         <header class="projects__header">
-            <span class="projects__eyebrow">Portfolio</span>
-            <h2 class="projects__title">Featured Projects</h2>
+            <span class="projects__eyebrow">{{ 'projects.eyebrow' | transloco }}</span>
+            <h2 class="projects__title">{{ 'projects.title' | transloco }}</h2>
             <p class="projects__lead">
-                Explore a selection of my work here – interact with projects to see my skills in action.
+                {{ 'projects.lead' | transloco }}
             </p>
         </header>
 
@@ -16,7 +16,7 @@
                     (keydown)="activateProject($event, i)" tabindex="0" role="button" aria-haspopup="dialog"
                     [attr.aria-expanded]="activeDialogIndex === i" [class.is-active]="selectedProjectIndex === i">
                     <h3 class="projects__item-title">
-                        <span class="projects__item-label">{{ project.title }}</span>
+                        <span class="projects__item-label">{{ project.title | transloco }}</span>
                         <img class="projects__item-icon" src="assets/icon/project-icon/arrow_outward.png" alt=""
                             aria-hidden="true" />
                     </h3>

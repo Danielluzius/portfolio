@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { ReferenceCard, Reference } from './reference-card/reference-card';
 import { ReferenceNavigation } from './reference-navigation/reference-navigation';
 
 @Component({
   standalone: true,
   selector: 'app-references',
-  imports: [CommonModule, ReferenceCard, ReferenceNavigation],
+  imports: [CommonModule, ReferenceCard, ReferenceNavigation, TranslocoPipe],
   templateUrl: './references.html',
   styleUrl: './references.scss',
 })
@@ -19,24 +20,24 @@ export class References implements AfterViewInit {
 
   references: Reference[] = [
     {
-      name: 'S. Heinze',
-      role: 'Team Partner',
-      text: 'Platzhalter.',
+      name: 'references.items.heinze.name',
+      role: 'references.items.heinze.role',
+      text: 'references.items.heinze.text',
     },
     {
-      name: 'P. Schmidt',
-      role: 'Team Partner',
-      text: 'Platzhalter.',
+      name: 'references.items.schmidt.name',
+      role: 'references.items.schmidt.role',
+      text: 'references.items.schmidt.text',
     },
     {
-      name: 'Platzhalter',
-      role: 'Platzhalter',
-      text: 'Platzhalter.',
+      name: 'references.items.placeholder1.name',
+      role: 'references.items.placeholder1.role',
+      text: 'references.items.placeholder1.text',
     },
     {
-      name: 'Platzhalter',
-      role: 'Platzhalter',
-      text: 'Platzhalter.',
+      name: 'references.items.placeholder2.name',
+      role: 'references.items.placeholder2.role',
+      text: 'references.items.placeholder2.text',
     },
   ];
 

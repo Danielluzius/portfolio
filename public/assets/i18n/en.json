@@ -1,0 +1,194 @@
+{
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Daniel Luzius",
+    "role": "Fullstack Developer",
+    "subtitle": "Fullstack Developer",
+    "headline": "Daniel Luzius",
+    "buttons": {
+      "checkWork": "Check my work",
+      "contact": "Contact me"
+    },
+    "marquee": {
+      "available": "Available for remote work",
+      "role": "Fullstack Developer",
+      "location": "Based in Seligenstadt",
+      "openToWork": "Open to work"
+    }
+  },
+  "nav": {
+    "aboutMe": "About me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "aboutMe": {
+    "tag": "Who I Am",
+    "title": "About me",
+    "intro": "Hi, I'm Daniel — a fullstack developer who loves translating ideas into fast, accessible interfaces. I get the biggest thrill when a tricky UI interaction finally clicks and users feel right at home.",
+    "highlights": {
+      "location": "Based in Seligenstadt, Germany — I collaborate happily across time zones and I'm open to remote-first teams.",
+      "mindset": "Curious and open-minded — I explore new web tech every sprint and share findings with the crew.",
+      "problem": "Problem solver at heart — I break challenges into experiments, measure impact, and iterate toward polish."
+    }
+  },
+  "skills": {
+    "sectionHeading": "Technologies",
+    "title": "Skill Set",
+    "description": "A short introduction of your skills. Highlight your experience of using different front-end technologies and emphasise your openness to learning and adapting to new technologies. Show how important it is for you to keep up with the rapid changes in web development.",
+    "cta": {
+      "title": "You need",
+      "highlight": "another skill?",
+      "text": "Feel free to contact me. I look forward to expanding on my previous knowledge.",
+      "button": "Let's Talk"
+    }
+  },
+  "projects": {
+    "eyebrow": "Portfolio",
+    "title": "Featured Projects",
+    "lead": "Explore a selection of my work here – interact with projects to see my skills in action.",
+    "dialog": {
+      "question": "What is this project about?",
+      "github": "GitHub",
+      "liveTest": "Live Test"
+    },
+    "pokedex": {
+      "title": "Pokedex",
+      "subtitle": "API-driven Pokédex",
+      "description": "Responsive Pokédex powered by the PokéAPI. Search, filter, and explore Pokémon stats with smooth animations and offline caching."
+    },
+    "goblinSlayer": {
+      "title": "Goblin Slayer",
+      "subtitle": "Jump n Run Web Game",
+      "description": "A browser-based tactical battle prototype with responsive UI, modular enemy AI, and reusable component-based architecture."
+    },
+    "placeholder": {
+      "title": "Placeholder",
+      "subtitle": "Placeholder Subtitle",
+      "description": "Placeholder description"
+    }
+  },
+  "references": {
+    "title": "What colleagues say about me",
+    "items": {
+      "heinze": {
+        "name": "S. Heinze",
+        "role": "Team Partner",
+        "text": "Placeholder."
+      },
+      "schmidt": {
+        "name": "P. Schmidt",
+        "role": "Team Partner",
+        "text": "Placeholder."
+      },
+      "placeholder1": {
+        "name": "Placeholder",
+        "role": "Placeholder",
+        "text": "Placeholder."
+      },
+      "placeholder2": {
+        "name": "Placeholder",
+        "role": "Placeholder",
+        "text": "Placeholder."
+      }
+    }
+  },
+  "contact": {
+    "label": "Contact me",
+    "title": "Let's work together",
+    "problem": {
+      "title": "Got a problem to solve?",
+      "description": "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work. Need a Fullstack developer? <strong>Let's talk!</strong>"
+    },
+    "form": {
+      "nameLabel": "What's your name?",
+      "namePlaceholder": "Your name goes here",
+      "nameError": "Oops! it seems your name is missing",
+      "emailLabel": "What's your email?",
+      "emailPlaceholder": "youremail@email.com",
+      "emailError": "Hoppla! your email is required",
+      "messageLabel": "How can I help you?",
+      "messagePlaceholder": "Hello Daniel, I am interested in...",
+      "messageError": "What do you need to develop?",
+      "privacyText1": "I've read the ",
+      "privacyLink": "privacy policy",
+      "privacyText2": " and agree to the processing of my data as outlined.",
+      "privacyError": "Please accept the privacy policy.",
+      "submit": "Let's talk!"
+    }
+  },
+  "footer": {
+    "legalNotice": "Legal Notice",
+    "privacy": "Privacy"
+  },
+  "legalNotice": {
+    "title": "Legal Notice",
+    "sections": {
+      "imprint": {
+        "title": "Imprint",
+        "name": "Daniel Luzius",
+        "address": "Hauptstraße 125",
+        "city": "63500 Seligenstadt",
+        "company": "Exploring the Board",
+        "email": "Email: Danielluzius@mail.de"
+      },
+      "exploringTheBoard": {
+        "title": "Exploring the Board",
+        "email": "Email: Danielluzius@mail.de"
+      },
+      "acceptanceOfTerms": {
+        "title": "Acceptance of terms",
+        "text": "By accessing and using <span class='highlight'>Portfolio</span> (Product), you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice."
+      },
+      "scopeAndOwnership": {
+        "title": "Scope and ownership of the product",
+        "text1": "<span class='highlight'>Portfolio</span> has been developed as part of a student group project in a web development bootcamp at the <span class='highlight'>Developer Akademie GmbH</span>. It has an educational purpose and is not intended for extensive personal & business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product.",
+        "text2": "The design of <span class='highlight'>Portfolio</span> is owned by the <span class='highlight'>Developer Akademie GmbH</span>. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited."
+      },
+      "proprietaryRights": {
+        "title": "Proprietary rights",
+        "text": "Aside from the design owned by <span class='highlight'>Developer Akademie GmbH</span>, we, the listed students, retain all proprietary rights in <span class='highlight'>Portfolio</span>, including any associated copyrighted material, trademarks, and other proprietary information."
+      },
+      "useOfProduct": {
+        "title": "Use of the product",
+        "text": "<span class='highlight'>Portfolio</span> is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use of <span class='highlight'>Portfolio</span> for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely responsible for your interactions with other users of <span class='highlight'>Portfolio</span>."
+      },
+      "disclaimerOfWarranties": {
+        "title": "Disclaimer of warranties and limitation of liability",
+        "text": "<span class='highlight'>Portfolio</span> is provided 'as is' without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will we, the listed students, or the <span class='highlight'>Developer Akademie</span>, be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such damages, arising out of or in connection with the use or performance of <span class='highlight'>Portfolio</span>."
+      },
+      "indemnity": {
+        "title": "Indemnity",
+        "text1": "You agree to indemnify, defend and hold harmless us, the listed students, the <span class='highlight'>Developer Akademie</span>, and our affiliates, partners, officers, directors, agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of <span class='highlight'>Portfolio</span> and/or your breach of this Legal Notice.",
+        "text2": "For any questions or notices, please contact us at Danielluzius@mail.de.",
+        "date": "Date: October 03, 2025"
+      }
+    }
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "sections": {
+      "dataProtection": {
+        "title": "Data Protection",
+        "text": "This is a placeholder for the privacy policy content. Here you will find information about how we collect, use, and protect your personal data."
+      },
+      "informationCollection": {
+        "title": "Information Collection",
+        "text": "Placeholder text for information about what data we collect and how we use it."
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "text": "Placeholder text for information about how we secure your data and protect your privacy."
+      },
+      "yourRights": {
+        "title": "Your Rights",
+        "text": "Placeholder text for information about your rights regarding your personal data."
+      },
+      "contact": {
+        "title": "Contact",
+        "text": "For any questions regarding this privacy policy, please contact us at Danielluzius@mail.de.",
+        "date": "Date: October 06, 2025"
+      }
+    }
+  }
+}

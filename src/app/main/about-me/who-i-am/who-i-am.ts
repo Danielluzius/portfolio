@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   standalone: true,
   selector: 'app-who-i-am',
-  imports: [],
+  imports: [TranslocoPipe],
   templateUrl: './who-i-am.html',
   styleUrl: './who-i-am.scss',
 })

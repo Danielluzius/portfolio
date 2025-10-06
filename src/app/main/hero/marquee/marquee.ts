@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   standalone: true,
   selector: 'app-marquee',
-  imports: [NgFor],
+  imports: [NgFor, TranslocoPipe],
   templateUrl: './marquee.html',
   styleUrl: './marquee.scss',
 })
 export class Marquee {
   readonly items = [
-    'Available for remote work',
-    'Fullstack Developer',
-    'Based in Seligenstadt',
-    'Open to work',
+    'hero.marquee.available',
+    'hero.marquee.role',
+    'hero.marquee.location',
+    'hero.marquee.openToWork',
   ];
 
   readonly repeatedItems = [...this.items, ...this.items];

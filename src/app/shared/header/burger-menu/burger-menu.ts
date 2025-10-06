@@ -9,14 +9,16 @@ import {
   Renderer2,
   OnDestroy,
   HostListener,
+  inject,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
+import { TranslocoService, TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   standalone: true,
   selector: 'app-burger-menu',
-  imports: [],
+  imports: [TranslocoPipe],
   templateUrl: './burger-menu.html',
   styleUrl: './burger-menu.scss',
 })
@@ -24,14 +26,23 @@ export class BurgerMenu implements OnChanges, OnDestroy {
   @Input() isOpen = false;
   @Output() close = new EventEmitter<void>();
 
-  currentLanguage: 'en' | 'de' = 'en';
+  private translocoService = inject(TranslocoService);
+  currentLanguage: 'en' | 'de' = 'de';
   private readonly bodyScrollClass = 'body--no-scroll';
 
   constructor(
     @Inject(DOCUMENT) private readonly documentRef: Document,
     private readonly renderer: Renderer2,
     private readonly router: Router
-  ) {}
+  ) {
+    // Synchronisiere mit der aktuellen Transloco-Sprache
+    this.currentLanguage = this.translocoService.getActiveLang() as 'en' | 'de';
+
+    // Abonniere Sprachänderungen
+    this.translocoService.langChanges$.subscribe((lang) => {
+      this.currentLanguage = lang as 'en' | 'de';
+    });
+  }
 
   @HostListener('document:keydown', ['$event'])
   protected onDocumentKeydown(event: KeyboardEvent): void {
@@ -90,8 +101,11 @@ export class BurgerMenu implements OnChanges, OnDestroy {
   }
 
   switchLanguage(lang: 'en' | 'de'): void {
+    if (this.currentLanguage === lang) {
+      return;
+    }
     this.currentLanguage = lang;
-    // Hier kannst du später einen Service für die Sprachumschaltung einbinden
+    this.translocoService.setActiveLang(lang);
   }
 
   private lockBodyScroll(): void {

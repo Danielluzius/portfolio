@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   standalone: true,
   selector: 'app-contact-form',
-  imports: [FormsModule, CommonModule, RouterLink],
+  imports: [FormsModule, CommonModule, RouterLink, TranslocoPipe],
   templateUrl: './contact-form.html',
   styleUrl: './contact-form.scss',
 })
 export class ContactForm {
+  private translocoService = inject(TranslocoService);
+
   // Form data
   name = '';
   email = '';
@@ -23,10 +26,18 @@ export class ContactForm {
   messageError = false;
   privacyError = false;
 
-  // Error messages
-  nameErrorMessage = 'Oops! it seems your name is missing';
-  emailErrorMessage = 'Hoppla! your email is required';
-  messageErrorMessage = 'What do you need to develop?';
+  // Error messages - will be translated
+  get nameErrorMessage(): string {
+    return this.translocoService.translate('contact.form.nameError');
+  }
+
+  get emailErrorMessage(): string {
+    return this.translocoService.translate('contact.form.emailError');
+  }
+
+  get messageErrorMessage(): string {
+    return this.translocoService.translate('contact.form.messageError');
+  }
 
   onNameInput(): void {
     if (this.nameError) {

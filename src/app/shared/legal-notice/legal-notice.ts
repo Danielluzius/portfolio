@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Footer } from '../footer/footer';
 import { Router } from '@angular/router';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-legal-notice',
   standalone: true,
-  imports: [Footer],
+  imports: [Footer, TranslocoPipe],
   templateUrl: './legal-notice.html',
   styleUrl: './legal-notice.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class LegalNotice implements OnInit {
   constructor(private router: Router) {}

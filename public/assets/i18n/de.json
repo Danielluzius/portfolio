@@ -1,0 +1,194 @@
+{
+  "hero": {
+    "greeting": "Hallo, ich bin",
+    "name": "Daniel Luzius",
+    "role": "Fullstack Developer",
+    "subtitle": "Fullstack Developer",
+    "headline": "Daniel Luzius",
+    "buttons": {
+      "checkWork": "Meine Projekte",
+      "contact": "Kontakt"
+    },
+    "marquee": {
+      "available": "Verfügbar für Remote-Arbeit",
+      "role": "Fullstack Developer",
+      "location": "Standort: Seligenstadt",
+      "openToWork": "Offen für Aufträge"
+    }
+  },
+  "nav": {
+    "aboutMe": "Über mich",
+    "skills": "Skills",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+  "aboutMe": {
+    "tag": "Wer ich bin",
+    "title": "Über mich",
+    "intro": "Hi, ich bin Daniel — ein Fullstack-Entwickler, der es liebt, Ideen in schnelle, zugängliche Interfaces zu übersetzen. Am meisten begeistert es mich, wenn eine knifflige UI-Interaktion endlich funktioniert und sich Nutzer direkt wohlfühlen.",
+    "highlights": {
+      "location": "Standort Seligenstadt, Deutschland — Ich arbeite gerne über Zeitzonen hinweg und bin offen für Remote-First-Teams.",
+      "mindset": "Neugierig und aufgeschlossen — Ich erkunde jedes Sprint neue Web-Technologien und teile meine Erkenntnisse mit dem Team.",
+      "problem": "Problemlöser aus Leidenschaft — Ich zerlege Herausforderungen in Experimente, messe die Auswirkungen und iteriere bis zur Perfektion."
+    }
+  },
+  "skills": {
+    "sectionHeading": "Technologien",
+    "title": "Skill Set",
+    "description": "Eine kurze Einführung zu meinen Fähigkeiten. Ich hebe meine Erfahrung mit verschiedenen Frontend-Technologien hervor und betone meine Bereitschaft, neue Technologien zu lernen und mich anzupassen. Es ist mir wichtig, mit den schnellen Veränderungen in der Webentwicklung Schritt zu halten.",
+    "cta": {
+      "title": "Du brauchst",
+      "highlight": "einen anderen Skill?",
+      "text": "Kontaktiere mich gerne. Ich freue mich darauf, mein bisheriges Wissen zu erweitern.",
+      "button": "Lass uns reden"
+    }
+  },
+  "projects": {
+    "eyebrow": "Portfolio",
+    "title": "Meine Projekte",
+    "lead": "Entdecke eine Auswahl meiner Arbeiten – interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen.",
+    "dialog": {
+      "question": "Worum geht es bei diesem Projekt?",
+      "github": "GitHub",
+      "liveTest": "Live-Demo"
+    },
+    "pokedex": {
+      "title": "Pokedex",
+      "subtitle": "API-gesteuerte Pokédex",
+      "description": "Responsive Pokédex basierend auf der PokéAPI. Suche, filtere und erkunde Pokémon-Statistiken mit flüssigen Animationen und Offline-Caching."
+    },
+    "goblinSlayer": {
+      "title": "Goblin Slayer",
+      "subtitle": "Jump'n'Run Web-Spiel",
+      "description": "Ein browserbasierter taktischer Kampf-Prototyp mit responsiver UI, modularer Gegner-KI und wiederverwendbarer komponentenbasierter Architektur."
+    },
+    "placeholder": {
+      "title": "Placeholder",
+      "subtitle": "Platzhalter Untertitel",
+      "description": "Platzhalter Beschreibung"
+    }
+  },
+  "references": {
+    "title": "Was Kollegen über mich sagen",
+    "items": {
+      "heinze": {
+        "name": "S. Heinze",
+        "role": "Team Partner",
+        "text": "Platzhalter."
+      },
+      "schmidt": {
+        "name": "P. Schmidt",
+        "role": "Team Partner",
+        "text": "Platzhalter."
+      },
+      "placeholder1": {
+        "name": "Platzhalter",
+        "role": "Platzhalter",
+        "text": "Platzhalter."
+      },
+      "placeholder2": {
+        "name": "Platzhalter",
+        "role": "Platzhalter",
+        "text": "Platzhalter."
+      }
+    }
+  },
+  "contact": {
+    "label": "Kontaktiere mich",
+    "title": "Lass uns zusammenarbeiten",
+    "problem": {
+      "title": "Hast du ein Problem zu lösen?",
+      "description": "Ermutige Leute, dich zu kontaktieren und beschreibe, welche Rolle dich interessiert. Zeige, dass du durch deine Arbeit Mehrwert für ihre Projekte schaffen wirst. Brauchst du einen Fullstack-Entwickler? <strong>Lass uns reden!</strong>"
+    },
+    "form": {
+      "nameLabel": "Wie ist dein Name?",
+      "namePlaceholder": "Dein Name kommt hier hin",
+      "nameError": "Hoppla! Dein Name fehlt",
+      "emailLabel": "Wie lautet deine E-Mail?",
+      "emailPlaceholder": "deineemail@email.com",
+      "emailError": "Hoppla! Deine E-Mail ist erforderlich",
+      "messageLabel": "Wie kann ich dir helfen?",
+      "messagePlaceholder": "Hallo Daniel, ich interessiere mich für...",
+      "messageError": "Was möchtest du entwickeln?",
+      "privacyText1": "Ich habe die ",
+      "privacyLink": "Datenschutzerklärung",
+      "privacyText2": " gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+      "privacyError": "Bitte akzeptiere die Datenschutzerklärung.",
+      "submit": "Lass uns reden!"
+    }
+  },
+  "footer": {
+    "legalNotice": "Impressum",
+    "privacy": "Datenschutz"
+  },
+  "legalNotice": {
+    "title": "Impressum",
+    "sections": {
+      "imprint": {
+        "title": "Impressum",
+        "name": "Daniel Luzius",
+        "address": "Hauptstraße 125",
+        "city": "63500 Seligenstadt",
+        "company": "Exploring the Board",
+        "email": "E-Mail: Danielluzius@mail.de"
+      },
+      "exploringTheBoard": {
+        "title": "Exploring the Board",
+        "email": "E-Mail: Danielluzius@mail.de"
+      },
+      "acceptanceOfTerms": {
+        "title": "Annahme der Bedingungen",
+        "text": "Durch den Zugriff auf und die Nutzung von <span class='highlight'>Portfolio</span> (Produkt) erkennen Sie die folgenden Geschäftsbedingungen sowie alle Richtlinien, Leitlinien oder Änderungen an, die Ihnen von Zeit zu Zeit vorgelegt werden können. Wir, die aufgeführten Studenten, können die Geschäftsbedingungen jederzeit ohne vorherige Ankündigung aktualisieren oder ändern."
+      },
+      "scopeAndOwnership": {
+        "title": "Umfang und Eigentum am Produkt",
+        "text1": "<span class='highlight'>Portfolio</span> wurde im Rahmen eines studentischen Gruppenprojekts in einem Webentwicklungs-Bootcamp der <span class='highlight'>Developer Akademie GmbH</span> entwickelt. Es dient Bildungszwecken und ist nicht für den umfangreichen persönlichen und geschäftlichen Gebrauch vorgesehen. Daher können wir keine gleichbleibende Verfügbarkeit, Zuverlässigkeit, Genauigkeit oder andere Qualitätsaspekte dieses Produkts garantieren.",
+        "text2": "Das Design von <span class='highlight'>Portfolio</span> ist Eigentum der <span class='highlight'>Developer Akademie GmbH</span>. Die unbefugte Nutzung, Vervielfältigung, Änderung, Verbreitung oder Replikation des Designs ist strengstens untersagt."
+      },
+      "proprietaryRights": {
+        "title": "Eigentumsrechte",
+        "text": "Abgesehen vom Design, das der <span class='highlight'>Developer Akademie GmbH</span> gehört, behalten wir, die aufgeführten Studenten, alle Eigentumsrechte an <span class='highlight'>Portfolio</span>, einschließlich aller damit verbundenen urheberrechtlich geschützten Materialien, Marken und anderen proprietären Informationen."
+      },
+      "useOfProduct": {
+        "title": "Nutzung des Produkts",
+        "text": "<span class='highlight'>Portfolio</span> ist nur für rechtmäßige Zwecke und in Übereinstimmung mit allen geltenden Gesetzen und Vorschriften zu verwenden. Jede Nutzung von <span class='highlight'>Portfolio</span> für illegale Aktivitäten oder zur Belästigung, Schädigung, Bedrohung oder Einschüchterung anderer Personen ist strengstens untersagt. Sie sind allein verantwortlich für Ihre Interaktionen mit anderen Nutzern von <span class='highlight'>Portfolio</span>."
+      },
+      "disclaimerOfWarranties": {
+        "title": "Haftungsausschluss und Haftungsbeschränkung",
+        "text": "<span class='highlight'>Portfolio</span> wird 'wie besehen' ohne jegliche ausdrückliche oder stillschweigende Garantie bereitgestellt, einschließlich, aber nicht beschränkt auf die stillschweigenden Garantien der Marktgängigkeit, Eignung für einen bestimmten Zweck und Nichtverletzung. In keinem Fall haften wir, die aufgeführten Studenten, oder die <span class='highlight'>Developer Akademie</span>, für direkte, indirekte, zufällige, spezielle, Folge- oder exemplarische Schäden, einschließlich, aber nicht beschränkt auf Schäden durch Gewinnverlust, Geschäftswert, Nutzung, Daten oder andere immaterielle Verluste, selbst wenn wir über die Möglichkeit solcher Schäden informiert wurden, die sich aus oder im Zusammenhang mit der Nutzung oder Leistung von <span class='highlight'>Portfolio</span> ergeben."
+      },
+      "indemnity": {
+        "title": "Schadloshaltung",
+        "text1": "Sie erklären sich damit einverstanden, uns, die aufgeführten Studenten, die <span class='highlight'>Developer Akademie</span> sowie unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeiter von allen Ansprüchen, Forderungen, Verlusten, Schäden, Kosten oder Haftungen (einschließlich angemessener Anwaltskosten) freizustellen, zu verteidigen und schadlos zu halten, die sich aus oder im Zusammenhang mit Ihrer Nutzung von <span class='highlight'>Portfolio</span> und/oder Ihrem Verstoß gegen dieses Impressum ergeben.",
+        "text2": "Für Fragen oder Mitteilungen kontaktieren Sie uns bitte unter Danielluzius@mail.de.",
+        "date": "Datum: 03. Oktober 2025"
+      }
+    }
+  },
+  "privacyPolicy": {
+    "title": "Datenschutzerklärung",
+    "sections": {
+      "dataProtection": {
+        "title": "Datenschutz",
+        "text": "Dies ist ein Platzhalter für den Inhalt der Datenschutzerklärung. Hier finden Sie Informationen darüber, wie wir Ihre personenbezogenen Daten sammeln, verwenden und schützen."
+      },
+      "informationCollection": {
+        "title": "Datenerfassung",
+        "text": "Platzhaltertext für Informationen darüber, welche Daten wir sammeln und wie wir sie verwenden."
+      },
+      "dataSecurity": {
+        "title": "Datensicherheit",
+        "text": "Platzhaltertext für Informationen darüber, wie wir Ihre Daten sichern und Ihre Privatsphäre schützen."
+      },
+      "yourRights": {
+        "title": "Ihre Rechte",
+        "text": "Platzhaltertext für Informationen über Ihre Rechte bezüglich Ihrer personenbezogenen Daten."
+      },
+      "contact": {
+        "title": "Kontakt",
+        "text": "Für Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns bitte unter Danielluzius@mail.de.",
+        "date": "Datum: 06. Oktober 2025"
+      }
+    }
+  }
+}

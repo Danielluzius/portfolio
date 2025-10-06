@@ -8,12 +8,13 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { Project, ProjectDialog } from './project-dialog/project-dialog';
 
 @Component({
   standalone: true,
   selector: 'app-projects',
-  imports: [CommonModule, ProjectDialog],
+  imports: [CommonModule, ProjectDialog, TranslocoPipe],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
@@ -28,10 +29,9 @@ export class Projects implements OnDestroy {
 
   protected readonly projects: Project[] = [
     {
-      title: 'Pokedex',
-      subtitle: 'API-driven Pokédex',
-      description:
-        'Responsive Pokédex powered by the PokéAPI. Search, filter, and explore Pokémon stats with smooth animations and offline caching.',
+      title: 'projects.pokedex.title',
+      subtitle: 'projects.pokedex.subtitle',
+      description: 'projects.pokedex.description',
       technologies: ['CSS', 'HTML', 'JavaScript'],
       stack: [
         {
@@ -56,10 +56,9 @@ export class Projects implements OnDestroy {
       liveUrl: 'https://danielluzius.de',
     },
     {
-      title: 'Goblin Slayer',
-      subtitle: 'Jump n Run Web Game',
-      description:
-        'A browser-based tactical battle prototype with responsive UI, modular enemy AI, and reusable component-based architecture.',
+      title: 'projects.goblinSlayer.title',
+      subtitle: 'projects.goblinSlayer.subtitle',
+      description: 'projects.goblinSlayer.description',
       technologies: ['CSS', 'HTML', 'JavaScript', 'API'],
       stack: [
         {
@@ -88,9 +87,9 @@ export class Projects implements OnDestroy {
       githubUrl: 'https://github.com/Danielluzius',
     },
     {
-      title: 'Placeholder',
-      subtitle: 'Placeholder Subtitle',
-      description: 'Placeholder description',
+      title: 'projects.placeholder.title',
+      subtitle: 'projects.placeholder.subtitle',
+      description: 'projects.placeholder.description',
       technologies: ['Angular', 'TypeScript', 'Firebase', 'CSS'],
       stack: [
         {

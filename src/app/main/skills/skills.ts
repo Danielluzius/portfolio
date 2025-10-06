@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   standalone: true,
   selector: 'app-skills',
-  imports: [NgFor],
+  imports: [NgFor, TranslocoPipe],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
 })

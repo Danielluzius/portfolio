@@ -7,17 +7,17 @@
         <ul class="burger-menu__nav-list">
             <li class="burger-menu__nav-item">
                 <a href="#about" class="burger-menu__nav-link" (click)="onLinkClick($event)">
-                    About me
+                    {{ 'nav.aboutMe' | transloco }}
                 </a>
             </li>
             <li class="burger-menu__nav-item">
                 <a href="#skills" class="burger-menu__nav-link" (click)="onLinkClick($event)">
-                    Skills
+                    {{ 'nav.skills' | transloco }}
                 </a>
             </li>
             <li class="burger-menu__nav-item">
                 <a href="#projects" class="burger-menu__nav-link" (click)="onLinkClick($event)">
-                    Projects
+                    {{ 'nav.projects' | transloco }}
                 </a>
             </li>
         </ul>
