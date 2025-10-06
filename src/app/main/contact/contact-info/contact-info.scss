@@ -1,9 +1,20 @@
+$primary-color: #3dcfb6;
+$text-color-white: #ffffff;
+$font-primary: 'Karla', sans-serif;
+$font-code: 'Fira Code', monospace;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
+$gap-large: 40px;
+$gap-medium: 20px;
+$gap-small: 16px;
+$line-height-default: 120%;
+
 .contact-info-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
-  gap: 40px;
+  gap: $gap-large;
   width: 100%;
   max-width: 568px;
 }
@@ -13,36 +24,36 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
-  gap: 20px;
+  gap: $gap-medium;
   width: 100%;
 }
 
 .contact-label {
   margin: 0;
-  font-family: 'Karla', sans-serif;
+  font-family: $font-primary;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 28px;
-  color: #3dcfb6;
+  color: $primary-color;
 }
 
 .contact-title {
   margin: 0;
   width: 100%;
-  font-family: 'Fira Code', monospace;
+  font-family: $font-code;
   font-style: normal;
   font-weight: 700;
   font-size: 64px;
   line-height: 100%;
   letter-spacing: -0.03em;
-  color: #3dcfb6;
+  color: $primary-color;
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     font-size: 48px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: $breakpoint-mobile) {
     font-size: 36px;
   }
 }
@@ -53,7 +64,7 @@
   justify-content: center;
   align-items: flex-start;
   padding: 0;
-  gap: 16px;
+  gap: $gap-small;
   width: 100%;
   backdrop-filter: blur(2px);
   border-radius: 30px;
@@ -64,20 +75,20 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
-  gap: 16px;
+  gap: $gap-small;
   width: 100%;
 }
 
 .about-title {
   margin: 0;
-  font-family: 'Fira Code', monospace;
+  font-family: $font-code;
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
-  line-height: 120%;
-  color: #3dcfb6;
+  line-height: $line-height-default;
+  color: $primary-color;
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     font-size: 20px;
   }
 }
@@ -85,18 +96,18 @@
 .about-description {
   margin: 0;
   width: 100%;
-  font-family: 'Karla', sans-serif;
+  font-family: $font-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 120%;
-  color: #ffffff;
+  line-height: $line-height-default;
+  color: $text-color-white;
 
   strong {
     font-weight: 700;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     font-size: 14px;
   }
 }

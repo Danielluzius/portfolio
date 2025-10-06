@@ -1,13 +1,35 @@
+$primary-color: #3dcfb6;
+$primary-color-faded: rgba(61, 207, 182, 0.5);
+$primary-color-glow: rgba(61, 207, 182, 0.6);
+$text-color-white: #ffffff;
+$text-color-light: rgba(255, 255, 255, 0.8);
+$text-color-faded: rgba(255, 255, 255, 0.5);
+$error-color: rgba(236, 123, 123, 0.8);
+$error-color-solid: #ec7b7b;
+
+$font-primary: 'Karla', sans-serif;
+$font-code: 'Fira Code', monospace;
+
+$breakpoint-tablet: 768px;
+
+$gap-large: 40px;
+$gap-medium: 16px;
+$gap-small: 10px;
+$gap-tiny: 8px;
+
+$line-height-default: 120%;
+$transition-default: 0.3s ease;
+$transition-fast: 0.2s ease;
+
 .contact-form {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
-  gap: 40px;
+  gap: $gap-large;
   width: 100%;
   max-width: 616px;
-  border-top: 1px solid #3dcfb6;
 }
 
 .form-fields {
@@ -24,52 +46,52 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 32px;
-  gap: 10px;
+  gap: $gap-small;
   width: 100%;
   border-width: 1px 0px;
   border-style: solid;
-  border-color: rgba(61, 207, 182, 0.5);
-  transition: border-color 0.3s ease;
+  border-color: $primary-color-faded;
+  transition: border-color $transition-default;
 
   &:hover:not(.error),
   &:focus-within:not(.error) {
-    border-color: #3dcfb6;
+    border-color: $primary-color;
 
     .field-input {
-      color: #ffffff;
+      color: $text-color-white;
 
       &::placeholder {
-        color: #ffffff;
+        color: $text-color-white;
       }
     }
   }
 
   &.error {
-    border-color: #3dcfb6;
+    border-color: $primary-color;
 
     .field-input {
-      color: rgba(236, 123, 123, 0.8);
+      color: $error-color;
 
       &::placeholder {
-        color: rgba(236, 123, 123, 0.8);
+        color: $error-color;
       }
     }
 
     &:hover,
     &:focus-within {
-      border-color: #3dcfb6;
+      border-color: $primary-color;
 
       .field-input {
-        color: rgba(236, 123, 123, 0.8);
+        color: $error-color;
 
         &::placeholder {
-          color: rgba(236, 123, 123, 0.8);
+          color: $error-color;
         }
       }
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     padding: 24px 16px;
   }
 }
@@ -79,20 +101,20 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
-  gap: 16px;
+  gap: $gap-medium;
   width: 100%;
 }
 
 .field-label {
   margin: 0;
-  font-family: 'Fira Code', monospace;
+  font-family: $font-code;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
-  line-height: 120%;
-  color: #3dcfb6;
+  line-height: $line-height-default;
+  color: $primary-color;
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     font-size: 20px;
   }
 }
@@ -102,18 +124,18 @@
   background: transparent;
   border: none;
   outline: none;
-  font-family: 'Karla', sans-serif;
+  font-family: $font-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 120%;
-  color: rgba(255, 255, 255, 0.8);
+  line-height: $line-height-default;
+  color: $text-color-light;
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.8);
+    color: $text-color-light;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     font-size: 16px;
   }
 }
@@ -123,7 +145,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0;
-  gap: 16px;
+  gap: $gap-medium;
   width: 100%;
   max-width: 616px;
 }
@@ -133,7 +155,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
-  gap: 8px;
+  gap: $gap-tiny;
   width: 100%;
   align-self: stretch;
 }
@@ -143,7 +165,7 @@
   flex-direction: row;
   align-items: center;
   padding: 0;
-  gap: 8px;
+  gap: $gap-tiny;
   width: 100%;
 }
 
@@ -157,7 +179,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  transition: background-image 0.2s ease;
+  transition: background-image $transition-fast;
 
   &:hover {
     background-image: url('/assets/icon/contact-icon/checkbox_default_hover.png');
@@ -175,26 +197,26 @@
 .checkbox-label {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
   padding: 0;
   row-gap: 0;
   flex: 1;
   cursor: pointer;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .checkbox-text {
-  font-family: 'Karla', sans-serif;
+  font-family: $font-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
-  line-height: 120%;
-  color: #ffffff;
+  line-height: $line-height-default;
+  color: $text-color-white;
   margin-right: 4px;
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     font-size: 14px;
   }
 }
@@ -204,27 +226,27 @@
   flex-direction: row;
   align-items: flex-start;
   padding: 5px 4px;
-  gap: 10px;
+  gap: $gap-small;
   background: transparent;
   border: none;
   border-bottom: 1px solid transparent;
   cursor: pointer;
-  font-family: 'Fira Code', monospace;
+  font-family: $font-code;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
-  line-height: 120%;
+  line-height: $line-height-default;
   letter-spacing: -0.03em;
-  color: #3dcfb6;
+  color: $primary-color;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all $transition-default;
 
   &:hover {
-    border-bottom-color: #3dcfb6;
-    color: #ffffff;
+    border-bottom-color: $primary-color;
+    color: $text-color-white;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     font-size: 14px;
   }
 }
@@ -233,19 +255,19 @@
   margin: 0;
   width: 205px;
   height: 17px;
-  font-family: 'Karla', sans-serif;
+  font-family: $font-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 120%;
+  line-height: $line-height-default;
   color: transparent;
-  transition: color 0.3s ease;
+  transition: color $transition-default;
 
   &.show {
-    color: #ec7b7b;
+    color: $error-color-solid;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     width: auto;
     height: auto;
   }
@@ -256,7 +278,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0;
-  gap: 10px;
+  gap: $gap-small;
   width: 139px;
   height: 48px;
 }
@@ -269,33 +291,33 @@
   justify-content: center;
   align-items: center;
   padding: 0 24px;
-  gap: 10px;
+  gap: $gap-small;
   width: 139px;
   height: 48px;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid $text-color-faded;
   border-radius: 100px;
-  font-family: 'Karla', sans-serif;
+  font-family: $font-primary;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 120%;
-  color: rgba(255, 255, 255, 0.8);
+  line-height: $line-height-default;
+  color: $text-color-light;
   cursor: default;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition: border-color $transition-fast, color $transition-fast;
   align-self: stretch;
   overflow: hidden;
 
   &.active {
-    border-color: #ffffff;
-    color: #ffffff;
+    border-color: $text-color-white;
+    color: $text-color-white;
     cursor: pointer;
 
     &:hover,
     &:focus-visible {
       background: transparent;
-      border-color: #3dcfb6;
-      color: #3dcfb6;
+      border-color: $primary-color;
+      color: $primary-color;
     }
 
     &:hover .button-text {
@@ -303,7 +325,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid rgba(61, 207, 182, 0.6);
+      outline: 2px solid $primary-color-glow;
       outline-offset: 3px;
     }
   }
@@ -313,7 +335,7 @@
     cursor: not-allowed;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     font-size: 16px;
     width: 120px;
     min-width: 120px;
