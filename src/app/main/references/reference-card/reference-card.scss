@@ -117,19 +117,135 @@
     }
   }
 
-  @media (max-width: 480px) {
-    padding: 32px 24px;
-    gap: 24px;
+  @media (max-width: 600px) {
+    padding: 40px;
+    gap: 56px;
+    width: 100%;
+    max-width: 358px;
+    min-height: 340px;
+    height: auto;
+    opacity: 0.6;
+    transform: scale(0.9);
+
+    .quote-icon {
+      left: -8px;
+    }
 
     blockquote {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+
       .reference-text {
-        font-size: 16px;
-        margin-bottom: 24px;
+        font-size: 18px;
+        line-height: 120%;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
       }
 
       footer {
+        margin-top: auto;
+
+        &::before {
+          border-color: rgba(255, 255, 255, 0.8);
+        }
+
         .reference-name {
-          font-size: 14px;
+          font-size: 16px;
+          color: rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+      background: rgba(61, 207, 182, 0.3);
+
+      .reference-text {
+        color: #ffffff !important;
+      }
+
+      footer {
+        &::before {
+          border-color: #ffffff !important;
+        }
+
+        .reference-name {
+          color: #ffffff !important;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px;
+    gap: 56px;
+    width: 100%;
+    max-width: 358px;
+    min-height: 340px;
+    height: auto;
+    opacity: 0.6;
+    transform: scale(0.9);
+
+    .quote-icon {
+      left: -8px;
+    }
+
+    blockquote {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+
+      .reference-text {
+        font-size: 18px;
+        line-height: 120%;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
+
+      footer {
+        margin-top: auto;
+
+        &::before {
+          border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .reference-name {
+          font-size: 16px;
+          color: rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+      background: rgba(61, 207, 182, 0.3);
+
+      .reference-text {
+        color: #ffffff !important;
+      }
+
+      footer {
+        &::before {
+          border-color: #ffffff !important;
+        }
+
+        .reference-name {
+          color: #ffffff !important;
         }
       }
     }
