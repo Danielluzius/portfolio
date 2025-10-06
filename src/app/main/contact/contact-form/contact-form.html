@@ -33,8 +33,8 @@
                 <input type="checkbox" id="privacy" name="privacy" class="checkbox-input" [(ngModel)]="privacyAccepted"
                     (change)="onPrivacyChange()" />
                 <label for="privacy" class="checkbox-label">
-                    <span class="checkbox-text">I've read the </span><a href="#" class="privacy-link"
-                        (click)="$event.preventDefault()">privacy policy</a><span class="checkbox-text"> and agree to
+                    <span class="checkbox-text">I've read the </span><a routerLink="/privacy-policy"
+                        class="privacy-link">privacy policy</a><span class="checkbox-text"> and agree to
                         the processing of my data as outlined.</span>
                 </label>
             </div>

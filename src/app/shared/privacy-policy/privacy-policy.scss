@@ -6,14 +6,14 @@
   background: linear-gradient(55.22deg, #1c1c1c 36.26%, #08463b 93.28%);
 }
 
-.legal-notice-section {
+.privacy-policy-section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
 }
 
-.legal-notice-container {
+.privacy-policy-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +49,7 @@
   }
 }
 
-.legal-notice-title {
+.privacy-policy-title {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -71,7 +71,7 @@
   flex-grow: 0;
 }
 
-.legal-notice-text {
+.privacy-policy-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -137,10 +137,6 @@
     flex-grow: 0;
   }
 
-  .imprint-info {
-    color: #3dcfb6;
-  }
-
   .highlight {
     color: #ffffff;
     font-weight: 500;
@@ -151,26 +147,6 @@
   }
 }
 
-.copyright {
-  width: 100%;
-  text-align: center;
-  margin-top: 32px;
-
-  flex: none;
-  order: 2;
-  flex-grow: 0;
-
-  p {
-    font-family: 'Fira Code', monospace;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 120%;
-    color: #3dcfb6;
-    margin: 0;
-  }
-}
-
 @media (max-width: 768px) {
   .back-button {
     display: flex;
@@ -178,14 +154,14 @@
     padding: 12px 0;
   }
 
-  .legal-notice-container {
+  .privacy-policy-container {
     max-width: 90%;
     margin-top: 100px;
     gap: 32px;
     padding-bottom: 60px;
   }
 
-  .legal-notice-title {
+  .privacy-policy-title {
     font-size: 36px;
     color: #ffffff;
     justify-content: flex-start;
@@ -199,39 +175,6 @@
   }
 
   .text-section {
-    max-width: 100%;
-
-    h2 {
-      font-size: 17px;
-    }
-
-    p {
-      font-size: 14px;
-    }
-  }
-
-  .copyright p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 390px) {
-  .legal-notice-container {
-    margin-top: 80px;
-    gap: 24px;
-    padding-bottom: 40px;
-  }
-
-  .legal-notice-title {
-    font-size: 28px;
-  }
-
-  .text-content {
-    padding: 0 16px;
-    gap: 20px;
-  }
-
-  .text-section {
     gap: 12px;
 
     h2 {
@@ -239,11 +182,7 @@
     }
 
     p {
-      font-size: 13px;
+      font-size: 14px;
     }
-  }
-
-  .copyright p {
-    font-size: 14px;
   }
 }
