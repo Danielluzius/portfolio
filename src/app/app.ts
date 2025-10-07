@@ -23,19 +23,39 @@ export class App implements AfterViewInit, OnDestroy {
   protected readonly title = signal('portfolio');
 
   @ViewChild('cursorShadow') cursorShadow!: ElementRef<HTMLDivElement>;
+  private isTouchDevice = false;
 
   /**
    * Creates an instance of the App component.
    * @param {Renderer2} renderer - Angular's Renderer2 service for safe DOM manipulation.
    */
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2) {
+    this.detectTouchDevice();
+  }
+
+  /**
+   * Detects if the user is on a touch device and adds appropriate CSS class.
+   * @private
+   */
+  private detectTouchDevice(): void {
+    this.isTouchDevice =
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      (navigator as any).msMaxTouchPoints > 0;
+
+    if (this.isTouchDevice) {
+      this.renderer.addClass(document.body, 'touch-device');
+    }
+  }
 
   /**
    * Angular lifecycle hook that runs after the view has been initialized.
    * Initializes the custom cursor position.
    */
   ngAfterViewInit() {
-    this.initializeCursor();
+    if (!this.isTouchDevice) {
+      this.initializeCursor();
+    }
   }
 
   /**
@@ -50,6 +70,7 @@ export class App implements AfterViewInit, OnDestroy {
    */
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
+    if (this.isTouchDevice) return;
     this.updateCursorPosition(event.clientX, event.clientY);
     this.checkHoverState(event);
   }
@@ -59,6 +80,7 @@ export class App implements AfterViewInit, OnDestroy {
    */
   @HostListener('document:mouseleave')
   onMouseLeave() {
+    if (this.isTouchDevice) return;
     this.renderer.addClass(document.body, 'cursor-hidden');
   }
 
@@ -67,6 +89,7 @@ export class App implements AfterViewInit, OnDestroy {
    */
   @HostListener('document:mouseenter')
   onMouseEnter() {
+    if (this.isTouchDevice) return;
     this.renderer.removeClass(document.body, 'cursor-hidden');
   }
 

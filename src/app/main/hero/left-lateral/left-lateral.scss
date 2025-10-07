@@ -43,3 +43,27 @@
   height: 240px;
   border-left: 1px solid #3dcfb6;
 }
+
+@media (max-height: 700px) {
+  .lateral {
+    transform: translateY(40px);
+  }
+}
+
+@media (max-height: 650px) {
+  .lateral {
+    transform: translateY(20px);
+  }
+}
+
+@media (max-width: 480px) and (max-height: 800px) {
+  .lateral {
+    transform: translateY(40px);
+  }
+}
+
+@media (max-width: 480px) and (max-height: 700px) {
+  .lateral {
+    transform: translateY(70px);
+  }
+}

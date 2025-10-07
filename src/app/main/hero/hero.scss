@@ -70,6 +70,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero__content {
+    transform: translateY(-10px);
+  }
+}
+
 @media (max-width: 640px) {
   .hero__inner {
     padding: clamp(120px, 32vh, 180px) clamp(20px, 8vw, 40px) 0;
@@ -77,7 +83,17 @@
     --hero-bottom-gap: clamp(96px, 26vh, 140px);
   }
 
+  .hero__content {
+    transform: translateY(-30px);
+  }
+
   .hero__marquee {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__content {
+    transform: translateY(-40px);
   }
 }
