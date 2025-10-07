@@ -4,7 +4,7 @@ import { NgFor } from '@angular/common';
 @Component({
   standalone: true,
   selector: 'app-right-lateral',
-  imports: [NgFor],
+  imports: [],
   templateUrl: './right-lateral.html',
   styleUrl: './right-lateral.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -26,7 +26,8 @@
 }
 
 .about-me__photo:hover::before,
-.about-me__photo:focus-within::before {
+.about-me__photo:focus-within::before,
+.about-me__photo.hovered::before {
   opacity: 1;
 }
 
