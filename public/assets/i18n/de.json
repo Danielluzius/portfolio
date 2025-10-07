@@ -158,26 +158,75 @@
   "privacyPolicy": {
     "title": "Datenschutzerklärung",
     "sections": {
-      "dataProtection": {
-        "title": "Datenschutz",
-        "text": "Dies ist ein Platzhalter für den Inhalt der Datenschutzerklärung. Hier finden Sie Informationen darüber, wie wir Ihre personenbezogenen Daten sammeln, verwenden und schützen."
+      "responsible": {
+        "title": "1. Verantwortlicher",
+        "name": "Daniel Luzius",
+        "address": "Hauptstraße 125",
+        "city": "63500 Seligenstadt",
+        "country": "Deutschland",
+        "email": "E-Mail: kontakt@danielluzius.de"
       },
-      "informationCollection": {
-        "title": "Datenerfassung",
-        "text": "Platzhaltertext für Informationen darüber, welche Daten wir sammeln und wie wir sie verwenden."
+      "generalInformation": {
+        "title": "2. Allgemeine Hinweise",
+        "text": "Der Schutz Ihrer personenbezogenen Daten ist mir wichtig. Ich behandle Ihre Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften (insbesondere DSGVO und BDSG). Diese Datenschutzerklärung informiert Sie über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf meiner Website."
       },
-      "dataSecurity": {
-        "title": "Datensicherheit",
-        "text": "Platzhaltertext für Informationen darüber, wie wir Ihre Daten sichern und Ihre Privatsphäre schützen."
+      "hosting": {
+        "title": "3. Hosting",
+        "text": "Meine Website wird bei ALL-INKL.COM – Neue Medien Münnich, Hauptstraße 68, 02742 Friedersdorf, gehostet. ALL-INKL verarbeitet personenbezogene Daten (z. B. Server-Logfiles), um den sicheren und stabilen Betrieb der Website zu gewährleisten. Grundlage hierfür ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren Betrieb)."
+      },
+      "dataCollection": {
+        "title": "4. Erhebung und Speicherung personenbezogener Daten",
+        "intro": "Beim Aufruf dieser Website werden automatisch Daten vom Webserver erfasst:",
+        "items": {
+          "browserType": "Browsertyp und Browserversion",
+          "operatingSystem": "verwendetes Betriebssystem",
+          "referrerUrl": "Referrer-URL",
+          "hostname": "Hostname des zugreifenden Rechners",
+          "requestTime": "Uhrzeit der Serveranfrage",
+          "ipAddress": "IP-Adresse"
+        },
+        "outro": "Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und nach spätestens 7 Tagen gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO."
+      },
+      "contactForm": {
+        "title": "5. Kontaktformular",
+        "text": "Wenn Sie mir über das Kontaktformular schreiben, werden Ihre Angaben zur Bearbeitung der Anfrage verarbeitet. Pflichtangaben sind Name, E-Mail-Adresse und Ihre Nachricht. Die Datenverarbeitung erfolgt über den Dienst EmailJS (EmailJS Ltd, 9 Appold St, London EC2A 2AP, Vereinigtes Königreich).",
+        "emailjs": "EmailJS ermöglicht das Versenden von Formularinhalten per E-Mail. Ihre Daten werden ausschließlich zum Versand Ihrer Nachricht verwendet. Eine Speicherung durch EmailJS erfolgt nur temporär.",
+        "legalBasis": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung bzw. vorvertragliche Maßnahmen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an funktionierender Kommunikation). Mit EmailJS besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO."
+      },
+      "linkedIn": {
+        "title": "6. Verwendung von LinkedIn-Links",
+        "text": "Auf meiner Website kann ein Icon von LinkedIn (LinkedIn Ireland Unlimited Company, Wilton Place, Dublin 2, Irland) eingebunden sein. Beim Anklicken des Icons wird eine Verbindung zu den Servern von LinkedIn hergestellt. Dabei können personenbezogene Daten (z. B. IP-Adresse) an LinkedIn übermittelt werden.",
+        "disclaimer": "Ich weise darauf hin, dass ich keinen Einfluss auf die Datenverarbeitung durch LinkedIn habe. Informationen hierzu finden Sie in der Datenschutzerklärung von LinkedIn:",
+        "link": "https://www.linkedin.com/legal/privacy-policy"
+      },
+      "fonts": {
+        "title": "7. Verwendung von Schriftarten (Google Fonts)",
+        "text": "Die auf dieser Website verwendeten Schriftarten von Google Fonts sind lokal eingebunden. Es erfolgt keine Verbindung zu Servern von Google, und es werden keine personenbezogenen Daten an Google übertragen."
       },
       "yourRights": {
-        "title": "Ihre Rechte",
-        "text": "Platzhaltertext für Informationen über Ihre Rechte bezüglich Ihrer personenbezogenen Daten."
+        "title": "8. Ihre Rechte",
+        "intro": "Sie haben jederzeit das Recht auf:",
+        "items": {
+          "information": "Auskunft nach Art. 15 DSGVO",
+          "correction": "Berichtigung nach Art. 16 DSGVO",
+          "deletion": "Löschung nach Art. 17 DSGVO",
+          "restriction": "Einschränkung der Verarbeitung nach Art. 18 DSGVO",
+          "portability": "Datenübertragbarkeit nach Art. 20 DSGVO",
+          "objection": "Widerspruch gegen die Verarbeitung nach Art. 21 DSGVO"
+        },
+        "contact": "Zur Wahrnehmung Ihrer Rechte können Sie sich jederzeit an die oben genannte E-Mail-Adresse wenden.",
+        "authority": "Darüber hinaus haben Sie das Recht, sich bei einer Aufsichtsbehörde zu beschweren, z. B. bei:",
+        "authorityName": "Landesbeauftragte für Datenschutz und Informationsfreiheit Hessen",
+        "authorityAddress": "Postfach 3163, 65021 Wiesbaden",
+        "authorityLink": "https://datenschutz.hessen.de"
       },
-      "contact": {
-        "title": "Kontakt",
-        "text": "Für Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns bitte unter kontakt@danielluzius.de.",
-        "date": "Datum: 06. Oktober 2025"
+      "storage": {
+        "title": "9. Speicherung und Löschung",
+        "text": "Personenbezogene Daten werden gelöscht, sobald der Zweck der Speicherung entfällt oder gesetzliche Aufbewahrungsfristen enden."
+      },
+      "security": {
+        "title": "10. Sicherheit",
+        "text": "Ich verwende technische und organisatorische Maßnahmen, um Ihre Daten gegen Manipulation, Verlust oder unbefugten Zugriff zu schützen. Die Verbindung zu dieser Website erfolgt verschlüsselt (SSL/TLS)."
       }
     }
   }
