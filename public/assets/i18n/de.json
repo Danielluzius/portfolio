@@ -79,7 +79,7 @@
       "schmidt": {
         "name": "P. Schmidt",
         "role": "Team Partner",
-        "text": "Platzhalter."
+        "text": "Daniel ist ein kreativer, wissensstarker Entwickler mit hervorragendem Designverständnis. Seine innovativen Ideen, technische Präzision und lösungsorientierte Denkweise bereichern jedes Projekt und machen ihn zu einem großen Mehrwert fürs Team.."
       },
       "placeholder1": {
         "name": "Platzhalter",
@@ -114,7 +114,10 @@
       "privacyLink": "Datenschutzerklärung",
       "privacyText2": " gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
       "privacyError": "Bitte akzeptiere die Datenschutzerklärung.",
-      "submit": "Senden"
+      "submit": "Senden",
+      "sending": "Wird gesendet...",
+      "successMessage": "✓ Nachricht erfolgreich gesendet! Ich melde mich bald bei dir.",
+      "errorMessage": "✗ Fehler beim Senden. Bitte versuche es später erneut oder kontaktiere mich direkt."
     }
   },
   "footer": {
@@ -129,7 +132,7 @@
         "name": "Daniel Luzius",
         "address": "Hauptstraße 125",
         "city": "63500 Seligenstadt, Deutschland",
-        "email": "E-Mail: Danielluzius@mail.de",
+        "email": "E-Mail: kontakt@danielluzius.de",
         "purpose": "Dieses Portfolio dient ausschließlich der Präsentation meiner Arbeiten als Fullstack-Entwickler. Es verfolgt keine kommerziellen Zwecke."
       },
       "disclaimer": {
@@ -146,7 +149,7 @@
       },
       "contact": {
         "title": "Kontakt",
-        "text": "Bei Fragen zum Portfolio oder rechtlichen Hinweisen kontaktieren Sie mich bitte per E-Mail unter Danielluzius@mail.de."
+        "text": "Bei Fragen zum Portfolio oder rechtlichen Hinweisen kontaktieren Sie mich bitte per E-Mail unter kontakt@danielluzius.de."
       },
       "date": "Stand: 03. Oktober 2025"
     }
@@ -172,7 +175,7 @@
       },
       "contact": {
         "title": "Kontakt",
-        "text": "Für Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns bitte unter Danielluzius@mail.de.",
+        "text": "Für Fragen zu dieser Datenschutzerklärung kontaktieren Sie uns bitte unter kontakt@danielluzius.de.",
         "date": "Datum: 06. Oktober 2025"
       }
     }

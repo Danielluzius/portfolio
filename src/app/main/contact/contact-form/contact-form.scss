@@ -32,6 +32,44 @@ $transition-fast: 0.2s ease;
   max-width: 616px;
 }
 
+.status-message {
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: $font-primary;
+  font-size: 16px;
+  line-height: $line-height-default;
+  text-align: center;
+  animation: slideIn 0.3s ease;
+
+  &.success {
+    background-color: rgba(61, 207, 182, 0.1);
+    border: 1px solid $primary-color;
+    color: $primary-color;
+  }
+
+  &.error {
+    background-color: rgba(236, 123, 123, 0.1);
+    border: 1px solid $error-color-solid;
+    color: $error-color-solid;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .form-fields {
   display: flex;
   flex-direction: column;

@@ -1,4 +1,14 @@
 <form class="contact-form">
+
+    <div class="status-message success" *ngIf="submitSuccess">
+        <p>{{ 'contact.form.successMessage' | transloco }}</p>
+    </div>
+
+
+    <div class="status-message error" *ngIf="submitError">
+        <p>{{ 'contact.form.errorMessage' | transloco }}</p>
+    </div>
+
     <div class="form-fields">
         <div class="form-field" [class.error]="nameError">
             <div class="field-content">
@@ -43,8 +53,10 @@
         </div>
 
         <div class="button-wrapper">
-            <button type="button" class="submit-button" [class.active]="privacyAccepted" (click)="onSubmit()">
-                <span class="button-text">{{ 'contact.form.submit' | transloco }}</span>
+            <button type="button" class="submit-button" [class.active]="privacyAccepted && !isSubmitting"
+                [disabled]="isSubmitting" (click)="onSubmit()">
+                <span class="button-text" *ngIf="!isSubmitting">{{ 'contact.form.submit' | transloco }}</span>
+                <span class="button-text" *ngIf="isSubmitting">{{ 'contact.form.sending' | transloco }}</span>
             </button>
         </div>
     </div>

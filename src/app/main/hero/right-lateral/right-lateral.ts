@@ -10,7 +10,7 @@ import { NgFor } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RightLateral {
-  readonly email = 'DANIELLUZIUS@MAIL.DE';
+  readonly email = 'KONTAKT@DANIELLUZIUS.DE';
   readonly mailtoHref = `mailto:${this.email}`;
 
   readonly socialLinks = [

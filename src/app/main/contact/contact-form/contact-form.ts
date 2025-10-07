@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { EmailService } from '../../../shared/services/email.service';
 
 @Component({
   standalone: true,
@@ -13,20 +14,22 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 })
 export class ContactForm {
   private translocoService = inject(TranslocoService);
+  private emailService = inject(EmailService);
 
-  // Form data
   name = '';
   email = '';
   message = '';
   privacyAccepted = false;
 
-  // Error states
   nameError = false;
   emailError = false;
   messageError = false;
   privacyError = false;
 
-  // Error messages - will be translated
+  isSubmitting = false;
+  submitSuccess = false;
+  submitError = false;
+
   get nameErrorMessage(): string {
     return this.translocoService.translate('contact.form.nameError');
   }
@@ -63,34 +66,37 @@ export class ContactForm {
     }
   }
 
-  onSubmit(): void {
-    // Reset all errors
+  async onSubmit(): Promise<void> {
     this.nameError = false;
     this.emailError = false;
     this.messageError = false;
     this.privacyError = false;
+    this.submitSuccess = false;
+    this.submitError = false;
 
     let hasError = false;
 
-    // Validate name
     if (!this.name || this.name.trim() === '') {
       this.nameError = true;
       hasError = true;
     }
 
-    // Validate email
     if (!this.email || this.email.trim() === '') {
       this.emailError = true;
       hasError = true;
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(this.email)) {
+        this.emailError = true;
+        hasError = true;
+      }
     }
 
-    // Validate message
     if (!this.message || this.message.trim() === '') {
       this.messageError = true;
       hasError = true;
     }
 
-    // Validate privacy
     if (!this.privacyAccepted) {
       this.privacyError = true;
       hasError = true;
@@ -100,12 +106,34 @@ export class ContactForm {
       return;
     }
 
-    // Form is valid - submit
-    console.log('Form submitted', {
-      name: this.name,
-      email: this.email,
-      message: this.message,
-    });
-    // TODO: Implementieren Sie hier die Formular-Logik
+    this.isSubmitting = true;
+
+    try {
+      await this.emailService.sendContactEmail(
+        this.name.trim(),
+        this.email.trim(),
+        this.message.trim()
+      );
+
+      this.submitSuccess = true;
+      this.isSubmitting = false;
+
+      this.name = '';
+      this.email = '';
+      this.message = '';
+      this.privacyAccepted = false;
+
+      setTimeout(() => {
+        this.submitSuccess = false;
+      }, 5000);
+    } catch (error) {
+      this.submitError = true;
+      this.isSubmitting = false;
+      console.error('Failed to send email:', error);
+
+      setTimeout(() => {
+        this.submitError = false;
+      }, 5000);
+    }
   }
 }

@@ -79,7 +79,7 @@
       "schmidt": {
         "name": "P. Schmidt",
         "role": "Team Partner",
-        "text": "Placeholder."
+        "text": "Daniel is a creative and knowledgeable developer with an excellent sense of design. His innovative ideas, technical precision, and solution-oriented mindset enrich every project and make him a valuable asset to any team."
       },
       "placeholder1": {
         "name": "Placeholder",
@@ -114,7 +114,10 @@
       "privacyLink": "privacy policy",
       "privacyText2": " and agree to the processing of my data as outlined.",
       "privacyError": "Please accept the privacy policy.",
-      "submit": "Send"
+      "submit": "Send",
+      "sending": "Sending...",
+      "successMessage": "✓ Message sent successfully! I'll get back to you soon.",
+      "errorMessage": "✗ Failed to send. Please try again later or contact me directly."
     }
   },
   "footer": {
@@ -129,7 +132,7 @@
         "name": "Daniel Luzius",
         "address": "Hauptstraße 125",
         "city": "63500 Seligenstadt, Germany",
-        "email": "Email: Danielluzius@mail.de",
+        "email": "Email: kontakt@danielluzius.de",
         "purpose": "This portfolio is intended solely to showcase my work as a full-stack developer. It is a non-commercial personal website."
       },
       "disclaimer": {
@@ -146,7 +149,7 @@
       },
       "contact": {
         "title": "Contact",
-        "text": "For questions about this portfolio or legal information, please contact me via email at Danielluzius@mail.de."
+        "text": "For questions about this portfolio or legal information, please contact me via email at kontakt@danielluzius.de."
       },
       "date": "Last updated: October 3, 2025"
     }
@@ -172,7 +175,7 @@
       },
       "contact": {
         "title": "Contact",
-        "text": "For any questions regarding this privacy policy, please contact us at Danielluzius@mail.de.",
+        "text": "For any questions regarding this privacy policy, please contact us at kontakt@danielluzius.de.",
         "date": "Date: October 06, 2025"
       }
     }
