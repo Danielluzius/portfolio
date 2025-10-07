@@ -13,48 +13,32 @@
                         {{ 'legalNotice.sections.imprint.name' | transloco }}<br>
                         {{ 'legalNotice.sections.imprint.address' | transloco }}<br>
                         {{ 'legalNotice.sections.imprint.city' | transloco }}<br>
-                        {{ 'legalNotice.sections.imprint.company' | transloco }}<br>
                         {{ 'legalNotice.sections.imprint.email' | transloco }}
                     </p>
+                    <p>{{ 'legalNotice.sections.imprint.purpose' | transloco }}</p>
                 </div>
 
                 <div class="text-section">
-                    <h2>{{ 'legalNotice.sections.exploringTheBoard.title' | transloco }}</h2>
-                    <p>{{ 'legalNotice.sections.exploringTheBoard.email' | transloco }}</p>
+                    <h2>{{ 'legalNotice.sections.disclaimer.title' | transloco }}</h2>
+                    <p>{{ 'legalNotice.sections.disclaimer.text' | transloco }}</p>
                 </div>
 
                 <div class="text-section">
-                    <h2>{{ 'legalNotice.sections.acceptanceOfTerms.title' | transloco }}</h2>
-                    <p [innerHTML]="'legalNotice.sections.acceptanceOfTerms.text' | transloco"></p>
+                    <h2>{{ 'legalNotice.sections.liabilityLinks.title' | transloco }}</h2>
+                    <p>{{ 'legalNotice.sections.liabilityLinks.text' | transloco }}</p>
                 </div>
 
                 <div class="text-section">
-                    <h2>{{ 'legalNotice.sections.scopeAndOwnership.title' | transloco }}</h2>
-                    <p [innerHTML]="'legalNotice.sections.scopeAndOwnership.text1' | transloco"></p>
-                    <p [innerHTML]="'legalNotice.sections.scopeAndOwnership.text2' | transloco"></p>
+                    <h2>{{ 'legalNotice.sections.copyright.title' | transloco }}</h2>
+                    <p>{{ 'legalNotice.sections.copyright.text' | transloco }}</p>
                 </div>
 
                 <div class="text-section">
-                    <h2>{{ 'legalNotice.sections.proprietaryRights.title' | transloco }}</h2>
-                    <p [innerHTML]="'legalNotice.sections.proprietaryRights.text' | transloco"></p>
+                    <h2>{{ 'legalNotice.sections.contact.title' | transloco }}</h2>
+                    <p>{{ 'legalNotice.sections.contact.text' | transloco }}</p>
                 </div>
 
-                <div class="text-section">
-                    <h2>{{ 'legalNotice.sections.useOfProduct.title' | transloco }}</h2>
-                    <p [innerHTML]="'legalNotice.sections.useOfProduct.text' | transloco"></p>
-                </div>
-
-                <div class="text-section">
-                    <h2>{{ 'legalNotice.sections.disclaimerOfWarranties.title' | transloco }}</h2>
-                    <p [innerHTML]="'legalNotice.sections.disclaimerOfWarranties.text' | transloco"></p>
-                </div>
-
-                <div class="text-section">
-                    <h2>{{ 'legalNotice.sections.indemnity.title' | transloco }}</h2>
-                    <p [innerHTML]="'legalNotice.sections.indemnity.text1' | transloco"></p>
-                    <p>{{ 'legalNotice.sections.indemnity.text2' | transloco }}</p>
-                    <p class="date-info">{{ 'legalNotice.sections.indemnity.date' | transloco }}</p>
-                </div>
+                <p class="date-info">{{ 'legalNotice.sections.date' | transloco }}</p>
             </div>
         </div>
     </div>

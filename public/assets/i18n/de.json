@@ -11,9 +11,9 @@
     },
     "marquee": {
       "available": "Verfügbar für Remote-Arbeit",
-      "role": "Fullstack Developer",
-      "location": "Standort: Seligenstadt",
-      "openToWork": "Offen für Aufträge"
+      "role": "Fullstack-Entwickler",
+      "location": "Seligenstadt, Deutschland",
+      "openToWork": "Offen für neue Projekte"
     }
   },
   "nav": {
@@ -25,42 +25,42 @@
   "aboutMe": {
     "tag": "Wer ich bin",
     "title": "Über mich",
-    "intro": "Hi, ich bin Daniel — ein Fullstack-Entwickler, der es liebt, Ideen in schnelle, zugängliche Interfaces zu übersetzen. Am meisten begeistert es mich, wenn eine knifflige UI-Interaktion endlich funktioniert und sich Nutzer direkt wohlfühlen.",
+    "intro": "Hi, ich bin Daniel — Fullstack-Entwickler mit Leidenschaft für sauberen Code, skalierbare Architekturen und klare Interfaces. Am meisten begeistert mich, wenn Frontend und Backend perfekt zusammenspielen und aus einer Idee ein reibungsloses Nutzererlebnis wird.",
     "highlights": {
-      "location": "Standort Seligenstadt, Deutschland — Ich arbeite gerne über Zeitzonen hinweg und bin offen für Remote-First-Teams.",
-      "mindset": "Neugierig und aufgeschlossen — Ich erkunde jedes Sprint neue Web-Technologien und teile meine Erkenntnisse mit dem Team.",
-      "problem": "Problemlöser aus Leidenschaft — Ich zerlege Herausforderungen in Experimente, messe die Auswirkungen und iteriere bis zur Perfektion."
+      "location": "Aus Seligenstadt, Deutschland – Ich arbeite gerne remote und in internationalen Teams.",
+      "mindset": "Neugierig und lernorientiert – In jedem Sprint entdecke ich neue Technologien und teile mein Wissen aktiv mit dem Team.",
+      "problem": "Analytischer Denker – Ich zerlege Probleme in testbare Schritte, messe Ergebnisse und optimiere bis zur besten Lösung."
     }
   },
   "skills": {
     "sectionHeading": "Technologien",
     "title": "Skill Set",
-    "description": "Eine kurze Einführung zu meinen Fähigkeiten. Ich hebe meine Erfahrung mit verschiedenen Frontend-Technologien hervor und betone meine Bereitschaft, neue Technologien zu lernen und mich anzupassen. Es ist mir wichtig, mit den schnellen Veränderungen in der Webentwicklung Schritt zu halten.",
+    "description": "Ein Überblick über meine Fähigkeiten. Ich arbeite mit modernen Frontend- und Backend-Technologien und lege Wert auf sauberen, skalierbaren Code. Lernen gehört für mich zum Alltag – ich bleibe flexibel und passe mich neuen Entwicklungen schnell an.",
     "cta": {
-      "title": "Du brauchst",
-      "highlight": "einen anderen Skill?",
-      "text": "Kontaktiere mich gerne. Ich freue mich darauf, mein bisheriges Wissen zu erweitern.",
-      "button": "Lass uns reden"
+      "title": "Dir fehlt ein",
+      "highlight": "bestimmter Skill?",
+      "text": "Melde dich gerne. Ich erweitere mein Wissen stetig und eigne mir neue Technologien gezielt an.",
+      "button": "Kontakt aufnehmen"
     }
   },
   "projects": {
     "eyebrow": "Portfolio",
     "title": "Meine Projekte",
-    "lead": "Entdecke eine Auswahl meiner Arbeiten – interagiere mit den Projekten, um meine Fähigkeiten in Aktion zu sehen.",
+    "lead": "Eine Auswahl meiner Arbeiten. Jedes Projekt zeigt, wie ich Ideen umsetze, sauberen Code schreibe und Technologien miteinander verbinde.",
     "dialog": {
-      "question": "Worum geht es bei diesem Projekt?",
+      "question": "Was macht dieses Projekt aus?",
       "github": "GitHub",
       "liveTest": "Live-Demo"
     },
     "pokedex": {
       "title": "Pokedex",
-      "subtitle": "API-gesteuerte Pokédex",
-      "description": "Responsive Pokédex basierend auf der PokéAPI. Suche, filtere und erkunde Pokémon-Statistiken mit flüssigen Animationen und Offline-Caching."
+      "subtitle": "API-basierter Pokédex",
+      "description": "Ein responsiver Pokédex auf Basis der PokéAPI. Nutzer können Pokémon suchen, filtern und Statistiken erkunden – mit flüssigen Animationen und Offline-Caching."
     },
     "goblinSlayer": {
       "title": "Goblin Slayer",
-      "subtitle": "Jump'n'Run Web-Spiel",
-      "description": "Ein browserbasierter taktischer Kampf-Prototyp mit responsiver UI, modularer Gegner-KI und wiederverwendbarer komponentenbasierter Architektur."
+      "subtitle": "Jump ’n’ Run Webgame",
+      "description": "Ein vollständig in JavaScript entwickeltes Browser-Game mit eigenem Design, Kampfmechanik und modularer Gegner-KI. Aufbauend auf einer komponentenbasierten Architektur und optimiert für flüssige Performance."
     },
     "placeholder": {
       "title": "Placeholder",
@@ -74,7 +74,7 @@
       "heinze": {
         "name": "S. Heinze",
         "role": "Team Partner",
-        "text": "Platzhalter."
+        "text": "Mit Daniel zu arbeiten bedeutet, immer ein Stück mehr zu bekommen, als man erwartet. Seine Kreativität fließt automatisch in jedes Detail ein."
       },
       "schmidt": {
         "name": "P. Schmidt",
@@ -97,8 +97,8 @@
     "label": "Kontaktiere mich",
     "title": "Lass uns zusammenarbeiten",
     "problem": {
-      "title": "Hast du ein Problem zu lösen?",
-      "description": "Ermutige Leute, dich zu kontaktieren und beschreibe, welche Rolle dich interessiert. Zeige, dass du durch deine Arbeit Mehrwert für ihre Projekte schaffen wirst. Brauchst du einen Fullstack-Entwickler? <strong>Lass uns reden!</strong>"
+      "title": "Suchst du einen Entwickler?",
+      "description": "Ich unterstütze Teams und Projekte mit sauberem Code, durchdachten Lösungen und einem klaren Blick für Nutzererlebnisse. Wenn du einen zuverlässigen Fullstack-Entwickler suchst, der Ideen effizient umsetzt – <strong>lass uns reden.</strong>"
     },
     "form": {
       "nameLabel": "Wie ist dein Name?",
@@ -114,7 +114,7 @@
       "privacyLink": "Datenschutzerklärung",
       "privacyText2": " gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
       "privacyError": "Bitte akzeptiere die Datenschutzerklärung.",
-      "submit": "Lass uns reden!"
+      "submit": "Senden"
     }
   },
   "footer": {
@@ -125,44 +125,30 @@
     "title": "Impressum",
     "sections": {
       "imprint": {
-        "title": "Impressum",
+        "title": "Angaben gemäß § 5 TMG",
         "name": "Daniel Luzius",
         "address": "Hauptstraße 125",
-        "city": "63500 Seligenstadt",
-        "company": "Exploring the Board",
-        "email": "E-Mail: Danielluzius@mail.de"
+        "city": "63500 Seligenstadt, Deutschland",
+        "email": "E-Mail: Danielluzius@mail.de",
+        "purpose": "Dieses Portfolio dient ausschließlich der Präsentation meiner Arbeiten als Fullstack-Entwickler. Es verfolgt keine kommerziellen Zwecke."
       },
-      "exploringTheBoard": {
-        "title": "Exploring the Board",
-        "email": "E-Mail: Danielluzius@mail.de"
+      "disclaimer": {
+        "title": "Haftung für Inhalte",
+        "text": "Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann ich jedoch keine Gewähr übernehmen."
       },
-      "acceptanceOfTerms": {
-        "title": "Annahme der Bedingungen",
-        "text": "Durch den Zugriff auf und die Nutzung von <span class='highlight'>Portfolio</span> (Produkt) erkennen Sie die folgenden Geschäftsbedingungen sowie alle Richtlinien, Leitlinien oder Änderungen an, die Ihnen von Zeit zu Zeit vorgelegt werden können. Wir, die aufgeführten Studenten, können die Geschäftsbedingungen jederzeit ohne vorherige Ankündigung aktualisieren oder ändern."
+      "liabilityLinks": {
+        "title": "Haftung für Links",
+        "text": "Mein Portfolio enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich."
       },
-      "scopeAndOwnership": {
-        "title": "Umfang und Eigentum am Produkt",
-        "text1": "<span class='highlight'>Portfolio</span> wurde im Rahmen eines studentischen Gruppenprojekts in einem Webentwicklungs-Bootcamp der <span class='highlight'>Developer Akademie GmbH</span> entwickelt. Es dient Bildungszwecken und ist nicht für den umfangreichen persönlichen und geschäftlichen Gebrauch vorgesehen. Daher können wir keine gleichbleibende Verfügbarkeit, Zuverlässigkeit, Genauigkeit oder andere Qualitätsaspekte dieses Produkts garantieren.",
-        "text2": "Das Design von <span class='highlight'>Portfolio</span> ist Eigentum der <span class='highlight'>Developer Akademie GmbH</span>. Die unbefugte Nutzung, Vervielfältigung, Änderung, Verbreitung oder Replikation des Designs ist strengstens untersagt."
+      "copyright": {
+        "title": "Urheberrecht",
+        "text": "Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung oder Verbreitung außerhalb der Grenzen des Urheberrechts bedarf meiner schriftlichen Zustimmung."
       },
-      "proprietaryRights": {
-        "title": "Eigentumsrechte",
-        "text": "Abgesehen vom Design, das der <span class='highlight'>Developer Akademie GmbH</span> gehört, behalten wir, die aufgeführten Studenten, alle Eigentumsrechte an <span class='highlight'>Portfolio</span>, einschließlich aller damit verbundenen urheberrechtlich geschützten Materialien, Marken und anderen proprietären Informationen."
+      "contact": {
+        "title": "Kontakt",
+        "text": "Bei Fragen zum Portfolio oder rechtlichen Hinweisen kontaktieren Sie mich bitte per E-Mail unter Danielluzius@mail.de."
       },
-      "useOfProduct": {
-        "title": "Nutzung des Produkts",
-        "text": "<span class='highlight'>Portfolio</span> ist nur für rechtmäßige Zwecke und in Übereinstimmung mit allen geltenden Gesetzen und Vorschriften zu verwenden. Jede Nutzung von <span class='highlight'>Portfolio</span> für illegale Aktivitäten oder zur Belästigung, Schädigung, Bedrohung oder Einschüchterung anderer Personen ist strengstens untersagt. Sie sind allein verantwortlich für Ihre Interaktionen mit anderen Nutzern von <span class='highlight'>Portfolio</span>."
-      },
-      "disclaimerOfWarranties": {
-        "title": "Haftungsausschluss und Haftungsbeschränkung",
-        "text": "<span class='highlight'>Portfolio</span> wird 'wie besehen' ohne jegliche ausdrückliche oder stillschweigende Garantie bereitgestellt, einschließlich, aber nicht beschränkt auf die stillschweigenden Garantien der Marktgängigkeit, Eignung für einen bestimmten Zweck und Nichtverletzung. In keinem Fall haften wir, die aufgeführten Studenten, oder die <span class='highlight'>Developer Akademie</span>, für direkte, indirekte, zufällige, spezielle, Folge- oder exemplarische Schäden, einschließlich, aber nicht beschränkt auf Schäden durch Gewinnverlust, Geschäftswert, Nutzung, Daten oder andere immaterielle Verluste, selbst wenn wir über die Möglichkeit solcher Schäden informiert wurden, die sich aus oder im Zusammenhang mit der Nutzung oder Leistung von <span class='highlight'>Portfolio</span> ergeben."
-      },
-      "indemnity": {
-        "title": "Schadloshaltung",
-        "text1": "Sie erklären sich damit einverstanden, uns, die aufgeführten Studenten, die <span class='highlight'>Developer Akademie</span> sowie unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeiter von allen Ansprüchen, Forderungen, Verlusten, Schäden, Kosten oder Haftungen (einschließlich angemessener Anwaltskosten) freizustellen, zu verteidigen und schadlos zu halten, die sich aus oder im Zusammenhang mit Ihrer Nutzung von <span class='highlight'>Portfolio</span> und/oder Ihrem Verstoß gegen dieses Impressum ergeben.",
-        "text2": "Für Fragen oder Mitteilungen kontaktieren Sie uns bitte unter Danielluzius@mail.de.",
-        "date": "Datum: 03. Oktober 2025"
-      }
+      "date": "Stand: 03. Oktober 2025"
     }
   },
   "privacyPolicy": {

@@ -49,6 +49,11 @@ export class Projects implements OnDestroy {
           icon: 'assets/icon/skill-icon/javascript_icon.png',
           alt: 'JavaScript icon',
         },
+        {
+          label: 'API',
+          icon: 'assets/icon/skill-icon/api_icon.png',
+          alt: 'API icon',
+        },
       ],
       preview: 'assets/img/projects/pokedex.png',
       previewAlt: 'Join project board preview',
@@ -75,11 +80,6 @@ export class Projects implements OnDestroy {
           label: 'JavaScript',
           icon: 'assets/icon/skill-icon/javascript_icon.png',
           alt: 'JavaScript icon',
-        },
-        {
-          label: 'API',
-          icon: 'assets/icon/skill-icon/api_icon.png',
-          alt: 'API icon',
         },
       ],
       preview: 'assets/img/projects/goblin_slayer.png',
