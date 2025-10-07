@@ -57,8 +57,8 @@ export class Projects implements OnDestroy {
       ],
       preview: 'assets/img/projects/pokedex.png',
       previewAlt: 'Join project board preview',
-      githubUrl: 'https://github.com/Danielluzius',
-      liveUrl: 'https://danielluzius.de',
+      githubUrl: 'https://github.com/Danielluzius/pokedex',
+      liveUrl: 'http://danielluzius.de/pokedex',
     },
     {
       title: 'projects.goblinSlayer.title',
@@ -84,7 +84,8 @@ export class Projects implements OnDestroy {
       ],
       preview: 'assets/img/projects/goblin_slayer.png',
       previewAlt: 'Goblin Slayer gameplay preview',
-      githubUrl: 'https://github.com/Danielluzius',
+      githubUrl: 'https://github.com/Danielluzius/elpolloloco',
+      liveUrl: 'http://danielluzius.de/goblin_slayer',
     },
     {
       title: 'projects.placeholder.title',
