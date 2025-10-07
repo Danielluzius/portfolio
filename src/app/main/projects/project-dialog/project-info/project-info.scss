@@ -89,8 +89,16 @@ $accent: #3dcfb6;
 .info__stack-icon {
   width: 1.5rem;
   height: 1.5rem;
-  object-fit: contain;
-  filter: brightness(1.1);
+  background-color: $accent;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-image: var(--icon-url);
+  mask-image: var(--icon-url);
 }
 
 .info__actions {

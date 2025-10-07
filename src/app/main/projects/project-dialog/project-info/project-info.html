@@ -13,7 +13,8 @@
 
     <ul class="info__stack" aria-label="Technologies used">
         <li class="info__stack-item" *ngFor="let tech of project.stack">
-            <img class="info__stack-icon" [src]="tech.icon" [alt]="tech.alt" />
+            <span class="info__stack-icon" [style.--icon-url]="'url(' + tech.icon + ')'" [attr.aria-label]="tech.alt"
+                role="img"></span>
             <span>{{ tech.label }}</span>
         </li>
     </ul>
