@@ -7,9 +7,12 @@ import {
   OnDestroy,
   Renderer2,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Project, ProjectDialog } from './project-dialog/project-dialog';
+import { ProjectDialog } from './project-dialog/project-dialog';
+import { Project } from '../../shared/models/project.model';
+import { ProjectsService } from '../../shared/services/projects.service';
 
 @Component({
   standalone: true,
@@ -26,100 +29,9 @@ export class Projects implements OnDestroy {
   private previewRef!: ElementRef<HTMLElement>;
 
   private readonly bodyScrollClass = 'body--no-scroll';
+  private readonly projectsService = inject(ProjectsService);
 
-  protected readonly projects: Project[] = [
-    {
-      title: 'projects.pokedex.title',
-      subtitle: 'projects.pokedex.subtitle',
-      description: 'projects.pokedex.description',
-      technologies: ['CSS', 'HTML', 'JavaScript'],
-      stack: [
-        {
-          label: 'CSS',
-          icon: 'assets/icon/skill-icon/css_icon.png',
-          alt: 'CSS icon',
-        },
-        {
-          label: 'HTML',
-          icon: 'assets/icon/skill-icon/html_icon.png',
-          alt: 'HTML icon',
-        },
-        {
-          label: 'JavaScript',
-          icon: 'assets/icon/skill-icon/javascript_icon.png',
-          alt: 'JavaScript icon',
-        },
-        {
-          label: 'API',
-          icon: 'assets/icon/skill-icon/api_icon.png',
-          alt: 'API icon',
-        },
-      ],
-      preview: 'assets/img/projects/pokedex.png',
-      previewAlt: 'Join project board preview',
-      githubUrl: 'https://github.com/Danielluzius/pokedex',
-      liveUrl: 'http://danielluzius.de/pokedex',
-    },
-    {
-      title: 'projects.goblinSlayer.title',
-      subtitle: 'projects.goblinSlayer.subtitle',
-      description: 'projects.goblinSlayer.description',
-      technologies: ['CSS', 'HTML', 'JavaScript', 'API'],
-      stack: [
-        {
-          label: 'CSS',
-          icon: 'assets/icon/skill-icon/css_icon.png',
-          alt: 'CSS icon',
-        },
-        {
-          label: 'HTML',
-          icon: 'assets/icon/skill-icon/html_icon.png',
-          alt: 'HTML icon',
-        },
-        {
-          label: 'JavaScript',
-          icon: 'assets/icon/skill-icon/javascript_icon.png',
-          alt: 'JavaScript icon',
-        },
-      ],
-      preview: 'assets/img/projects/goblin_slayer.png',
-      previewAlt: 'Goblin Slayer gameplay preview',
-      githubUrl: 'https://github.com/Danielluzius/elpolloloco',
-      liveUrl: 'http://danielluzius.de/goblin_slayer',
-    },
-    {
-      title: 'projects.placeholder.title',
-      subtitle: 'projects.placeholder.subtitle',
-      description: 'projects.placeholder.description',
-      technologies: ['Angular', 'TypeScript', 'Firebase', 'CSS'],
-      stack: [
-        {
-          label: 'Angular',
-          icon: 'assets/icon/skill-icon/angular_icon.png',
-          alt: 'Angular icon',
-        },
-        {
-          label: 'TypeScript',
-          icon: 'assets/icon/skill-icon/typescript_icon.png',
-          alt: 'TypeScript icon',
-        },
-        {
-          label: 'Firebase',
-          icon: 'assets/icon/skill-icon/firebase_icon.png',
-          alt: 'Firebase icon',
-        },
-        {
-          label: 'CSS',
-          icon: 'assets/icon/skill-icon/css_icon.png',
-          alt: 'CSS icon',
-        },
-      ],
-      preview: 'assets/img/projects/placeholder.png',
-      previewAlt: 'Placeholder application preview',
-      githubUrl: 'https://github.com/Danielluzius',
-      liveUrl: 'https://danielluzius.de',
-    },
-  ];
+  protected readonly projects: Project[] = this.projectsService.getProjects();
 
   protected selectedProjectIndex: number | null = null;
   protected activeDialogIndex: number | null = null;
@@ -155,40 +67,47 @@ export class Projects implements OnDestroy {
   }
 
   protected showPreview(index: number, element: HTMLElement) {
-    if (index < 0 || index >= this.projects.length) {
+    if (!this.isValidIndex(index) || this.activeDialogIndex !== null) {
       return;
     }
 
     this.selectedProjectIndex = index;
+    this.schedulePreviewPositioning(index, element);
+  }
 
-    if (this.activeDialogIndex !== null) {
-      return;
+  private isValidIndex(index: number): boolean {
+    return index >= 0 && index < this.projects.length;
+  }
+
+  private schedulePreviewPositioning(index: number, element: HTMLElement): void {
+    setTimeout(() => {
+      this.positionPreview(index, element);
+    });
+  }
+
+  private positionPreview(index: number, element: HTMLElement): void {
+    const preview = this.previewRef?.nativeElement;
+    const layout = this.layoutRef?.nativeElement;
+
+    if (!preview || !layout) return;
+
+    const targetTop = this.calculateTargetTop(index, element, preview);
+    const maxTop = Math.max(0, layout.offsetHeight - preview.offsetHeight);
+    this.previewTop = Math.min(Math.max(targetTop, 0), maxTop);
+  }
+
+  private calculateTargetTop(index: number, element: HTMLElement, preview: HTMLElement): number {
+    const previewHeight = preview.offsetHeight;
+    const rowTop = element.offsetTop;
+    const rowHeight = element.offsetHeight;
+
+    if (index === this.projects.length - 1) {
+      return rowTop + rowHeight - previewHeight;
+    } else if (index > 0) {
+      return rowTop + rowHeight / 2 - previewHeight / 2;
     }
 
-    setTimeout(() => {
-      const preview = this.previewRef?.nativeElement;
-      const layout = this.layoutRef?.nativeElement;
-      if (!preview || !layout) {
-        return;
-      }
-
-      const previewHeight = preview.offsetHeight;
-      const layoutHeight = layout.offsetHeight;
-      const rowTop = element.offsetTop;
-      const rowHeight = element.offsetHeight;
-      const rowBottom = rowTop + rowHeight;
-
-      let targetTop = rowTop;
-
-      if (index === this.projects.length - 1) {
-        targetTop = rowBottom - previewHeight;
-      } else if (index > 0) {
-        targetTop = rowTop + rowHeight / 2 - previewHeight / 2;
-      }
-
-      const maxTop = Math.max(0, layoutHeight - previewHeight);
-      this.previewTop = Math.min(Math.max(targetTop, 0), maxTop);
-    });
+    return rowTop;
   }
 
   protected hidePreview() {

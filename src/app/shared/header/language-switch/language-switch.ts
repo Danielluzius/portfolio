@@ -14,9 +14,30 @@ export class LanguageSwitch {
   activeLanguage: 'en' | 'de' = 'de';
   isHovering = false;
 
+  /**
+   * Angular lifecycle hook that initializes the component.
+   * Loads the saved language preference or uses the default.
+   */
   ngOnInit() {
-    // Lade die gespeicherte Sprache aus LocalStorage oder verwende die aktive Sprache von Transloco
-    const savedLanguage = localStorage.getItem('preferredLanguage') as 'en' | 'de' | null;
+    const savedLanguage = this.getSavedLanguage();
+    this.initializeLanguage(savedLanguage);
+  }
+
+  /**
+   * Retrieves the saved language preference from localStorage.
+   * @private
+   * @returns {'en' | 'de' | null} The saved language or null if not set.
+   */
+  private getSavedLanguage(): 'en' | 'de' | null {
+    return localStorage.getItem('preferredLanguage') as 'en' | 'de' | null;
+  }
+
+  /**
+   * Initializes the active language based on saved preference or default.
+   * @private
+   * @param {'en' | 'de' | null} savedLanguage - The saved language preference.
+   */
+  private initializeLanguage(savedLanguage: 'en' | 'de' | null): void {
     if (savedLanguage) {
       this.activeLanguage = savedLanguage;
       this.translocoService.setActiveLang(savedLanguage);
@@ -25,6 +46,10 @@ export class LanguageSwitch {
     }
   }
 
+  /**
+   * Sets the active language and persists it to localStorage.
+   * @param {'en' | 'de'} language - The language to activate.
+   */
   setLanguage(language: 'en' | 'de'): void {
     if (this.activeLanguage === language) {
       return;

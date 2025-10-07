@@ -1,12 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-
-export interface Reference {
-  name: string;
-  role: string;
-  text: string;
-  image?: string;
-}
+import { Reference } from '../../../shared/models/reference.model';
 
 @Component({
   selector: 'app-reference-card',

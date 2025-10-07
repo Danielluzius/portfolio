@@ -14,10 +14,16 @@ import { BurgerMenu } from './burger-menu/burger-menu';
 export class Header {
   isMenuOpen = false;
 
+  /**
+   * Toggles the mobile menu open/closed state.
+   */
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  /**
+   * Closes the mobile menu.
+   */
   closeMenu(): void {
     this.isMenuOpen = false;
   }

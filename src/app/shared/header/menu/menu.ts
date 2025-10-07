@@ -26,6 +26,10 @@ export class Menu {
 
   activeItem: MenuItemId | null = null;
 
+  /**
+   * Sets the active menu item.
+   * @param {MenuItemId} id - The ID of the menu item to activate.
+   */
   setActive(id: MenuItemId): void {
     if (this.activeItem === id) {
       return;

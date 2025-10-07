@@ -30,6 +30,12 @@ export class BurgerMenu implements OnChanges, OnDestroy {
   currentLanguage: 'en' | 'de' = 'de';
   private readonly bodyScrollClass = 'body--no-scroll';
 
+  /**
+   * Creates an instance of BurgerMenu and subscribes to language changes.
+   * @param {Document} documentRef - Reference to the document object.
+   * @param {Renderer2} renderer - Angular's Renderer2 for DOM manipulation.
+   * @param {Router} router - Angular router for navigation.
+   */
   constructor(
     @Inject(DOCUMENT) private readonly documentRef: Document,
     private readonly renderer: Renderer2,
@@ -44,6 +50,11 @@ export class BurgerMenu implements OnChanges, OnDestroy {
     });
   }
 
+  /**
+   * Handles keyboard events to close the menu when Escape is pressed.
+   * @protected
+   * @param {KeyboardEvent} event - The keyboard event.
+   */
   @HostListener('document:keydown', ['$event'])
   protected onDocumentKeydown(event: KeyboardEvent): void {
     if (event.key !== 'Escape' || !this.isOpen) {
@@ -53,53 +64,108 @@ export class BurgerMenu implements OnChanges, OnDestroy {
     this.close.emit();
   }
 
+  /**
+   * Angular lifecycle hook that responds to input property changes.
+   * Handles menu state changes when isOpen property changes.
+   * @param {SimpleChanges} changes - Object containing changed properties.
+   */
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['isOpen']) {
-      if (this.isOpen) {
-        this.lockBodyScroll();
-      } else {
-        this.unlockBodyScroll();
-      }
+      this.handleMenuStateChange();
     }
   }
 
+  /**
+   * Angular lifecycle hook that runs when the component is destroyed.
+   * Ensures body scroll is unlocked on cleanup.
+   */
   ngOnDestroy(): void {
     this.unlockBodyScroll();
   }
 
+  /**
+   * Handles clicks on menu links and navigates to the target section.
+   * @param {Event} event - The click event.
+   */
   onLinkClick(event: Event): void {
     event.preventDefault();
-    const target = event.currentTarget as HTMLAnchorElement;
-    const href = target.getAttribute('href');
-
+    const href = this.extractHref(event);
     if (href) {
-      // Prüfe, ob wir auf einer anderen Route sind (z.B. legal-notice)
-      if (this.router.url !== '/') {
-        // Navigiere erst zur Hauptseite, dann scrolle zum Element
-        this.router.navigate(['/']).then(() => {
-          setTimeout(() => {
-            const element = document.querySelector(href);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          }, 100); // Kurze Verzögerung, damit die Hauptseite geladen ist
-        });
-      } else {
-        // Wir sind schon auf der Hauptseite, einfach scrollen
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
+      this.handleNavigation(href);
     }
-
     this.close.emit();
   }
 
+  /**
+   * Handles menu state changes by locking or unlocking body scroll.
+   * @private
+   */
+  private handleMenuStateChange(): void {
+    if (this.isOpen) {
+      this.lockBodyScroll();
+    } else {
+      this.unlockBodyScroll();
+    }
+  }
+
+  /**
+   * Extracts the href attribute from the event target.
+   * @private
+   * @param {Event} event - The event containing the target element.
+   * @returns {string | null} The href value or null if not found.
+   */
+  private extractHref(event: Event): string | null {
+    const target = event.currentTarget as HTMLAnchorElement;
+    return target.getAttribute('href');
+  }
+
+  /**
+   * Handles navigation based on current route.
+   * @private
+   * @param {string} href - The target href to navigate to.
+   */
+  private handleNavigation(href: string): void {
+    if (this.router.url !== '/') {
+      this.navigateToHomeAndScroll(href);
+    } else {
+      this.scrollToElement(href);
+    }
+  }
+
+  /**
+   * Navigates to home page and then scrolls to the target element.
+   * @private
+   * @param {string} href - The target href to scroll to.
+   */
+  private navigateToHomeAndScroll(href: string): void {
+    this.router.navigate(['/']).then(() => {
+      setTimeout(() => this.scrollToElement(href), 100);
+    });
+  }
+
+  /**
+   * Scrolls to the element specified by the href selector.
+   * @private
+   * @param {string} href - The CSS selector of the target element.
+   */
+  private scrollToElement(href: string): void {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  /**
+   * Handles backdrop clicks to close the menu.
+   */
   onBackdropClick(): void {
     this.close.emit();
   }
 
+  /**
+   * Switches the application language.
+   * @param {'en' | 'de'} lang - The language to switch to.
+   */
   switchLanguage(lang: 'en' | 'de'): void {
     if (this.currentLanguage === lang) {
       return;
@@ -108,6 +174,10 @@ export class BurgerMenu implements OnChanges, OnDestroy {
     this.translocoService.setActiveLang(lang);
   }
 
+  /**
+   * Locks body scroll by adding a CSS class.
+   * @private
+   */
   private lockBodyScroll(): void {
     const body = this.documentRef.body;
     if (!body || body.classList.contains(this.bodyScrollClass)) {
@@ -116,6 +186,10 @@ export class BurgerMenu implements OnChanges, OnDestroy {
     this.renderer.addClass(body, this.bodyScrollClass);
   }
 
+  /**
+   * Unlocks body scroll by removing the CSS class.
+   * @private
+   */
   private unlockBodyScroll(): void {
     const body = this.documentRef.body;
     if (!body || !body.classList.contains(this.bodyScrollClass)) {

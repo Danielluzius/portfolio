@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { ReferenceCard, Reference } from './reference-card/reference-card';
+import { ReferenceCard } from './reference-card/reference-card';
 import { ReferenceNavigation } from './reference-navigation/reference-navigation';
+import { Reference } from '../../shared/models/reference.model';
+import { ReferencesService } from '../../shared/services/references.service';
 
 @Component({
   standalone: true,
@@ -14,32 +16,13 @@ import { ReferenceNavigation } from './reference-navigation/reference-navigation
 export class References implements AfterViewInit {
   @ViewChild('carouselContainer') carouselContainer!: ElementRef<HTMLElement>;
 
+  private readonly referencesService = inject(ReferencesService);
+
   currentIndex = 0;
   private isScrolling = false;
   private scrollTimeout: any;
 
-  references: Reference[] = [
-    {
-      name: 'references.items.heinze.name',
-      role: 'references.items.heinze.role',
-      text: 'references.items.heinze.text',
-    },
-    {
-      name: 'references.items.schmidt.name',
-      role: 'references.items.schmidt.role',
-      text: 'references.items.schmidt.text',
-    },
-    {
-      name: 'references.items.placeholder1.name',
-      role: 'references.items.placeholder1.role',
-      text: 'references.items.placeholder1.text',
-    },
-    {
-      name: 'references.items.placeholder2.name',
-      role: 'references.items.placeholder2.role',
-      text: 'references.items.placeholder2.text',
-    },
-  ];
+  references: Reference[] = this.referencesService.getReferences();
 
   get carouselItems(): Reference[] {
     if (this.references.length === 0) return [];
@@ -49,17 +32,28 @@ export class References implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.initializeCarousel();
+    this.setupScrollListener();
+  }
+
+  private initializeCarousel(): void {
     setTimeout(() => {
       this.scrollToActualIndex(0, false);
       this.updateItemOpacity();
     }, 0);
+  }
 
+  private setupScrollListener(): void {
     const carousel = this.carouselContainer.nativeElement;
     carousel.addEventListener('scroll', () => {
-      this.updateCurrentIndex();
-      this.updateItemOpacity();
-      this.handleInfiniteScroll();
+      this.handleScroll();
     });
+  }
+
+  private handleScroll(): void {
+    this.updateCurrentIndex();
+    this.updateItemOpacity();
+    this.handleInfiniteScroll();
   }
 
   scrollCarousel(direction: 'left' | 'right') {
@@ -98,59 +92,97 @@ export class References implements AfterViewInit {
     }
   }
 
-  private handleInfiniteScroll() {
+  private handleInfiniteScroll(): void {
     const carousel = this.carouselContainer.nativeElement;
     const itemWidth = carousel.querySelector('li')?.clientWidth || 0;
 
-    if (itemWidth === 0 || this.isScrolling) return;
+    if (!this.canHandleScroll(itemWidth)) return;
 
     const carouselIndex = Math.round(carousel.scrollLeft / itemWidth);
-    const totalItems = this.carouselItems.length;
+    this.scheduleScrollAdjustment(carousel, itemWidth, carouselIndex);
+  }
 
+  private canHandleScroll(itemWidth: number): boolean {
+    return itemWidth !== 0 && !this.isScrolling;
+  }
+
+  private scheduleScrollAdjustment(
+    carousel: HTMLElement,
+    itemWidth: number,
+    carouselIndex: number
+  ): void {
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
     }
 
     this.scrollTimeout = setTimeout(() => {
-      if (carouselIndex === 0) {
-        this.isScrolling = true;
-        carousel.scrollTo({
-          left: itemWidth * this.references.length,
-          behavior: 'auto',
-        });
-        setTimeout(() => (this.isScrolling = false), 50);
-      } else if (carouselIndex === totalItems - 1) {
-        this.isScrolling = true;
-        carousel.scrollTo({
-          left: itemWidth * 1,
-          behavior: 'auto',
-        });
-        setTimeout(() => (this.isScrolling = false), 50);
-      }
+      this.adjustScrollPosition(carousel, itemWidth, carouselIndex);
     }, 150);
   }
 
-  private updateItemOpacity() {
+  private adjustScrollPosition(
+    carousel: HTMLElement,
+    itemWidth: number,
+    carouselIndex: number
+  ): void {
+    const totalItems = this.carouselItems.length;
+
+    if (carouselIndex === 0) {
+      this.jumpToPosition(carousel, itemWidth * this.references.length);
+    } else if (carouselIndex === totalItems - 1) {
+      this.jumpToPosition(carousel, itemWidth * 1);
+    }
+  }
+
+  private jumpToPosition(carousel: HTMLElement, left: number): void {
+    this.isScrolling = true;
+    carousel.scrollTo({ left, behavior: 'auto' });
+    setTimeout(() => (this.isScrolling = false), 50);
+  }
+
+  private updateItemOpacity(): void {
     const carousel = this.carouselContainer.nativeElement;
     const items = carousel.querySelectorAll('.carousel-item');
     const carouselCenter = carousel.offsetWidth / 2;
 
     items.forEach((item: Element) => {
-      const htmlItem = item as HTMLElement;
-      const itemRect = htmlItem.getBoundingClientRect();
-      const carouselRect = carousel.getBoundingClientRect();
-      const itemCenter = itemRect.left - carouselRect.left + itemRect.width / 2;
-      const distance = Math.abs(carouselCenter - itemCenter);
-      const maxDistance = carousel.offsetWidth / 2;
-
-      const opacity = Math.max(0.6, 1 - (distance / maxDistance) * 0.4);
-      htmlItem.style.opacity = opacity.toString();
-
-      if (distance < itemRect.width / 4) {
-        htmlItem.classList.add('active');
-      } else {
-        htmlItem.classList.remove('active');
-      }
+      this.updateSingleItemOpacity(item as HTMLElement, carousel, carouselCenter);
     });
+  }
+
+  private updateSingleItemOpacity(
+    item: HTMLElement,
+    carousel: HTMLElement,
+    carouselCenter: number
+  ): void {
+    const distance = this.calculateItemDistance(item, carousel, carouselCenter);
+    this.applyOpacity(item, carousel, distance);
+    this.toggleActiveClass(item, distance);
+  }
+
+  private calculateItemDistance(
+    item: HTMLElement,
+    carousel: HTMLElement,
+    carouselCenter: number
+  ): number {
+    const itemRect = item.getBoundingClientRect();
+    const carouselRect = carousel.getBoundingClientRect();
+    const itemCenter = itemRect.left - carouselRect.left + itemRect.width / 2;
+    return Math.abs(carouselCenter - itemCenter);
+  }
+
+  private applyOpacity(item: HTMLElement, carousel: HTMLElement, distance: number): void {
+    const maxDistance = carousel.offsetWidth / 2;
+    const opacity = Math.max(0.6, 1 - (distance / maxDistance) * 0.4);
+    item.style.opacity = opacity.toString();
+  }
+
+  private toggleActiveClass(item: HTMLElement, distance: number): void {
+    const itemRect = item.getBoundingClientRect();
+    if (distance < itemRect.width / 4) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
   }
 }

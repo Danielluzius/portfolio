@@ -2,24 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ProjectInfo } from './project-info/project-info';
-
-export interface ProjectStack {
-  label: string;
-  icon: string;
-  alt: string;
-}
-
-export interface Project {
-  title: string;
-  subtitle: string;
-  description: string;
-  technologies: string[];
-  stack: ProjectStack[];
-  preview: string;
-  previewAlt: string;
-  githubUrl?: string;
-  liveUrl?: string;
-}
+import { Project } from '../../../shared/models/project.model';
 
 @Component({
   standalone: true,
