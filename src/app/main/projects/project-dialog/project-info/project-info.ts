@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Project } from '../project-dialog';
+import { Project } from '../../../../shared/models/project.model';
 
 @Component({
   selector: 'app-project-info',

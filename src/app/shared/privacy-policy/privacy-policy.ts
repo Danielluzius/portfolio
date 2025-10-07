@@ -11,12 +11,24 @@ import { TranslocoPipe } from '@jsverse/transloco';
   encapsulation: ViewEncapsulation.None,
 })
 export class PrivacyPolicy implements OnInit {
+  /**
+   * Creates an instance of PrivacyPolicy.
+   * @param {Router} router - Angular router service for navigation
+   */
   constructor(private router: Router) {}
 
+  /**
+   * Angular lifecycle hook that is called after the component is initialized.
+   * Scrolls the page to the top when the privacy policy is displayed.
+   */
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  /**
+   * Navigates back to the home page and scrolls to the top.
+   * Uses instant scroll behavior after navigation completes.
+   */
   goBack(): void {
     this.router.navigate(['/']).then(() => {
       window.scrollTo({ top: 0, behavior: 'instant' });

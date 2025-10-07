@@ -5,15 +5,13 @@ import {
   EventEmitter,
   OnChanges,
   SimpleChanges,
-  Inject,
-  Renderer2,
   OnDestroy,
   HostListener,
   inject,
 } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslocoService, TranslocoPipe } from '@jsverse/transloco';
+import { BodyScrollService } from '../../services/body-scroll.service';
 
 @Component({
   standalone: true,
@@ -27,20 +25,15 @@ export class BurgerMenu implements OnChanges, OnDestroy {
   @Output() close = new EventEmitter<void>();
 
   private translocoService = inject(TranslocoService);
+  private bodyScrollService = inject(BodyScrollService);
+  private router = inject(Router);
+
   currentLanguage: 'en' | 'de' = 'de';
-  private readonly bodyScrollClass = 'body--no-scroll';
 
   /**
    * Creates an instance of BurgerMenu and subscribes to language changes.
-   * @param {Document} documentRef - Reference to the document object.
-   * @param {Renderer2} renderer - Angular's Renderer2 for DOM manipulation.
-   * @param {Router} router - Angular router for navigation.
    */
-  constructor(
-    @Inject(DOCUMENT) private readonly documentRef: Document,
-    private readonly renderer: Renderer2,
-    private readonly router: Router
-  ) {
+  constructor() {
     // Synchronisiere mit der aktuellen Transloco-Sprache
     this.currentLanguage = this.translocoService.getActiveLang() as 'en' | 'de';
 
@@ -80,7 +73,7 @@ export class BurgerMenu implements OnChanges, OnDestroy {
    * Ensures body scroll is unlocked on cleanup.
    */
   ngOnDestroy(): void {
-    this.unlockBodyScroll();
+    this.bodyScrollService.unlock();
   }
 
   /**
@@ -102,9 +95,9 @@ export class BurgerMenu implements OnChanges, OnDestroy {
    */
   private handleMenuStateChange(): void {
     if (this.isOpen) {
-      this.lockBodyScroll();
+      this.bodyScrollService.lock();
     } else {
-      this.unlockBodyScroll();
+      this.bodyScrollService.unlock();
     }
   }
 
@@ -172,29 +165,5 @@ export class BurgerMenu implements OnChanges, OnDestroy {
     }
     this.currentLanguage = lang;
     this.translocoService.setActiveLang(lang);
-  }
-
-  /**
-   * Locks body scroll by adding a CSS class.
-   * @private
-   */
-  private lockBodyScroll(): void {
-    const body = this.documentRef.body;
-    if (!body || body.classList.contains(this.bodyScrollClass)) {
-      return;
-    }
-    this.renderer.addClass(body, this.bodyScrollClass);
-  }
-
-  /**
-   * Unlocks body scroll by removing the CSS class.
-   * @private
-   */
-  private unlockBodyScroll(): void {
-    const body = this.documentRef.body;
-    if (!body || !body.classList.contains(this.bodyScrollClass)) {
-      return;
-    }
-    this.renderer.removeClass(body, this.bodyScrollClass);
   }
 }
