@@ -11,12 +11,11 @@ import { TranslocoHttpLoader } from './transloco-loader';
 
 import { routes } from './app.routes';
 
-// Lade die bevorzugte Sprache aus LocalStorage oder verwende 'de' als Default
 const getInitialLanguage = (): string => {
   if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-    return localStorage.getItem('preferredLanguage') || 'de';
+    return localStorage.getItem('preferredLanguage') || 'en';
   }
-  return 'de';
+  return 'en';
 };
 
 export const appConfig: ApplicationConfig = {

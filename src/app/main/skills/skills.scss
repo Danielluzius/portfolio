@@ -227,4 +227,15 @@
   &__icon:focus-visible &__icon-image {
     transform: translateY(-4px);
   }
+
+  @media (max-width: 480px) {
+    &__cta-button {
+      border-color: #3dcfb6;
+      color: #3dcfb6;
+    }
+
+    &__cta-button-text {
+      animation: slideTextLoop 5s linear infinite;
+    }
+  }
 }
