@@ -50,7 +50,8 @@
     "dialog": {
       "question": "Was macht dieses Projekt aus?",
       "github": "GitHub",
-      "liveTest": "Live-Demo"
+      "liveTest": "Live-Demo",
+      "nextProject": "Nächstes Projekt"
     },
     "pokedex": {
       "title": "Pokedex",

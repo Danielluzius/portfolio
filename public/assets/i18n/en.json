@@ -50,7 +50,8 @@
     "dialog": {
       "question": "What is this project about?",
       "github": "GitHub",
-      "liveTest": "Live Test"
+      "liveTest": "Live Test",
+      "nextProject": "Next project"
     },
     "pokedex": {
       "title": "Pokedex",

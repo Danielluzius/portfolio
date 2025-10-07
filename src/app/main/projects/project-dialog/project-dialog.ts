@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { ProjectInfo } from './project-info/project-info';
 
 export interface ProjectStack {
@@ -23,7 +24,7 @@ export interface Project {
 @Component({
   standalone: true,
   selector: 'app-project-dialog',
-  imports: [CommonModule, ProjectInfo],
+  imports: [CommonModule, TranslocoPipe, ProjectInfo],
   templateUrl: './project-dialog.html',
   styleUrl: './project-dialog.scss',
 })
