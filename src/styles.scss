@@ -107,22 +107,26 @@ body.cursor-hidden {
   }
 }
 
-// Hide cursor effect on touch devices
 body.touch-device {
   .cursor-shadow {
     display: none !important;
   }
 }
 
-// Enable hover effects only on devices that support hover (non-touch devices)
-@media (hover: hover) and (pointer: fine) {
-  // Hover styles are applied by default for all components
-  // This ensures hover effects work properly on desktop
+@media (max-width: 1024px) {
+  .cursor-shadow {
+    display: none !important;
+  }
 }
 
-// On touch devices, use active states instead of hover
+@media (hover: hover) and (pointer: fine) {
+}
+
 @media (hover: none) and (pointer: coarse) {
-  // Remove problematic hover effects on touch devices
+  .cursor-shadow {
+    display: none !important;
+  }
+
   * {
     -webkit-tap-highlight-color: rgba(61, 207, 182, 0.2);
   }
