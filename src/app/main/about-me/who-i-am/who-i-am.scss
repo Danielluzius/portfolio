@@ -110,6 +110,31 @@
   color: rgba(255, 255, 255, 1);
 }
 
+@media (min-width: 1920px) {
+  .about-me__panel {
+    max-width: 700px;
+  }
+
+  .about-me__card {
+    gap: clamp(2.5rem, 5vw, 3rem);
+    padding: clamp(2.5rem, 4vw, 3rem);
+  }
+
+  .about-me__title {
+    font-size: clamp(3.5rem, 7vw, 4.5rem);
+  }
+
+  .about-me__intro {
+    font-size: clamp(1.125rem, 2.4vw, 1.25rem);
+    line-height: 1.4;
+  }
+
+  .about-me__item p {
+    font-size: clamp(1.125rem, 2.4vw, 1.25rem);
+    line-height: 1.4;
+  }
+}
+
 @media (max-width: 1060px) {
   .about-me__panel {
     margin-top: 0;

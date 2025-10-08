@@ -17,6 +17,15 @@
   align-items: start;
 }
 
+@media (min-width: 1920px) {
+  .about-me__container {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    max-width: 1600px;
+    width: 100%;
+    gap: clamp(6rem, 8vw, 10rem);
+  }
+}
+
 @media (max-width: 1200px) {
   .about-me__container {
     grid-template-columns: 1fr;

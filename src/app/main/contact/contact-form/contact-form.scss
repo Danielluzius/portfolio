@@ -30,6 +30,11 @@ $transition-fast: 0.2s ease;
   gap: $gap-large;
   width: 100%;
   max-width: 616px;
+
+  @media (min-width: 1920px) {
+    max-width: 700px;
+    gap: 48px;
+  }
 }
 
 .status-message {
@@ -152,6 +157,10 @@ $transition-fast: 0.2s ease;
   line-height: $line-height-default;
   color: $primary-color;
 
+  @media (min-width: 1920px) {
+    font-size: 28px;
+  }
+
   @media (max-width: $breakpoint-tablet) {
     font-size: 20px;
   }
@@ -186,6 +195,18 @@ $transition-fast: 0.2s ease;
     font-size: 18px;
   }
 
+  @media (min-width: 1920px) {
+    font-size: 20px;
+    line-height: 140%;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      font-size: 20px;
+    }
+  }
+
   @media (max-width: $breakpoint-tablet) {
     font-size: 16px;
 
@@ -206,6 +227,10 @@ $transition-fast: 0.2s ease;
   gap: $gap-medium;
   width: 100%;
   max-width: 616px;
+
+  @media (min-width: 1920px) {
+    max-width: 700px;
+  }
 }
 
 .privacy-section {

@@ -37,6 +37,14 @@ $accent: #3dcfb6;
   color: #fff;
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
   overflow: hidden;
+
+  @media (min-width: 1920px) {
+    width: min(90rem, 100%);
+    height: clamp(35rem, calc(100vh - 6rem), 50rem);
+    grid-template-columns: 36rem 1fr;
+    gap: clamp(4rem, 5vw, 5rem);
+    padding: 6rem;
+  }
 }
 
 .dialog__close {
@@ -97,6 +105,10 @@ $accent: #3dcfb6;
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+  @media (min-width: 1920px) {
+    max-width: 40rem;
+  }
 }
 
 .dialog__image {

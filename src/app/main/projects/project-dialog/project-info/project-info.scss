@@ -10,6 +10,11 @@ $accent: #3dcfb6;
   gap: 2.5rem;
   height: 100%;
   width: 30rem;
+
+  @media (min-width: 1920px) {
+    width: 36rem;
+    gap: 3rem;
+  }
 }
 
 .info__header {
@@ -25,6 +30,11 @@ $accent: #3dcfb6;
   line-height: 6.25rem;
   letter-spacing: -0.02em;
   color: $accent;
+
+  @media (min-width: 1920px) {
+    font-size: 9rem;
+    line-height: 7rem;
+  }
 }
 
 .info__title {
@@ -41,6 +51,10 @@ $accent: #3dcfb6;
   letter-spacing: -0.03em;
   color: #fff;
   white-space: nowrap;
+
+  @media (min-width: 1920px) {
+    font-size: 4.5rem;
+  }
 }
 
 .info__summary {
@@ -56,6 +70,10 @@ $accent: #3dcfb6;
   font-weight: 700;
   line-height: 1.2;
   color: $accent;
+
+  @media (min-width: 1920px) {
+    font-size: 1.75rem;
+  }
 }
 
 .info__description {
@@ -65,6 +83,12 @@ $accent: #3dcfb6;
   line-height: 1.2;
   color: #fff;
   max-width: 30rem;
+
+  @media (min-width: 1920px) {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    max-width: 36rem;
+  }
 }
 
 .info__stack {

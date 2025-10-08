@@ -22,6 +22,10 @@
     );
     box-sizing: border-box;
 
+    @media (min-width: 1920px) {
+      gap: clamp(80px, 8vw, 120px);
+    }
+
     @media (min-width: 1921px) {
       background: radial-gradient(
         22.43% 43.85% at 18% 52.45%,
@@ -56,6 +60,16 @@
       flex: 1 1 520px;
       max-width: 680px;
     }
+
+    @media (min-width: 1920px) {
+      &--info {
+        max-width: 650px;
+      }
+
+      &--icons {
+        max-width: 800px;
+      }
+    }
   }
 
   &__section-heading {
@@ -79,6 +93,11 @@
     background: rgba(61, 207, 182, 0.1);
     min-height: clamp(360px, 50vw, 520px);
     box-sizing: border-box;
+
+    @media (min-width: 1920px) {
+      gap: clamp(32px, 4vw, 48px);
+      padding: clamp(32px, 4vw, 40px);
+    }
   }
 
   &__headline {
@@ -89,6 +108,10 @@
     line-height: 1;
     letter-spacing: -0.03em;
     color: #3dcfb6;
+
+    @media (min-width: 1920px) {
+      font-size: clamp(56px, 6vw, 72px);
+    }
   }
 
   &__copy {
@@ -101,6 +124,11 @@
 
     p {
       margin: 0;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: clamp(18px, 2.2vw, 20px);
+      line-height: 1.4;
     }
   }
 
@@ -124,6 +152,10 @@
     .skills__cta-highlight {
       color: #3dcfb6;
     }
+
+    @media (min-width: 1920px) {
+      font-size: clamp(24px, 3vw, 28px);
+    }
   }
 
   &__cta-text {
@@ -134,6 +166,11 @@
     line-height: 1.2;
     color: #ffffff;
     text-align: left;
+
+    @media (min-width: 1920px) {
+      font-size: clamp(16px, 2vw, 18px);
+      line-height: 1.4;
+    }
   }
 
   &__cta-button {
@@ -237,6 +274,10 @@
     line-height: 1.2;
     letter-spacing: -0.03em;
     color: #ffffff;
+
+    @media (min-width: 1920px) {
+      font-size: clamp(18px, 2.4vw, 20px);
+    }
   }
 
   &__icon:hover &__icon-image,

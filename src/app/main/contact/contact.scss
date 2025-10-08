@@ -17,6 +17,12 @@ $breakpoint-large: 1024px;
   gap: 100px;
   align-items: flex-start;
 
+  @media (min-width: 1920px) {
+    max-width: 1600px;
+    gap: 140px;
+    padding: 0;
+  }
+
   @media (max-width: $breakpoint-desktop) {
     flex-direction: column;
     gap: 60px;
