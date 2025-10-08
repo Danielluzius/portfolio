@@ -16,4 +16,8 @@ export const routes: Routes = [
     path: 'privacy-policy',
     component: PrivacyPolicy,
   },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];

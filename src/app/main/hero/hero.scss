@@ -16,11 +16,11 @@
 }
 
 .hero__left-lateral {
-  left: 5.67vw;
+  left: max(clamp(24px, 6vw, 96px), calc((100vw - 1920px) / 2 + clamp(24px, 6vw, 96px)));
 }
 
 .hero__right-lateral {
-  right: 5.67vw;
+  right: max(clamp(24px, 6vw, 96px), calc((100vw - 1920px) / 2 + clamp(24px, 6vw, 96px)));
 }
 
 .hero__inner {

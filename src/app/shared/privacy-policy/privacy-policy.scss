@@ -1,11 +1,10 @@
 .privacy-policy-section {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(55.22deg, #1c1c1c 36.26%, #08463b 93.28%);
-  display: flex;
-  flex-direction: column;
   overflow-y: auto;
 }
 
@@ -18,7 +17,7 @@
   max-width: 1248px;
   width: 100%;
   margin: 149px auto 0;
-  padding-bottom: 80px;
+  flex: 1;
 }
 
 .back-button {

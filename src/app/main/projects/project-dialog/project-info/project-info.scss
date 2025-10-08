@@ -252,3 +252,130 @@ $accent: #3dcfb6;
     }
   }
 }
+
+// Height-based responsive adjustments for landscape mobile
+@media (max-height: 700px) and (max-width: 900px) {
+  .info {
+    gap: 1.25rem;
+  }
+
+  .info__header {
+    gap: 0.5rem;
+  }
+
+  .info__counter {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .info__name {
+    font-size: 1.75rem;
+    line-height: 0.9;
+  }
+
+  .info__summary {
+    gap: 0.75rem;
+  }
+
+  .info__question {
+    font-size: 1.125rem;
+  }
+
+  .info__description {
+    font-size: 0.9375rem;
+    line-height: 1.15;
+  }
+
+  .info__stack {
+    gap: 0.5rem;
+  }
+
+  .info__stack-item {
+    font-size: 0.875rem;
+  }
+
+  .info__stack-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .info__actions {
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .info__button {
+    min-width: 110px;
+    height: 2.5rem;
+    padding: 0 1rem;
+    font-size: 0.9375rem;
+
+    img {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+@media (max-height: 600px) and (max-width: 900px) {
+  .info {
+    gap: 1rem;
+  }
+
+  .info__header {
+    gap: 0.25rem;
+  }
+
+  .info__counter {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .info__name {
+    font-size: 1.5rem;
+    line-height: 0.9;
+  }
+
+  .info__summary {
+    gap: 0.5rem;
+  }
+
+  .info__question {
+    font-size: 1rem;
+  }
+
+  .info__description {
+    font-size: 0.875rem;
+    line-height: 1.15;
+  }
+
+  .info__stack {
+    gap: 0.375rem 0.5rem;
+  }
+
+  .info__stack-item {
+    font-size: 0.8125rem;
+  }
+
+  .info__stack-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .info__actions {
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .info__button {
+    min-width: 100px;
+    height: 2.25rem;
+    padding: 0 0.875rem;
+    font-size: 0.875rem;
+
+    img {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  }
+}

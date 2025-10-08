@@ -1,7 +1,6 @@
 .footer {
   position: relative;
   width: 100%;
-  padding: 64px 96px;
   background: transparent;
   isolation: isolate;
 
@@ -16,8 +15,9 @@
   }
 
   .footer-content {
-    max-width: 1248px;
+    width: min(100%, 1920px);
     margin: 0 auto;
+    padding: 64px 96px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -129,10 +129,8 @@
 
 @media (max-width: 1024px) {
   .footer {
-    padding: 48px 64px;
-
     .footer-content {
-      max-width: 100%;
+      padding: 48px 64px;
       gap: 48px;
     }
   }
@@ -140,14 +138,12 @@
 
 @media (max-width: 768px) {
   .footer {
-    padding: 32px 16px 48px 16px;
-
     .footer-content {
+      padding: 32px 16px 48px 16px;
       flex-direction: column;
       align-items: flex-start;
       gap: 32px;
       min-height: auto;
-      max-width: 100%;
     }
 
     .footer-left {
@@ -182,7 +178,7 @@
     .footer-nav {
       position: absolute;
       right: 16px;
-      top: 0;
+      top: 32px;
       flex-direction: column;
       align-items: flex-start;
       gap: 8px;
