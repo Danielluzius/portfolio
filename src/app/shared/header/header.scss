@@ -27,7 +27,7 @@
 .header__inner {
   width: min(100%, 1920px);
   margin: 0 auto;
-  padding: clamp(16px, 3vh, 28px) clamp(24px, 7vw, 96px);
+  padding: clamp(16px, 3dvh, 28px) clamp(24px, 7vw, 96px);
   display: flex;
   align-items: center;
   justify-content: space-between;

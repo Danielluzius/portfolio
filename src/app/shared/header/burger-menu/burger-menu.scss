@@ -22,7 +22,7 @@
 
 .burger-menu {
   position: fixed;
-  top: clamp(70px, 10vh, 90px);
+  top: clamp(70px, 10dvh, 90px);
   right: clamp(20px, 7vw, 96px);
   width: 238px;
   height: 252px;
