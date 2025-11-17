@@ -63,10 +63,10 @@
       "subtitle": "Jump ’n’ Run Webgame",
       "description": "Ein vollständig in JavaScript entwickeltes Browser-Game mit eigenem Design, Kampfmechanik und modularer Gegner-KI. Aufbauend auf einer komponentenbasierten Architektur und optimiert für flüssige Performance."
     },
-    "placeholder": {
-      "title": "Placeholder",
-      "subtitle": "Platzhalter Untertitel",
-      "description": "Platzhalter Beschreibung"
+    "join": {
+      "title": "Join",
+      "subtitle": "Task Management System",
+      "description": "Ein kollaboratives Kanban-Board zur Aufgabenverwaltung, entwickelt mit Angular und Firebase. Bietet Echtzeit-Synchronisation, Drag & Drop-Funktionalität und eine intuitive Benutzeroberfläche für effizientes Teamwork."
     }
   },
   "references": {
@@ -82,10 +82,10 @@
         "role": "Team Partner",
         "text": "Daniel ist ein kreativer, wissensstarker Entwickler mit hervorragendem Designverständnis. Seine innovativen Ideen, technische Präzision und lösungsorientierte Denkweise bereichern jedes Projekt und machen ihn zu einem großen Mehrwert fürs Team.."
       },
-      "placeholder1": {
-        "name": "Platzhalter",
-        "role": "Platzhalter",
-        "text": "Platzhalter."
+      "yoganathan": {
+        "name": "K. Yoganathan",
+        "role": "Team Partner",
+        "text": "Daniel zeichnet sich durch tiefgehende Expertise in SCSS aus. Er war der unangefochtene Ansprechpartner für alle Fragen rund um Styles und Struktur."
       },
       "placeholder2": {
         "name": "Platzhalter",

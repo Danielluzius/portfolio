@@ -63,10 +63,10 @@
       "subtitle": "Jump ’n’ Run Web Game",
       "description": "A fully JavaScript-built browser game with custom design, combat mechanics, and modular enemy AI. Built on a component-based architecture and optimized for smooth performance."
     },
-    "placeholder": {
-      "title": "Placeholder",
-      "subtitle": "Placeholder Subtitle",
-      "description": "Placeholder description"
+    "join": {
+      "title": "Join",
+      "subtitle": "Task Management System",
+      "description": "A collaborative Kanban board for task management, built with Angular and Firebase. Features real-time synchronization, drag & drop functionality, and an intuitive user interface for efficient teamwork."
     }
   },
   "references": {
@@ -82,10 +82,10 @@
         "role": "Team Partner",
         "text": "Daniel is a creative and knowledgeable developer with an excellent sense of design. His innovative ideas, technical precision, and solution-oriented mindset enrich every project and make him a valuable asset to any team."
       },
-      "placeholder1": {
-        "name": "Placeholder",
-        "role": "Placeholder",
-        "text": "Placeholder."
+      "yoganathan": {
+        "name": "K. Yoganathan",
+        "role": "Team Partner",
+        "text": "Daniel stands out with his deep expertise in SCSS. He was the undisputed go-to person for all questions regarding styles and structure."
       },
       "placeholder2": {
         "name": "Placeholder",

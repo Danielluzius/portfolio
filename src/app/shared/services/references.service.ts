@@ -17,15 +17,15 @@ export class ReferencesService {
       text: 'references.items.schmidt.text',
     },
     {
-      name: 'references.items.placeholder1.name',
-      role: 'references.items.placeholder1.role',
-      text: 'references.items.placeholder1.text',
+      name: 'references.items.yoganathan.name',
+      role: 'references.items.yoganathan.role',
+      text: 'references.items.yoganathan.text',
     },
-    {
-      name: 'references.items.placeholder2.name',
-      role: 'references.items.placeholder2.role',
-      text: 'references.items.placeholder2.text',
-    },
+    // {
+    //   name: 'references.items.placeholder2.name',
+    //   role: 'references.items.placeholder2.role',
+    //   text: 'references.items.placeholder2.text',
+    // },
   ];
 
   /**
