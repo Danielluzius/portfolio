@@ -17,4 +17,8 @@ export class ProjectInfo {
   protected formatProjectNumber(index: number): string {
     return (index + 1).toString().padStart(2, '0');
   }
+
+  protected get denseStack(): boolean {
+    return this.project.stack.length > 4;
+  }
 }

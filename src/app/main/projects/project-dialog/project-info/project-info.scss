@@ -11,9 +11,17 @@ $accent: #3dcfb6;
   height: 100%;
   width: 30rem;
 
+  &--dense {
+    gap: 1.8rem;
+  }
+
   @media (min-width: 1920px) {
     width: 36rem;
     gap: 3rem;
+
+    &--dense {
+      gap: 2.2rem;
+    }
   }
 }
 
