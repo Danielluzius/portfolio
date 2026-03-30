@@ -81,10 +81,10 @@ export class ProjectsService {
       liveUrl: 'https://coderr.danielluzius.dev',
     },
     {
-      title: 'projects.goblinSlayer.title',
-      subtitle: 'projects.goblinSlayer.subtitle',
-      description: 'projects.goblinSlayer.description',
-      technologies: ['CSS', 'HTML', 'JavaScript'],
+      title: 'projects.pokedex.title',
+      subtitle: 'projects.pokedex.subtitle',
+      description: 'projects.pokedex.description',
+      technologies: ['CSS', 'HTML', 'JavaScript', 'API'],
       stack: [
         {
           label: 'CSS',
@@ -101,11 +101,16 @@ export class ProjectsService {
           icon: 'assets/icon/skill-icon/javascript_icon.png',
           alt: 'JavaScript icon',
         },
+        {
+          label: 'API',
+          icon: 'assets/icon/skill-icon/api_icon.png',
+          alt: 'API icon',
+        },
       ],
-      preview: 'assets/img/projects/goblin_slayer.png',
-      previewAlt: 'Goblin Slayer gameplay preview',
-      githubUrl: 'https://github.com/Danielluzius/elpolloloco',
-      liveUrl: 'https://goblinslayer.danielluzius.dev',
+      preview: 'assets/img/projects/pokedex.png',
+      previewAlt: 'Pokedex application preview',
+      githubUrl: 'https://github.com/Danielluzius/pokedex',
+      liveUrl: 'https://pokedex.danielluzius.dev',
     },
   ];
 

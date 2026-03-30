@@ -47,6 +47,8 @@
     "eyebrow": "Portfolio",
     "title": "Meine Projekte",
     "lead": "Eine Auswahl meiner Arbeiten. Jedes Projekt zeigt, wie ich Ideen umsetze, sauberen Code schreibe und Technologien miteinander verbinde.",
+    "bonusEyebrow": "Spielerei",
+    "bonusEyebrow": "Spielerei",
     "dialog": {
       "question": "Was macht dieses Projekt aus?",
       "github": "GitHub",
@@ -58,9 +60,14 @@
       "subtitle": "Freelance Marktplatz API",
       "description": "REST API für eine Freelance-Plattform, auf der Business-Nutzer Dienstleistungen anbieten und Kunden diese buchen und bewerten können. Entwickelt mit Python und Django REST Framework, inklusive Token-Authentifizierung, Angebots- und Bestellverwaltung sowie automatisierten Tests."
     },
+    "pokedex": {
+      "title": "Pokedex",
+      "subtitle": "API-basierter Pokédex",
+      "description": "Ein responsiver Pokédex auf Basis der PokéAPI. Nutzer können Pokémon suchen, filtern und Statistiken erkunden – mit flüssigen Animationen und Offline-Caching."
+    },
     "goblinSlayer": {
       "title": "Goblin Slayer",
-      "subtitle": "Jump 'n' Run Webgame (Bonus)",
+      "subtitle": "Jump 'n' Run Webgame",
       "description": "Ein vollständig in JavaScript entwickeltes Browser-Game mit eigenem Design, Kampfmechanik und modularer Gegner-KI. Aufbauend auf einer komponentenbasierten Architektur und optimiert für flüssige Performance."
     },
     "join": {
