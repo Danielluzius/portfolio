@@ -91,7 +91,9 @@ $accent: #3dcfb6;
   padding: clamp(2rem, 5vw, 2.5rem) clamp(1.5rem, 4vw, 2rem);
   border-block-end: 1px solid $accent;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 
   &:last-child {
     border-block-end: none;
@@ -133,7 +135,9 @@ $accent: #3dcfb6;
   object-fit: contain;
   opacity: 0;
   transform: translateX(-0.25rem);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .projects__item:hover .projects__item-icon,
@@ -281,4 +285,3 @@ $accent: #3dcfb6;
     pointer-events: auto;
   }
 }
-
