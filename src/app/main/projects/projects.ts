@@ -1,5 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, OnDestroy, ViewChild, inject } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  OnDestroy,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ProjectDialog } from './project-dialog/project-dialog';
 import { Project } from '../../shared/models/project.model';
@@ -22,6 +30,7 @@ export class Projects implements OnDestroy {
 
   private readonly projectsService = inject(ProjectsService);
   private readonly bodyScrollService = inject(BodyScrollService);
+  private readonly cdr = inject(ChangeDetectorRef);
 
   protected readonly projects: Project[] = this.projectsService.getProjects();
 
@@ -99,15 +108,15 @@ export class Projects implements OnDestroy {
   }
 
   /**
-   * Schedules the preview positioning for the next event loop cycle.
+   * Forces change detection so the preview card is present in the DOM,
+   * then immediately calculates and applies its position.
    * @private
    * @param {number} index - The index of the project.
    * @param {HTMLElement} element - The HTML element reference for positioning.
    */
   private schedulePreviewPositioning(index: number, element: HTMLElement): void {
-    setTimeout(() => {
-      this.positionPreview(index, element);
-    });
+    this.cdr.detectChanges();
+    this.positionPreview(index, element);
   }
 
   /**
@@ -128,7 +137,9 @@ export class Projects implements OnDestroy {
   }
 
   /**
-   * Calculates the target top position for the preview element.
+   * Calculates the target top position for the preview element relative to the layout container.
+   * Uses getBoundingClientRect for accurate positioning regardless of DOM nesting.
+   * The first project aligns the preview to its top edge; all others center it on the item.
    * @private
    * @param {number} index - The index of the project.
    * @param {HTMLElement} element - The HTML element reference.
@@ -137,16 +148,19 @@ export class Projects implements OnDestroy {
    */
   private calculateTargetTop(index: number, element: HTMLElement, preview: HTMLElement): number {
     const previewHeight = preview.offsetHeight;
-    const rowTop = element.offsetTop;
-    const rowHeight = element.offsetHeight;
+    const layout = this.layoutRef.nativeElement;
 
-    if (index === this.projects.length - 1) {
-      return rowTop + rowHeight - previewHeight;
-    } else if (index > 0) {
-      return rowTop + rowHeight / 2 - previewHeight / 2;
+    const elementRect = element.getBoundingClientRect();
+    const layoutRect = layout.getBoundingClientRect();
+
+    const rowTop = elementRect.top - layoutRect.top;
+    const rowHeight = elementRect.height;
+
+    if (index === 0) {
+      return rowTop;
     }
 
-    return rowTop;
+    return rowTop + rowHeight / 2 - previewHeight / 2;
   }
 
   /**
