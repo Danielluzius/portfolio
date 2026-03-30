@@ -53,20 +53,20 @@
       "liveTest": "Live Test",
       "nextProject": "Next project"
     },
-    "pokedex": {
-      "title": "Pokedex",
-      "subtitle": "API-based Pokédex",
-      "description": "A responsive Pokédex powered by the PokéAPI. Search, filter, and explore Pokémon stats with smooth animations and offline caching."
+    "coderr": {
+      "title": "Coderr",
+      "subtitle": "Freelance Marketplace API",
+      "description": "REST API for a freelance marketplace where business users can offer services and customers can browse, order, and review them. Built with Python and Django REST Framework, featuring token authentication, offer and order management, and automated tests."
     },
     "goblinSlayer": {
       "title": "Goblin Slayer",
-      "subtitle": "Jump ’n’ Run Web Game",
+      "subtitle": "Jump 'n' Run Web Game (Bonus)",
       "description": "A fully JavaScript-built browser game with custom design, combat mechanics, and modular enemy AI. Built on a component-based architecture and optimized for smooth performance."
     },
     "join": {
       "title": "Join",
-      "subtitle": "Task Management System",
-      "description": "A collaborative Kanban board for task management, built with Angular and Firebase. Features real-time synchronization, drag & drop functionality, and an intuitive user interface for efficient teamwork."
+      "subtitle": "Fullstack Task Manager",
+      "description": "Collaborative Kanban board with an Angular 19 frontend and Django REST Framework backend. Full CRUD management, drag & drop via Angular CDK, token authentication, and PostgreSQL as the database. Deployed via Docker and Nginx on a self-hosted VPS."
     }
   },
   "references": {

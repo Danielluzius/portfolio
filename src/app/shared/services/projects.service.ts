@@ -10,7 +10,7 @@ export class ProjectsService {
       title: 'projects.join.title',
       subtitle: 'projects.join.subtitle',
       description: 'projects.join.description',
-      technologies: ['Angular', 'TypeScript', 'Firebase', 'HTML', 'SCSS'],
+      technologies: ['Angular', 'TypeScript', 'Python', 'Django REST'],
       stack: [
         {
           label: 'Angular',
@@ -23,25 +23,62 @@ export class ProjectsService {
           alt: 'TypeScript icon',
         },
         {
-          label: 'Firebase',
-          icon: 'assets/icon/skill-icon/firebase_icon.png',
-          alt: 'Firebase icon',
+          label: 'RxJS',
+          icon: 'assets/icon/skill-icon/rxjs_icon.png',
+          alt: 'RxJS icon',
         },
         {
-          label: 'HTML',
-          icon: 'assets/icon/skill-icon/html_icon.png',
-          alt: 'HTML icon',
+          label: 'Python',
+          icon: 'assets/icon/skill-icon/python_icon.png',
+          alt: 'Python icon',
         },
         {
-          label: 'SCSS',
-          icon: 'assets/icon/skill-icon/css_icon.png',
-          alt: 'SCSS icon',
+          label: 'Django REST',
+          icon: 'assets/icon/skill-icon/django_icon.png',
+          alt: 'Django REST Framework icon',
+        },
+        {
+          label: 'PostgreSQL',
+          icon: 'assets/icon/skill-icon/postgresql_icon.png',
+          alt: 'PostgreSQL icon',
+        },
+        {
+          label: 'Docker',
+          icon: 'assets/icon/skill-icon/docker_icon.png',
+          alt: 'Docker icon',
         },
       ],
       preview: 'assets/img/projects/join.png',
       previewAlt: 'Join task management application preview',
-      githubUrl: 'https://github.com/Danielluzius/join',
-      liveUrl: 'https://join.danielluzius.de',
+      githubUrl: 'https://github.com/Danielluzius/join-fullstack',
+      liveUrl: 'https://join.danielluzius.dev',
+    },
+    {
+      title: 'projects.coderr.title',
+      subtitle: 'projects.coderr.subtitle',
+      description: 'projects.coderr.description',
+      technologies: ['Python', 'Django REST', 'Docker', 'Nginx'],
+      stack: [
+        {
+          label: 'Python',
+          icon: 'assets/icon/skill-icon/python_icon.png',
+          alt: 'Python icon',
+        },
+        {
+          label: 'Django REST',
+          icon: 'assets/icon/skill-icon/django_icon.png',
+          alt: 'Django REST Framework icon',
+        },
+        {
+          label: 'Docker',
+          icon: 'assets/icon/skill-icon/docker_icon.png',
+          alt: 'Docker icon',
+        },
+      ],
+      preview: 'assets/img/projects/coderr.png',
+      previewAlt: 'Coderr freelance marketplace API preview',
+      githubUrl: 'https://github.com/Danielluzius/coderr-backend',
+      liveUrl: 'https://coderr.danielluzius.dev',
     },
     {
       title: 'projects.goblinSlayer.title',
@@ -68,39 +105,7 @@ export class ProjectsService {
       preview: 'assets/img/projects/goblin_slayer.png',
       previewAlt: 'Goblin Slayer gameplay preview',
       githubUrl: 'https://github.com/Danielluzius/elpolloloco',
-      liveUrl: 'https://goblinslayer.danielluzius.de',
-    },
-    {
-      title: 'projects.pokedex.title',
-      subtitle: 'projects.pokedex.subtitle',
-      description: 'projects.pokedex.description',
-      technologies: ['CSS', 'HTML', 'JavaScript', 'API'],
-      stack: [
-        {
-          label: 'CSS',
-          icon: 'assets/icon/skill-icon/css_icon.png',
-          alt: 'CSS icon',
-        },
-        {
-          label: 'HTML',
-          icon: 'assets/icon/skill-icon/html_icon.png',
-          alt: 'HTML icon',
-        },
-        {
-          label: 'JavaScript',
-          icon: 'assets/icon/skill-icon/javascript_icon.png',
-          alt: 'JavaScript icon',
-        },
-        {
-          label: 'API',
-          icon: 'assets/icon/skill-icon/api_icon.png',
-          alt: 'API icon',
-        },
-      ],
-      preview: 'assets/img/projects/pokedex.png',
-      previewAlt: 'Join project board preview',
-      githubUrl: 'https://github.com/Danielluzius/pokedex',
-      liveUrl: 'https://pokedex.danielluzius.de',
+      liveUrl: 'https://goblinslayer.danielluzius.dev',
     },
   ];
 
