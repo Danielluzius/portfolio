@@ -75,6 +75,32 @@ $accent: #3dcfb6;
   }
 }
 
+.projects__view-all {
+  max-width: 456px;
+  font-size: clamp(0.95rem, 2.2vw, 1rem);
+  color: var(--color-text);
+
+  @media (min-width: 1920px) {
+    max-width: 600px;
+    font-size: clamp(1rem, 2.2vw, 1.125rem);
+  }
+}
+
+.projects__view-all-link {
+  color: $accent;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+    opacity: 0.75;
+  }
+}
+
 .projects__list {
   display: flex;
   flex-direction: column;

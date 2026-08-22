@@ -8,6 +8,7 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ProjectDialog } from './project-dialog/project-dialog';
 import { Project } from '../../shared/models/project.model';
@@ -17,7 +18,7 @@ import { BodyScrollService } from '../../shared/services/body-scroll.service';
 @Component({
   standalone: true,
   selector: 'app-projects',
-  imports: [CommonModule, ProjectDialog, TranslocoPipe],
+  imports: [CommonModule, ProjectDialog, TranslocoPipe, RouterLink],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })

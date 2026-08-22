@@ -6,6 +6,11 @@
             <p class="projects__lead">
                 {{ 'projects.lead' | transloco }}
             </p>
+            <p class="projects__view-all">
+                {{ 'projects.viewAll.text' | transloco }}
+                <a class="projects__view-all-link" routerLink="/all-projects">{{ 'projects.viewAll.linkText' | transloco
+                    }}</a>
+            </p>
         </header>
 
         <div class="projects__layout" #projectsLayout>

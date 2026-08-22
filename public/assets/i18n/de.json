@@ -48,12 +48,23 @@
     "title": "Meine Projekte",
     "lead": "Eine Auswahl meiner Arbeiten. Jedes Projekt zeigt, wie ich Ideen umsetze, sauberen Code schreibe und Technologien miteinander verbinde.",
     "bonusEyebrow": "Spielerei",
-    "bonusEyebrow": "Spielerei",
+    "viewAll": {
+      "text": "Willst du mehr sehen?",
+      "linkText": "Klicke hier"
+    },
     "dialog": {
       "question": "Was macht dieses Projekt aus?",
       "github": "GitHub",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "closeChoice": "Schließen",
       "liveTest": "Live-Demo",
       "nextProject": "Nächstes Projekt"
+    },
+    "videoflix": {
+      "title": "Videoflix",
+      "subtitle": "Netflix-artige Streaming-Plattform",
+      "description": "Eine Netflix-ähnliche Streaming-Plattform mit Angular 19-Frontend und Django REST Framework-Backend. Videos werden per FFmpeg im Hintergrund automatisch in adaptive HLS-Qualitätsstufen (480p/720p/1080p) konvertiert, die Wiedergabe erfolgt über hls.js und Plyr. Authentifizierung via JWT in HttpOnly-Cookies, Hintergrund-Jobs über Django RQ und Redis, Deployment via Docker."
     },
     "coderr": {
       "title": "Coderr",
@@ -75,6 +86,11 @@
       "subtitle": "Fullstack Task Manager",
       "description": "Kollaboratives Kanban-Board mit Angular 19-Frontend und Django REST Framework-Backend. Vollständiges CRUD-Management, Drag & Drop via Angular CDK, Token-Authentifizierung und PostgreSQL als Datenbank. Deployed via Docker und Nginx auf einem eigenen VPS."
     }
+  },
+  "allProjects": {
+    "eyebrow": "Portfolio",
+    "title": "Alle Projekte",
+    "lead": "Eine vollständige Übersicht aller Projekte, die ich bisher umgesetzt habe."
   },
   "references": {
     "title": "Was Kollegen über mich sagen",
@@ -140,7 +156,7 @@
         "name": "Daniel Luzius",
         "address": "Hauptstraße 125",
         "city": "63500 Seligenstadt, Deutschland",
-        "email": "E-Mail: kontakt@danielluzius.de",
+        "email": "E-Mail: kontakt@danielluzius.dev",
         "purpose": "Dieses Portfolio dient ausschließlich der Präsentation meiner Arbeiten als Fullstack-Entwickler. Es verfolgt keine kommerziellen Zwecke."
       },
       "disclaimer": {
@@ -157,7 +173,7 @@
       },
       "contact": {
         "title": "Kontakt",
-        "text": "Bei Fragen zum Portfolio oder rechtlichen Hinweisen kontaktieren Sie mich bitte per E-Mail unter kontakt@danielluzius.de."
+        "text": "Bei Fragen zum Portfolio oder rechtlichen Hinweisen kontaktieren Sie mich bitte per E-Mail unter kontakt@danielluzius.dev."
       },
       "date": "Stand: 03. Oktober 2025"
     }
@@ -171,7 +187,7 @@
         "address": "Hauptstraße 125",
         "city": "63500 Seligenstadt",
         "country": "Deutschland",
-        "email": "E-Mail: kontakt@danielluzius.de"
+        "email": "E-Mail: kontakt@danielluzius.dev"
       },
       "generalInformation": {
         "title": "2. Allgemeine Hinweise",

@@ -48,12 +48,23 @@
     "title": "Featured Projects",
     "lead": "Explore a selection of my work here – interact with projects to see my skills in action.",
     "bonusEyebrow": "Just for fun",
-    "bonusEyebrow": "Just for fun",
+    "viewAll": {
+      "text": "Wanna see more?",
+      "linkText": "Click here"
+    },
     "dialog": {
       "question": "What is this project about?",
       "github": "GitHub",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "closeChoice": "Close",
       "liveTest": "Live Test",
       "nextProject": "Next project"
+    },
+    "videoflix": {
+      "title": "Videoflix",
+      "subtitle": "Netflix-style streaming platform",
+      "description": "A Netflix-style video streaming platform with an Angular 19 frontend and a Django REST Framework backend. Videos are automatically converted into adaptive HLS quality levels (480p/720p/1080p) via FFmpeg in the background, playback is powered by hls.js and Plyr. Authentication uses JWT stored in HttpOnly cookies, background jobs run via Django RQ and Redis, deployed with Docker."
     },
     "coderr": {
       "title": "Coderr",
@@ -75,6 +86,11 @@
       "subtitle": "Fullstack Task Manager",
       "description": "Collaborative Kanban board with an Angular 19 frontend and Django REST Framework backend. Full CRUD management, drag & drop via Angular CDK, token authentication, and PostgreSQL as the database. Deployed via Docker and Nginx on a self-hosted VPS."
     }
+  },
+  "allProjects": {
+    "eyebrow": "Portfolio",
+    "title": "All Projects",
+    "lead": "A complete overview of every project I've built so far."
   },
   "references": {
     "title": "What colleagues say about me",
@@ -140,7 +156,7 @@
         "name": "Daniel Luzius",
         "address": "Hauptstraße 125",
         "city": "63500 Seligenstadt, Germany",
-        "email": "Email: kontakt@danielluzius.de",
+        "email": "Email: kontakt@danielluzius.dev",
         "purpose": "This portfolio is intended solely to showcase my work as a full-stack developer. It is a non-commercial personal website."
       },
       "disclaimer": {
@@ -157,7 +173,7 @@
       },
       "contact": {
         "title": "Contact",
-        "text": "For questions about this portfolio or legal information, please contact me via email at kontakt@danielluzius.de."
+        "text": "For questions about this portfolio or legal information, please contact me via email at kontakt@danielluzius.dev."
       },
       "date": "Last updated: October 3, 2025"
     }
@@ -171,7 +187,7 @@
         "address": "Hauptstraße 125",
         "city": "63500 Seligenstadt",
         "country": "Germany",
-        "email": "Email: kontakt@danielluzius.de"
+        "email": "Email: kontakt@danielluzius.dev"
       },
       "generalInformation": {
         "title": "2. General Information",

@@ -1,0 +1,46 @@
+<section class="all-projects-section">
+    <div class="all-projects-container">
+        <button class="back-button" (click)="goBack()">
+            <img src="assets/icon/project-icon/arrow_left.png" alt="Back" class="arrow-icon">
+        </button>
+
+        <span class="all-projects-eyebrow">{{ 'allProjects.eyebrow' | transloco }}</span>
+        <h1 class="all-projects-title">{{ 'allProjects.title' | transloco }}</h1>
+        <p class="all-projects-lead">{{ 'allProjects.lead' | transloco }}</p>
+
+        <div class="all-projects-grid">
+            <article class="project-card" *ngFor="let project of projects">
+                <div class="project-card__image">
+                    <img [src]="project.preview" [alt]="project.previewAlt" />
+                </div>
+
+                <div class="project-card__body">
+                    <h2 class="project-card__title">{{ project.title | transloco }}</h2>
+                    <p class="project-card__subtitle">{{ project.subtitle | transloco }}</p>
+                    <p class="project-card__description">{{ project.description | transloco }}</p>
+
+                    <ul class="project-card__tech" aria-label="Technologies">
+                        <li *ngFor="let tech of project.technologies">{{ tech }}</li>
+                    </ul>
+
+                    <div class="project-card__actions">
+                        <a *ngIf="project.githubUrl" class="project-card__button" [href]="project.githubUrl"
+                            target="_blank" rel="noopener noreferrer">
+                            {{ 'projects.dialog.github' | transloco }}
+                        </a>
+                        <a *ngIf="project.backendUrl" class="project-card__button" [href]="project.backendUrl"
+                            target="_blank" rel="noopener noreferrer">
+                            {{ 'projects.dialog.backend' | transloco }}
+                        </a>
+                        <a *ngIf="project.liveUrl" class="project-card__button" [href]="project.liveUrl" target="_blank"
+                            rel="noopener noreferrer">
+                            {{ 'projects.dialog.liveTest' | transloco }}
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+</section>

@@ -19,16 +19,43 @@
         </li>
     </ul>
 
-    <div class="info__actions">
-        <a *ngIf="project.githubUrl" class="info__button" [href]="project.githubUrl" target="_blank"
-            rel="noopener noreferrer">
-            <span>{{ 'projects.dialog.github' | transloco }}</span>
-            <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
-        </a>
-        <a *ngIf="project.liveUrl" class="info__button" [href]="project.liveUrl" target="_blank"
-            rel="noopener noreferrer">
-            <span>{{ 'projects.dialog.liveTest' | transloco }}</span>
-            <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
-        </a>
+    <div class="info__actions" (click)="$event.stopPropagation()">
+        <ng-container *ngIf="hasTwoRepos; else singleGithubButton">
+            <button *ngIf="!isRepoChoiceOpen" type="button" class="info__button" (click)="openRepoChoice($event)">
+                <span>{{ 'projects.dialog.github' | transloco }}</span>
+                <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+            </button>
+            <a *ngIf="isRepoChoiceOpen" class="info__button" [href]="project.githubUrl" target="_blank"
+                rel="noopener noreferrer">
+                <span>{{ 'projects.dialog.frontend' | transloco }}</span>
+                <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+            </a>
+        </ng-container>
+        <ng-template #singleGithubButton>
+            <a *ngIf="project.githubUrl" class="info__button" [href]="project.githubUrl" target="_blank"
+                rel="noopener noreferrer">
+                <span>{{ 'projects.dialog.github' | transloco }}</span>
+                <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+            </a>
+        </ng-template>
+
+        <button *ngIf="hasTwoRepos && isRepoChoiceOpen" type="button" class="info__button info__button--close"
+            (click)="closeRepoChoice($event)" [attr.aria-label]="'projects.dialog.closeChoice' | transloco">
+            <span aria-hidden="true">&#10005;</span>
+        </button>
+
+        <ng-container *ngIf="hasTwoRepos && isRepoChoiceOpen; else liveDemoButton">
+            <a class="info__button" [href]="project.backendUrl" target="_blank" rel="noopener noreferrer">
+                <span>{{ 'projects.dialog.backend' | transloco }}</span>
+                <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+            </a>
+        </ng-container>
+        <ng-template #liveDemoButton>
+            <a *ngIf="project.liveUrl" class="info__button" [href]="project.liveUrl" target="_blank"
+                rel="noopener noreferrer">
+                <span>{{ 'projects.dialog.liveTest' | transloco }}</span>
+                <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+            </a>
+        </ng-template>
     </div>
 </div>

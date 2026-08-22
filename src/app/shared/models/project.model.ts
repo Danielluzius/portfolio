@@ -13,5 +13,6 @@ export interface Project {
   preview: string;
   previewAlt: string;
   githubUrl?: string;
+  backendUrl?: string;
   liveUrl?: string;
 }

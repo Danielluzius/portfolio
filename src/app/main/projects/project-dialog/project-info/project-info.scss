@@ -9,6 +9,7 @@ $accent: #3dcfb6;
   flex-direction: column;
   gap: 2.5rem;
   height: 100%;
+  min-height: 0;
   width: 30rem;
 
   &--dense {
@@ -70,6 +71,7 @@ $accent: #3dcfb6;
   flex-direction: column;
   gap: 1.25rem;
   flex: 1 1 auto;
+  min-height: 0;
 }
 
 .info__question {
@@ -91,6 +93,25 @@ $accent: #3dcfb6;
   line-height: 1.2;
   color: #fff;
   max-width: 30rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: $accent transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $accent;
+    border-radius: 999px;
+  }
 
   @media (min-width: 1920px) {
     font-size: 1.25rem;
@@ -188,6 +209,15 @@ $accent: #3dcfb6;
   }
 }
 
+.info__button--close {
+  min-width: 3rem;
+  width: 3rem;
+  padding: 0;
+  flex: none;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
 // Responsive Styles
 @media (max-width: 1000px) {
   .info {
@@ -262,6 +292,11 @@ $accent: #3dcfb6;
       width: 1rem;
       height: 1rem;
     }
+  }
+
+  .info__button--close {
+    min-width: 2.75rem;
+    width: 2.75rem;
   }
 }
 
