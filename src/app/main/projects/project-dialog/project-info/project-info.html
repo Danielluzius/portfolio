@@ -21,41 +21,48 @@
 
     <div class="info__actions" (click)="$event.stopPropagation()">
         <ng-container *ngIf="hasTwoRepos; else singleGithubButton">
-            <button *ngIf="!isRepoChoiceOpen" type="button" class="info__button" (click)="openRepoChoice($event)">
-                <span>{{ 'projects.dialog.github' | transloco }}</span>
-                <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+            <button *ngIf="!isRepoChoiceOpen" type="button" class="info__repo-button" (click)="openRepoChoice($event)">
+                <ng-container
+                    *ngTemplateOutlet="repoButtonInner; context: { label: 'projects.dialog.github' }"></ng-container>
             </button>
-            <a *ngIf="isRepoChoiceOpen" class="info__button" [href]="project.githubUrl" target="_blank"
+            <a *ngIf="isRepoChoiceOpen" class="info__repo-button" [href]="project.githubUrl" target="_blank"
                 rel="noopener noreferrer">
-                <span>{{ 'projects.dialog.frontend' | transloco }}</span>
-                <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+                <ng-container
+                    *ngTemplateOutlet="repoButtonInner; context: { label: 'projects.dialog.frontend' }"></ng-container>
             </a>
         </ng-container>
         <ng-template #singleGithubButton>
-            <a *ngIf="project.githubUrl" class="info__button" [href]="project.githubUrl" target="_blank"
+            <a *ngIf="project.githubUrl" class="info__repo-button" [href]="project.githubUrl" target="_blank"
                 rel="noopener noreferrer">
-                <span>{{ 'projects.dialog.github' | transloco }}</span>
-                <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+                <ng-container
+                    *ngTemplateOutlet="repoButtonInner; context: { label: 'projects.dialog.github' }"></ng-container>
             </a>
         </ng-template>
 
-        <button *ngIf="hasTwoRepos && isRepoChoiceOpen" type="button" class="info__button info__button--close"
-            (click)="closeRepoChoice($event)" [attr.aria-label]="'projects.dialog.closeChoice' | transloco">
+        <button *ngIf="hasTwoRepos && isRepoChoiceOpen" type="button" class="info__repo-close"
+            (click)="closeRepoChoice()" [attr.aria-label]="'projects.dialog.closeChoice' | transloco">
             <span aria-hidden="true">&#10005;</span>
         </button>
 
         <ng-container *ngIf="hasTwoRepos && isRepoChoiceOpen; else liveDemoButton">
-            <a class="info__button" [href]="project.backendUrl" target="_blank" rel="noopener noreferrer">
-                <span>{{ 'projects.dialog.backend' | transloco }}</span>
-                <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+            <a class="info__repo-button" [href]="project.backendUrl" target="_blank" rel="noopener noreferrer">
+                <ng-container
+                    *ngTemplateOutlet="repoButtonInner; context: { label: 'projects.dialog.backend' }"></ng-container>
             </a>
         </ng-container>
         <ng-template #liveDemoButton>
-            <a *ngIf="project.liveUrl" class="info__button" [href]="project.liveUrl" target="_blank"
+            <a *ngIf="project.liveUrl" class="info__repo-button" [href]="project.liveUrl" target="_blank"
                 rel="noopener noreferrer">
-                <span>{{ 'projects.dialog.liveTest' | transloco }}</span>
-                <img src="assets/icon/project-icon/arrow_outward_green_default.png" alt="" aria-hidden="true" />
+                <ng-container
+                    *ngTemplateOutlet="repoButtonInner; context: { label: 'projects.dialog.liveTest' }"></ng-container>
             </a>
+        </ng-template>
+
+        <ng-template #repoButtonInner let-label="label">
+            <span class="info__repo-button-box">
+                <span class="info__repo-button-sl" aria-hidden="true"></span>
+                <span class="info__repo-button-text">{{ label | transloco }}</span>
+            </span>
         </ng-template>
     </div>
 </div>
