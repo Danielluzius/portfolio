@@ -86,16 +86,28 @@ $accent: #3dcfb6;
   }
 
   .hero-title__button:hover .hero-title__button-corner--tl,
-  .hero-title__button:active .hero-title__button-corner--tl { top: 0; left: 0; }
+  .hero-title__button:active .hero-title__button-corner--tl {
+    top: 0;
+    left: 0;
+  }
 
   .hero-title__button:hover .hero-title__button-corner--tr,
-  .hero-title__button:active .hero-title__button-corner--tr { top: 0; right: 0; }
+  .hero-title__button:active .hero-title__button-corner--tr {
+    top: 0;
+    right: 0;
+  }
 
   .hero-title__button:hover .hero-title__button-corner--bl,
-  .hero-title__button:active .hero-title__button-corner--bl { bottom: 0; left: 0; }
+  .hero-title__button:active .hero-title__button-corner--bl {
+    bottom: 0;
+    left: 0;
+  }
 
   .hero-title__button:hover .hero-title__button-corner--br,
-  .hero-title__button:active .hero-title__button-corner--br { bottom: 0; right: 0; }
+  .hero-title__button:active .hero-title__button-corner--br {
+    bottom: 0;
+    right: 0;
+  }
 }
 
 .hero-title__button-box {
@@ -178,16 +190,32 @@ $accent: #3dcfb6;
 
 @media (hover: none) {
   // Full hover state plays as entrance animation when section enters the viewport
-  .hero-title__actions--in-view .hero-title__button { color: var(--color-bg); }
-  .hero-title__actions--in-view .hero-title__button-sl { width: calc(100% + 15px); }
+  .hero-title__actions--in-view .hero-title__button {
+    color: var(--color-bg);
+  }
+  .hero-title__actions--in-view .hero-title__button-sl {
+    width: calc(100% + 15px);
+  }
   .hero-title__actions--in-view .hero-title__button-box::after {
     left: calc(100% - 4px);
     background-color: #fff;
   }
-  .hero-title__actions--in-view .hero-title__button-corner--tl { top: 0; left: 0; }
-  .hero-title__actions--in-view .hero-title__button-corner--tr { top: 0; right: 0; }
-  .hero-title__actions--in-view .hero-title__button-corner--bl { bottom: 0; left: 0; }
-  .hero-title__actions--in-view .hero-title__button-corner--br { bottom: 0; right: 0; }
+  .hero-title__actions--in-view .hero-title__button-corner--tl {
+    top: 0;
+    left: 0;
+  }
+  .hero-title__actions--in-view .hero-title__button-corner--tr {
+    top: 0;
+    right: 0;
+  }
+  .hero-title__actions--in-view .hero-title__button-corner--bl {
+    bottom: 0;
+    left: 0;
+  }
+  .hero-title__actions--in-view .hero-title__button-corner--br {
+    bottom: 0;
+    right: 0;
+  }
 }
 
 @media (max-width: 600px) {

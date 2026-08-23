@@ -17,7 +17,10 @@ export class Title implements AfterViewInit, OnDestroy {
 
   private observer?: IntersectionObserver;
 
-  constructor(private el: ElementRef, private zone: NgZone) {}
+  constructor(
+    private el: ElementRef,
+    private zone: NgZone,
+  ) {}
 
   ngAfterViewInit(): void {
     if (!window.matchMedia('(hover: none)').matches) return;
@@ -35,7 +38,7 @@ export class Title implements AfterViewInit, OnDestroy {
           }
         },
         // Only active when element is in the middle third of the viewport
-        { rootMargin: '-30% 0px -30% 0px' }
+        { rootMargin: '-30% 0px -30% 0px' },
       );
       this.observer.observe(actions);
     });

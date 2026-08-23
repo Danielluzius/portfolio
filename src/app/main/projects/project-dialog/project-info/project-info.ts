@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, SimpleChanges, AfterViewInit, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  AfterViewInit,
+  ElementRef,
+} from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Project } from '../../../../shared/models/project.model';
 
@@ -28,7 +35,9 @@ export class ProjectInfo implements OnChanges, AfterViewInit {
     if (!actions) return;
     actions.classList.remove('info__actions--in-view');
     // Double RAF ensures the browser paints one frame without the class so transitions replay
-    requestAnimationFrame(() => requestAnimationFrame(() => actions.classList.add('info__actions--in-view')));
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => actions.classList.add('info__actions--in-view')),
+    );
   }
 
   ngOnChanges(changes: SimpleChanges): void {

@@ -64,14 +64,14 @@ $bw: 2px;
   height: 42px;
   width: 24px;
   background:
-    linear-gradient(to right,  white $bw, transparent $bw) 0   0,
-    linear-gradient(to bottom, white $bw, transparent $bw) 0   0,
-    linear-gradient(to left,   white $bw, transparent $bw) 100% 0,
+    linear-gradient(to right, white $bw, transparent $bw) 0 0,
+    linear-gradient(to bottom, white $bw, transparent $bw) 0 0,
+    linear-gradient(to left, white $bw, transparent $bw) 100% 0,
     linear-gradient(to bottom, white $bw, transparent $bw) 100% 0,
-    linear-gradient(to right,  white $bw, transparent $bw) 0   100%,
-    linear-gradient(to top,    white $bw, transparent $bw) 0   100%,
-    linear-gradient(to left,   white $bw, transparent $bw) 100% 100%,
-    linear-gradient(to top,    white $bw, transparent $bw) 100% 100%;
+    linear-gradient(to right, white $bw, transparent $bw) 0 100%,
+    linear-gradient(to top, white $bw, transparent $bw) 0 100%,
+    linear-gradient(to left, white $bw, transparent $bw) 100% 100%,
+    linear-gradient(to top, white $bw, transparent $bw) 100% 100%;
   background-repeat: no-repeat;
   background-size: $corner $corner;
 }
@@ -86,32 +86,53 @@ $bw: 2px;
 }
 
 @keyframes mouse-wheel {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(4px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
 }
 
 @keyframes mouse-scroll {
-  0%   { opacity: 0; }
-  50%  { opacity: 0.5; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 480px) {
-  .lateral { transform: translateY(50px); }
+  .lateral {
+    transform: translateY(50px);
+  }
 }
 
 @media (max-height: 700px) {
-  .lateral { transform: translateY(40px); }
+  .lateral {
+    transform: translateY(40px);
+  }
 }
 
 @media (max-height: 650px) {
-  .lateral { transform: translateY(50px); }
+  .lateral {
+    transform: translateY(50px);
+  }
 }
 
 @media (max-width: 480px) and (max-height: 800px) {
-  .lateral { transform: translateY(70px); }
+  .lateral {
+    transform: translateY(70px);
+  }
 }
 
 @media (max-width: 480px) and (max-height: 700px) {
-  .lateral { transform: translateY(80px); }
+  .lateral {
+    transform: translateY(80px);
+  }
 }

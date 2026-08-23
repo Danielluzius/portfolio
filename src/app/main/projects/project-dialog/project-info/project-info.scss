@@ -204,16 +204,28 @@ $accent: #3dcfb6;
   }
 
   &:hover .info__repo-button-corner--tl,
-  &:active .info__repo-button-corner--tl { top: 0; left: 0; }
+  &:active .info__repo-button-corner--tl {
+    top: 0;
+    left: 0;
+  }
 
   &:hover .info__repo-button-corner--tr,
-  &:active .info__repo-button-corner--tr { top: 0; right: 0; }
+  &:active .info__repo-button-corner--tr {
+    top: 0;
+    right: 0;
+  }
 
   &:hover .info__repo-button-corner--bl,
-  &:active .info__repo-button-corner--bl { bottom: 0; left: 0; }
+  &:active .info__repo-button-corner--bl {
+    bottom: 0;
+    left: 0;
+  }
 
   &:hover .info__repo-button-corner--br,
-  &:active .info__repo-button-corner--br { bottom: 0; right: 0; }
+  &:active .info__repo-button-corner--br {
+    bottom: 0;
+    right: 0;
+  }
 }
 
 .info__repo-button-box {
@@ -293,16 +305,40 @@ $accent: #3dcfb6;
     right 0.25s ease,
     bottom 0.25s ease;
 
-  &--tl { top: -4px; left: -4px; border-top: 1px solid rgba(255, 255, 255, 0.55); border-left: 1px solid rgba(255, 255, 255, 0.55); }
-  &--tr { top: -4px; right: -4px; border-top: 1px solid rgba(255, 255, 255, 0.55); border-right: 1px solid rgba(255, 255, 255, 0.55); }
-  &--bl { bottom: -4px; left: -4px; border-bottom: 1px solid rgba(255, 255, 255, 0.55); border-left: 1px solid rgba(255, 255, 255, 0.55); }
-  &--br { bottom: -4px; right: -4px; border-bottom: 1px solid rgba(255, 255, 255, 0.55); border-right: 1px solid rgba(255, 255, 255, 0.55); }
+  &--tl {
+    top: -4px;
+    left: -4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.55);
+    border-left: 1px solid rgba(255, 255, 255, 0.55);
+  }
+  &--tr {
+    top: -4px;
+    right: -4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.55);
+    border-right: 1px solid rgba(255, 255, 255, 0.55);
+  }
+  &--bl {
+    bottom: -4px;
+    left: -4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    border-left: 1px solid rgba(255, 255, 255, 0.55);
+  }
+  &--br {
+    bottom: -4px;
+    right: -4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    border-right: 1px solid rgba(255, 255, 255, 0.55);
+  }
 }
 
 @media (hover: none) {
   // Slower transitions so the entrance animation is clearly visible on touch
-  .info__repo-button { transition: color 0.5s ease; }
-  .info__repo-button-sl { transition: width 0.5s ease; }
+  .info__repo-button {
+    transition: color 0.5s ease;
+  }
+  .info__repo-button-sl {
+    transition: width 0.5s ease;
+  }
   .info__repo-button-box::after {
     transition:
       left 0.5s ease,
@@ -317,16 +353,32 @@ $accent: #3dcfb6;
   }
 
   // Full hover state plays as entrance animation when dialog opens
-  .info__actions--in-view .info__repo-button { color: var(--color-bg); }
-  .info__actions--in-view .info__repo-button-sl { width: calc(100% + 15px); }
+  .info__actions--in-view .info__repo-button {
+    color: var(--color-bg);
+  }
+  .info__actions--in-view .info__repo-button-sl {
+    width: calc(100% + 15px);
+  }
   .info__actions--in-view .info__repo-button-box::after {
     left: calc(100% - 4px);
     background-color: #fff;
   }
-  .info__actions--in-view .info__repo-button-corner--tl { top: 0; left: 0; }
-  .info__actions--in-view .info__repo-button-corner--tr { top: 0; right: 0; }
-  .info__actions--in-view .info__repo-button-corner--bl { bottom: 0; left: 0; }
-  .info__actions--in-view .info__repo-button-corner--br { bottom: 0; right: 0; }
+  .info__actions--in-view .info__repo-button-corner--tl {
+    top: 0;
+    left: 0;
+  }
+  .info__actions--in-view .info__repo-button-corner--tr {
+    top: 0;
+    right: 0;
+  }
+  .info__actions--in-view .info__repo-button-corner--bl {
+    bottom: 0;
+    left: 0;
+  }
+  .info__actions--in-view .info__repo-button-corner--br {
+    bottom: 0;
+    right: 0;
+  }
 }
 
 // Responsive Styles

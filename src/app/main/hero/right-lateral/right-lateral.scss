@@ -9,7 +9,9 @@
 .email {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font: 400 18px/1.2 Karla, sans-serif;
+  font:
+    400 18px/1.2 Karla,
+    sans-serif;
   color: #fff;
   text-decoration: none;
   height: 22px;
@@ -65,7 +67,9 @@
   width: 8px;
   height: 8px;
   opacity: 0;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
   pointer-events: none;
 }
 
