@@ -1,5 +1,5 @@
 :host {
-  display: contents;
+  display: block;
 }
 
 $accent: #3dcfb6;
@@ -10,14 +10,13 @@ $accent: #3dcfb6;
   gap: 2.5rem;
   height: 100%;
   min-height: 0;
-  width: 30rem;
+  width: 100%;
 
   &--dense {
     gap: 1.8rem;
   }
 
   @media (min-width: 1920px) {
-    width: 36rem;
     gap: 3rem;
 
     &--dense {
@@ -308,6 +307,20 @@ $accent: #3dcfb6;
   }
 }
 
+// Touch devices: replicate hover fill animation on tap
+.info__repo-button:active {
+  color: var(--color-bg);
+}
+
+.info__repo-button:active .info__repo-button-sl {
+  width: calc(100% + 15px);
+}
+
+.info__repo-button:active .info__repo-button-box::after {
+  left: calc(100% - 4px);
+  background-color: #fff;
+}
+
 // Responsive Styles
 @media (max-width: 1000px) {
   .info {
@@ -330,6 +343,12 @@ $accent: #3dcfb6;
 
   .info__name {
     font-size: clamp(2rem, 6vw, 4rem);
+  }
+
+  .info__actions {
+    justify-content: center;
+    width: 100%;
+    gap: 3rem;
   }
 }
 
@@ -367,8 +386,14 @@ $accent: #3dcfb6;
     gap: 0.75rem 1rem;
   }
 
+  .info__stack-item span:not(.info__stack-icon) {
+    display: none;
+  }
+
   .info__actions {
-    gap: 1.5rem;
+    justify-content: center;
+    width: 100%;
+    gap: 3rem;
   }
 
   .info__repo-button {
@@ -441,7 +466,7 @@ $accent: #3dcfb6;
   }
 
   .info__actions {
-    gap: 1rem;
+    gap: 2.5rem;
     margin-top: 0.5rem;
   }
 
@@ -498,7 +523,7 @@ $accent: #3dcfb6;
   }
 
   .info__actions {
-    gap: 0.75rem;
+    gap: 2.5rem;
     margin-top: 0.25rem;
   }
 

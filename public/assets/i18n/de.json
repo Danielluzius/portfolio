@@ -64,27 +64,27 @@
     "videoflix": {
       "title": "Videoflix",
       "subtitle": "Netflix-artige Streaming-Plattform",
-      "description": "Eine Netflix-ähnliche Streaming-Plattform mit Angular 19-Frontend und Django REST Framework-Backend. Videos werden per FFmpeg im Hintergrund automatisch in adaptive HLS-Qualitätsstufen (480p/720p/1080p) konvertiert, die Wiedergabe erfolgt über hls.js und Plyr. Authentifizierung via JWT in HttpOnly-Cookies, Hintergrund-Jobs über Django RQ und Redis, Deployment via Docker."
+      "description": "Netflix-ähnliche Streaming-Plattform mit Angular 19 und Django REST Framework. Videos werden per FFmpeg automatisch in adaptive HLS-Qualitätsstufen konvertiert. Authentifizierung via JWT, Deployment mit Docker."
     },
     "coderr": {
       "title": "Coderr",
       "subtitle": "Freelance Marktplatz API",
-      "description": "REST API für eine Freelance-Plattform, auf der Business-Nutzer Dienstleistungen anbieten und Kunden diese buchen und bewerten können. Entwickelt mit Python und Django REST Framework, inklusive Token-Authentifizierung, Angebots- und Bestellverwaltung sowie automatisierten Tests."
+      "description": "REST API für eine Freelance-Plattform: Business-Nutzer bieten Dienstleistungen an, Kunden buchen und bewerten sie. Entwickelt mit Python und Django REST Framework inklusive Token-Auth und automatisierten Tests."
     },
     "pokedex": {
       "title": "Pokedex",
       "subtitle": "API-basierter Pokédex",
-      "description": "Ein responsiver Pokédex auf Basis der PokéAPI. Nutzer können Pokémon suchen, filtern und Statistiken erkunden – mit flüssigen Animationen und Offline-Caching."
+      "description": "Ein responsiver Pokédex auf Basis der PokéAPI. Pokémon suchen, filtern und Statistiken erkunden – mit flüssigen Animationen und Offline-Caching."
     },
     "goblinSlayer": {
       "title": "Goblin Slayer",
       "subtitle": "Jump 'n' Run Webgame",
-      "description": "Ein vollständig in JavaScript entwickeltes Browser-Game mit eigenem Design, Kampfmechanik und modularer Gegner-KI. Aufbauend auf einer komponentenbasierten Architektur und optimiert für flüssige Performance."
+      "description": "Vollständig in JavaScript entwickeltes Browser-Game mit eigenem Design und Kampfmechanik. Modulare Gegner-KI und komponentenbasierte Architektur für flüssige Performance."
     },
     "join": {
       "title": "Join",
       "subtitle": "Fullstack Task Manager",
-      "description": "Kollaboratives Kanban-Board mit Angular 19-Frontend und Django REST Framework-Backend. Vollständiges CRUD-Management, Drag & Drop via Angular CDK, Token-Authentifizierung und PostgreSQL als Datenbank. Deployed via Docker und Nginx auf einem eigenen VPS."
+      "description": "Kollaboratives Kanban-Board mit Angular 19 und Django REST Framework. Drag & Drop via Angular CDK, Token-Auth und PostgreSQL. Deployed via Docker und Nginx."
     }
   },
   "allProjects": {

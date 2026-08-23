@@ -64,12 +64,12 @@
     "videoflix": {
       "title": "Videoflix",
       "subtitle": "Netflix-style streaming platform",
-      "description": "A Netflix-style video streaming platform with an Angular 19 frontend and a Django REST Framework backend. Videos are automatically converted into adaptive HLS quality levels (480p/720p/1080p) via FFmpeg in the background, playback is powered by hls.js and Plyr. Authentication uses JWT stored in HttpOnly cookies, background jobs run via Django RQ and Redis, deployed with Docker."
+      "description": "Netflix-style streaming platform with an Angular 19 frontend and Django REST Framework backend. Videos are automatically converted into adaptive HLS quality levels via FFmpeg. Authentication via JWT, deployed with Docker."
     },
     "coderr": {
       "title": "Coderr",
       "subtitle": "Freelance Marketplace API",
-      "description": "REST API for a freelance marketplace where business users can offer services and customers can browse, order, and review them. Built with Python and Django REST Framework, featuring token authentication, offer and order management, and automated tests."
+      "description": "REST API for a freelance marketplace: business users offer services, customers order and review them. Built with Python and Django REST Framework, featuring token auth and automated tests."
     },
     "pokedex": {
       "title": "Pokedex",
@@ -79,12 +79,12 @@
     "goblinSlayer": {
       "title": "Goblin Slayer",
       "subtitle": "Jump 'n' Run Web Game",
-      "description": "A fully JavaScript-built browser game with custom design, combat mechanics, and modular enemy AI. Built on a component-based architecture and optimized for smooth performance."
+      "description": "A fully JavaScript-built browser game with custom design and combat mechanics. Modular enemy AI and a component-based architecture for smooth performance."
     },
     "join": {
       "title": "Join",
       "subtitle": "Fullstack Task Manager",
-      "description": "Collaborative Kanban board with an Angular 19 frontend and Django REST Framework backend. Full CRUD management, drag & drop via Angular CDK, token authentication, and PostgreSQL as the database. Deployed via Docker and Nginx on a self-hosted VPS."
+      "description": "Collaborative Kanban board with an Angular 19 frontend and Django REST Framework backend. Drag & drop via Angular CDK, token auth, and PostgreSQL. Deployed via Docker and Nginx."
     }
   },
   "allProjects": {

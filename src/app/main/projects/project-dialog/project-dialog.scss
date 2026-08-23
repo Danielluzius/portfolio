@@ -23,14 +23,14 @@ $accent: #3dcfb6;
 }
 
 .dialog {
-  position: relative;
   width: min(78rem, 100%);
   height: clamp(30rem, calc(100dvh - 6rem), 41rem);
   max-height: calc(100dvh - 6rem);
   display: grid;
   grid-template-columns: 30rem 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  padding: 5rem;
+  grid-template-rows: auto 1fr auto;
+  column-gap: clamp(2rem, 5vw, 4rem);
+  padding: 3.5rem 5rem;
   background: linear-gradient(55.22deg, #1c1c1c 36.26%, #08463b 93.28%);
   border: 1px solid $accent;
   border-radius: 30px;
@@ -42,15 +42,22 @@ $accent: #3dcfb6;
     width: min(90rem, 100%);
     height: clamp(35rem, calc(100dvh - 6rem), 50rem);
     grid-template-columns: 36rem 1fr;
-    gap: clamp(4rem, 5vw, 5rem);
-    padding: 6rem;
+    column-gap: clamp(4rem, 5vw, 5rem);
+    padding: 4.5rem 6rem;
   }
 }
 
+app-project-info {
+  grid-column: 1;
+  grid-row: 1 / -1;
+}
+
 .dialog__close {
-  position: absolute;
-  top: 3.5rem;
-  right: 5rem;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  align-self: start;
+  position: relative;
   width: 3rem;
   height: 3rem;
   border: none;
@@ -96,6 +103,8 @@ $accent: #3dcfb6;
 }
 
 .dialog__visual {
+  grid-column: 2;
+  grid-row: 2;
   position: relative;
   align-self: center;
   justify-self: center;
@@ -120,9 +129,10 @@ $accent: #3dcfb6;
 }
 
 .dialog__next {
-  position: absolute;
-  right: 5rem;
-  bottom: 3.4375rem;
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: end;
+  align-self: end;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -152,6 +162,7 @@ $accent: #3dcfb6;
 // Responsive Styles
 @media (max-width: 1000px) {
   .dialog {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -168,14 +179,13 @@ $accent: #3dcfb6;
   }
 
   .dialog__close {
+    position: absolute;
     top: 2rem;
     right: 2rem;
   }
 
   .dialog__next {
     position: static;
-    right: 3rem;
-    bottom: 2rem;
     margin-top: 0.5rem;
     align-self: flex-end;
   }
