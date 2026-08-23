@@ -59,13 +59,15 @@
   opacity: 0;
 }
 
-.icon__circle {
+.icon__indicator {
   position: absolute;
   top: 50%;
   left: calc(100% + 4px);
   transform: translateY(-50%) scale(0.6);
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
+  background: #3dcfb6;
+  border-radius: 0;
   opacity: 0;
   transition:
     opacity 0.2s ease,
@@ -81,7 +83,7 @@
   opacity: 1;
 }
 
-.icon:hover .icon__circle {
+.icon:hover .icon__indicator {
   opacity: 1;
   transform: translateY(-50%) scale(1);
 }
@@ -95,7 +97,7 @@
 }
 
 .icon:focus-visible .icon__image--hover,
-.icon:focus-visible .icon__circle {
+.icon:focus-visible .icon__indicator {
   opacity: 1;
   transform: translateY(-50%) scale(1);
 }
@@ -111,18 +113,6 @@
 
   .icon--email {
     display: flex;
-  }
-}
-
-@media (max-width: 480px) {
-  .right-lateral {
-    transform: translateY(50px);
-  }
-}
-
-@media (max-height: 700px) {
-  .right-lateral {
-    transform: translateY(40px);
   }
 }
 

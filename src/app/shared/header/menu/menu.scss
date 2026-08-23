@@ -26,12 +26,15 @@
   position: absolute;
   left: 50%;
   top: calc(100% + 6px);
-  width: 8px;
-  height: 8px;
-  background: url('/assets/icon/radio_hover.png') no-repeat center/contain;
+  width: 5px;
+  height: 5px;
+  background: #3dcfb6;
+  border-radius: 0;
   transform: translateX(-50%) scale(0.5);
   opacity: 0;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .menu__link:hover,

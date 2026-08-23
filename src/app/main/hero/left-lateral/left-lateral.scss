@@ -1,3 +1,8 @@
+$accent: #3dcfb6;
+$corner: 7px;
+$bw: 2px;
+$corner-color: rgba(255, 255, 255, 0.5);
+
 .lateral {
   display: flex;
   align-items: center;
@@ -6,7 +11,7 @@
 .mouse_scroll {
   display: block;
   width: 24px;
-  height: 100px;
+  height: 115px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -17,10 +22,6 @@
     outline-offset: 3px;
   }
 }
-
-$accent: #3dcfb6;
-$corner: 7px;
-$bw: 2px;
 
 .m_scroll_arrows {
   display: block;
@@ -64,14 +65,14 @@ $bw: 2px;
   height: 42px;
   width: 24px;
   background:
-    linear-gradient(to right, white $bw, transparent $bw) 0 0,
-    linear-gradient(to bottom, white $bw, transparent $bw) 0 0,
-    linear-gradient(to left, white $bw, transparent $bw) 100% 0,
-    linear-gradient(to bottom, white $bw, transparent $bw) 100% 0,
-    linear-gradient(to right, white $bw, transparent $bw) 0 100%,
-    linear-gradient(to top, white $bw, transparent $bw) 0 100%,
-    linear-gradient(to left, white $bw, transparent $bw) 100% 100%,
-    linear-gradient(to top, white $bw, transparent $bw) 100% 100%;
+    linear-gradient(to right, $corner-color $bw, transparent $bw) 0 0,
+    linear-gradient(to bottom, $corner-color $bw, transparent $bw) 0 0,
+    linear-gradient(to left, $corner-color $bw, transparent $bw) 100% 0,
+    linear-gradient(to bottom, $corner-color $bw, transparent $bw) 100% 0,
+    linear-gradient(to right, $corner-color $bw, transparent $bw) 0 100%,
+    linear-gradient(to top, $corner-color $bw, transparent $bw) 0 100%,
+    linear-gradient(to left, $corner-color $bw, transparent $bw) 100% 100%,
+    linear-gradient(to top, $corner-color $bw, transparent $bw) 100% 100%;
   background-repeat: no-repeat;
   background-size: $corner $corner;
 }
@@ -80,7 +81,7 @@ $bw: 2px;
   height: 5px;
   width: 5px;
   display: block;
-  margin: 7px auto;
+  margin: 25px auto;
   background: $accent;
   animation: mouse-wheel 1.6s ease-in-out infinite;
 }
@@ -104,35 +105,5 @@ $bw: 2px;
   }
   100% {
     opacity: 1;
-  }
-}
-
-@media (max-width: 480px) {
-  .lateral {
-    transform: translateY(50px);
-  }
-}
-
-@media (max-height: 700px) {
-  .lateral {
-    transform: translateY(40px);
-  }
-}
-
-@media (max-height: 650px) {
-  .lateral {
-    transform: translateY(50px);
-  }
-}
-
-@media (max-width: 480px) and (max-height: 800px) {
-  .lateral {
-    transform: translateY(70px);
-  }
-}
-
-@media (max-width: 480px) and (max-height: 700px) {
-  .lateral {
-    transform: translateY(80px);
   }
 }
