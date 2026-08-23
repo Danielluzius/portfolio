@@ -1,69 +1,117 @@
 .lateral {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  width: 30px;
-  height: 312px;
-}
-
-.scroll-down .circle {
-  width: 30px;
-  height: 48px;
-  border: 1px solid #3dcfb6;
-  border-radius: 32px;
-
-  display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-.scroll-down .arrow {
-  color: #fff;
-  font-size: 16px;
-  line-height: 1;
-  display: inline-block;
-  animation: bounce-down 2s ease-in-out infinite;
-}
+.mouse_scroll {
+  display: block;
+  width: 24px;
+  height: 100px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
 
-@keyframes bounce-down {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(8px);
-    opacity: 0.7;
+  &:focus-visible {
+    outline: 2px solid rgba(61, 207, 182, 0.6);
+    outline-offset: 3px;
   }
 }
 
-.line {
-  width: 0;
-  height: 240px;
-  border-left: 1px solid #3dcfb6;
+$accent: #3dcfb6;
+$corner: 7px;
+$bw: 2px;
+
+.m_scroll_arrows {
+  display: block;
+  width: 16px;
+  height: 16px;
+  transform: rotate(45deg);
+  border-right: $bw solid $accent;
+  border-bottom: $bw solid $accent;
+  margin: 0 0 3px 4px;
+}
+
+.unu {
+  margin-top: 1px;
+}
+
+.unu,
+.doi,
+.trei {
+  animation: mouse-scroll 1s infinite;
+}
+
+.unu {
+  animation-direction: alternate;
+  animation-delay: 0.1s;
+}
+
+.doi {
+  animation-delay: 0.2s;
+  animation-direction: alternate;
+  margin-top: -6px;
+}
+
+.trei {
+  animation-delay: 0.3s;
+  animation-direction: alternate;
+  margin-top: -6px;
+}
+
+// Corners-only rectangle via background gradients – no full border
+.mouse {
+  height: 42px;
+  width: 24px;
+  background:
+    linear-gradient(to right,  white $bw, transparent $bw) 0   0,
+    linear-gradient(to bottom, white $bw, transparent $bw) 0   0,
+    linear-gradient(to left,   white $bw, transparent $bw) 100% 0,
+    linear-gradient(to bottom, white $bw, transparent $bw) 100% 0,
+    linear-gradient(to right,  white $bw, transparent $bw) 0   100%,
+    linear-gradient(to top,    white $bw, transparent $bw) 0   100%,
+    linear-gradient(to left,   white $bw, transparent $bw) 100% 100%,
+    linear-gradient(to top,    white $bw, transparent $bw) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: $corner $corner;
+}
+
+.wheel {
+  height: 5px;
+  width: 5px;
+  display: block;
+  margin: 7px auto;
+  background: $accent;
+  animation: mouse-wheel 1.6s ease-in-out infinite;
+}
+
+@keyframes mouse-wheel {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
+}
+
+@keyframes mouse-scroll {
+  0%   { opacity: 0; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  .lateral { transform: translateY(50px); }
 }
 
 @media (max-height: 700px) {
-  .lateral {
-    transform: translateY(40px);
-  }
+  .lateral { transform: translateY(40px); }
 }
 
 @media (max-height: 650px) {
-  .lateral {
-    transform: translateY(20px);
-  }
+  .lateral { transform: translateY(50px); }
 }
 
 @media (max-width: 480px) and (max-height: 800px) {
-  .lateral {
-    transform: translateY(40px);
-  }
+  .lateral { transform: translateY(70px); }
 }
 
 @media (max-width: 480px) and (max-height: 700px) {
-  .lateral {
-    transform: translateY(70px);
-  }
+  .lateral { transform: translateY(80px); }
 }

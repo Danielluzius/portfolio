@@ -13,7 +13,9 @@
       "available": "Verfügbar für Remote-Arbeit",
       "role": "Fullstack-Entwickler",
       "location": "Seligenstadt, Deutschland",
-      "openToWork": "Offen für neue Projekte"
+      "openToWork": "Offen für neue Projekte",
+      "frontend": "Frontend Spezialist",
+      "backend": "Backend Enthusiast"
     }
   },
   "nav": {

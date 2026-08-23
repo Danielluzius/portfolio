@@ -1,78 +1,160 @@
+$accent: #3dcfb6;
+$corner-size: 12px;
+$corner-offset: -4px;
+
 :host {
   display: inline-block;
 }
 
 .language-switch {
+  position: relative;
   display: inline-flex;
-  align-items: center;
-  padding: 0;
-  border: 1px solid #3dcfb6;
-  border-radius: 999px;
-  background: transparent;
-  transition: border-color 0.2s ease;
+  align-items: stretch;
+  height: 2rem;
 }
 
-.language-switch:hover {
-  border-color: #ffffff;
+// Track clips the skewed slider without affecting corner positions
+.language-switch__track {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.language-switch__slider {
+  position: absolute;
+  top: 0;
+  left: -10px;
+  width: calc(50% + 10px);
+  height: 100%;
+  background-color: $accent;
+  transform: skewX(-15deg);
+  transform-origin: center;
+  transition: left 0.25s ease;
+
+  &--right {
+    left: 50%;
+  }
 }
 
 .language-switch__option {
-  height: 28px;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 2.75rem;
+  padding: 0 12px;
   border: none;
   background: transparent;
+  color: rgba(255, 255, 255, 0.65);
   font-family: 'Fira Code', monospace;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
   text-transform: uppercase;
-  color: rgba(61, 207, 182, 0.5);
   cursor: pointer;
-  padding: 0 12px;
-  border-radius: 999px;
-  transition: background-color 0.2s ease, color 0.2s ease, font-weight 0.2s ease;
+  transition:
+    color 0.25s ease,
+    font-weight 0.15s ease;
+
+  &--active {
+    color: var(--color-bg);
+    font-weight: 700;
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(61, 207, 182, 0.6);
+    outline-offset: 3px;
+  }
 }
 
-.language-switch__option:first-child:not(.language-switch__option--active) {
-  padding: 0 8px 0 12px;
+@media (hover: hover) {
+  .language-switch__option:not(.language-switch__option--active):hover {
+    color: $accent;
+  }
 }
 
-.language-switch__option:last-child:not(.language-switch__option--active) {
-  padding: 0 12px 0 8px;
-}
-
-.language-switch__option:focus-visible {
-  outline: 2px solid rgba(61, 207, 182, 0.6);
-  outline-offset: 2px;
-}
-
-.language-switch__option--active {
-  position: relative;
-  z-index: 1;
-  background-color: #3dcfb6;
-  color: #ffffff;
-  font-weight: 700;
-  padding: 0 12px;
-}
-
-.language-switch__option--active::before {
-  content: '';
+// Corner elements
+.language-switch__corner {
   position: absolute;
-  inset: -1px;
-  border-radius: 999px;
-  background-color: #3dcfb6;
-  z-index: -1;
+  width: $corner-size;
+  height: $corner-size;
   pointer-events: none;
-  transition: background-color 0.2s ease;
+  z-index: 2;
+  transition:
+    top 0.2s ease,
+    left 0.2s ease,
+    right 0.2s ease,
+    bottom 0.2s ease,
+    border-color 0.2s ease;
+
+  &--tl {
+    top: $corner-offset;
+    left: $corner-offset;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    border-left: 1px solid rgba(255, 255, 255, 0.45);
+  }
+  &--tr {
+    top: $corner-offset;
+    right: $corner-offset;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    border-right: 1px solid rgba(255, 255, 255, 0.45);
+  }
+  &--bl {
+    bottom: $corner-offset;
+    left: $corner-offset;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    border-left: 1px solid rgba(255, 255, 255, 0.45);
+  }
+  &--br {
+    bottom: $corner-offset;
+    right: $corner-offset;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    border-right: 1px solid rgba(255, 255, 255, 0.45);
+  }
 }
 
-.language-switch:hover .language-switch__option--highlighted {
-  color: #3dcfb6;
+.language-switch__dot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background-color: #ffffff;
+  pointer-events: none;
+  z-index: 3;
+  transition: left 0.25s ease;
+
+  &--right {
+    left: calc(100% - 4px);
+  }
 }
 
-.language-switch__option--active.language-switch__option--highlighted {
-  color: #ffffff;
-}
+// Only animate corners for the inactive (not active) side on hover
+@media (hover: hover) {
+  .language-switch:has(
+    .language-switch__option:first-of-type:not(.language-switch__option--active):hover
+  ) {
+    .language-switch__corner--tl {
+      top: 0;
+      left: 0;
+    }
+    .language-switch__corner--bl {
+      bottom: 0;
+      left: 0;
+    }
+  }
 
-.language-switch__option--highlighted {
-  transition: color 0.2s ease;
+  .language-switch:has(
+    .language-switch__option:last-of-type:not(.language-switch__option--active):hover
+  ) {
+    .language-switch__corner--tr {
+      top: 0;
+      right: 0;
+    }
+    .language-switch__corner--br {
+      bottom: 0;
+      right: 0;
+    }
+  }
 }

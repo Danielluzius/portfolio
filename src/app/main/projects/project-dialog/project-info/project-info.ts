@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, AfterViewInit, ElementRef } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Project } from '../../../../shared/models/project.model';
 
@@ -10,11 +10,26 @@ import { Project } from '../../../../shared/models/project.model';
   templateUrl: './project-info.html',
   styleUrl: './project-info.scss',
 })
-export class ProjectInfo implements OnChanges {
+export class ProjectInfo implements OnChanges, AfterViewInit {
   @Input({ required: true }) project!: Project;
   @Input({ required: true }) projectIndex!: number;
 
   protected isRepoChoiceOpen = false;
+
+  constructor(private el: ElementRef) {}
+
+  ngAfterViewInit(): void {
+    if (!window.matchMedia('(hover: none)').matches) return;
+    setTimeout(() => this.triggerEntranceAnimation(), 250);
+  }
+
+  private triggerEntranceAnimation(): void {
+    const actions = this.el.nativeElement.querySelector('.info__actions');
+    if (!actions) return;
+    actions.classList.remove('info__actions--in-view');
+    // Double RAF ensures the browser paints one frame without the class so transitions replay
+    requestAnimationFrame(() => requestAnimationFrame(() => actions.classList.add('info__actions--in-view')));
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['project']) {
@@ -41,14 +56,20 @@ export class ProjectInfo implements OnChanges {
    */
   protected openRepoChoice(event: Event): void {
     event.stopPropagation();
+    // Remove class before state change so new buttons render without it
+    this.removeInViewClass();
     this.isRepoChoiceOpen = true;
+    setTimeout(() => this.triggerEntranceAnimation(), 300);
   }
 
-  /**
-   * Switches the Frontend/Backend/close buttons back to GitHub/Live Demo.
-   * @protected
-   */
   protected closeRepoChoice(): void {
+    this.removeInViewClass();
     this.isRepoChoiceOpen = false;
+    setTimeout(() => this.triggerEntranceAnimation(), 300);
+  }
+
+  private removeInViewClass(): void {
+    const actions = this.el.nativeElement.querySelector('.info__actions');
+    if (actions) actions.classList.remove('info__actions--in-view');
   }
 }

@@ -12,7 +12,6 @@ export class LanguageSwitch {
   private translocoService = inject(TranslocoService);
 
   activeLanguage: 'en' | 'de' = 'de';
-  isHovering = false;
 
   /**
    * Angular lifecycle hook that initializes the component.

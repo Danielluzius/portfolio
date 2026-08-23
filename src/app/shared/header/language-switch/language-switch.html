@@ -1,15 +1,21 @@
-<div class="language-switch" role="group" aria-label="Language" (mouseenter)="isHovering = true"
-    (mouseleave)="isHovering = false">
+<div class="language-switch" role="group" aria-label="Language">
+    <span class="language-switch__corner language-switch__corner--tl" aria-hidden="true"></span>
+    <span class="language-switch__corner language-switch__corner--tr" aria-hidden="true"></span>
+    <span class="language-switch__corner language-switch__corner--bl" aria-hidden="true"></span>
+    <span class="language-switch__corner language-switch__corner--br" aria-hidden="true"></span>
+    <div class="language-switch__track">
+        <div class="language-switch__slider" [class.language-switch__slider--right]="activeLanguage === 'de'"></div>
+    </div>
+    <span class="language-switch__dot" [class.language-switch__dot--right]="activeLanguage === 'de'"
+        aria-hidden="true"></span>
     <button type="button" class="language-switch__option"
-        [class.language-switch__option--active]="activeLanguage === 'en'"
-        [class.language-switch__option--highlighted]="isHovering && activeLanguage !== 'en'"
-        [attr.aria-pressed]="activeLanguage === 'en'" (click)="setLanguage('en')">
+        [class.language-switch__option--active]="activeLanguage === 'en'" [attr.aria-pressed]="activeLanguage === 'en'"
+        (click)="setLanguage('en')">
         EN
     </button>
     <button type="button" class="language-switch__option"
-        [class.language-switch__option--active]="activeLanguage === 'de'"
-        [class.language-switch__option--highlighted]="isHovering && activeLanguage !== 'de'"
-        [attr.aria-pressed]="activeLanguage === 'de'" (click)="setLanguage('de')">
+        [class.language-switch__option--active]="activeLanguage === 'de'" [attr.aria-pressed]="activeLanguage === 'de'"
+        (click)="setLanguage('de')">
         DE
     </button>
 </div>

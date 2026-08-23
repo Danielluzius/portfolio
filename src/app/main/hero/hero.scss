@@ -15,6 +15,11 @@
   bottom: 0;
 }
 
+.hero__right-lateral,
+.hero__left-lateral {
+  bottom: 175px;
+}
+
 .hero__left-lateral {
   left: max(clamp(24px, 6vw, 96px), calc((100vw - 1920px) / 2 + clamp(24px, 6vw, 96px)));
 }

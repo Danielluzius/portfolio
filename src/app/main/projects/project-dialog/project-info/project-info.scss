@@ -158,7 +158,7 @@ $accent: #3dcfb6;
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.75rem;
+  gap: 3rem;
   width: fit-content;
   margin-top: auto;
 }
@@ -182,63 +182,38 @@ $accent: #3dcfb6;
   font-size: 0.8125rem;
   transition: color 0.15s ease;
 
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 0;
-    left: 0;
-    height: calc(50% - 4px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: all 0.15s ease;
-  }
-
-  &::before {
-    top: 0;
-    border-bottom-width: 0;
-  }
-
-  &::after {
-    bottom: 0;
-    border-top-width: 0;
-  }
-
-  &:active {
-    outline: none;
-  }
-
-  &:active::before,
-  &:active::after {
-    right: 3px;
-    left: 3px;
-  }
-
-  &:active::before {
-    top: 3px;
-  }
-
-  &:active::after {
-    bottom: 3px;
-  }
-
   &:focus-visible {
     outline: 2px solid $accent;
     outline-offset: 3px;
   }
 
-  &:hover {
+  &:hover,
+  &:active {
     color: var(--color-bg);
   }
 
-  &:hover .info__repo-button-sl {
+  &:hover .info__repo-button-sl,
+  &:active .info__repo-button-sl {
     width: calc(100% + 15px);
   }
 
-  &:hover .info__repo-button-box::after {
+  &:hover .info__repo-button-box::after,
+  &:active .info__repo-button-box::after {
     left: calc(100% - 4px);
     background-color: #fff;
   }
+
+  &:hover .info__repo-button-corner--tl,
+  &:active .info__repo-button-corner--tl { top: 0; left: 0; }
+
+  &:hover .info__repo-button-corner--tr,
+  &:active .info__repo-button-corner--tr { top: 0; right: 0; }
+
+  &:hover .info__repo-button-corner--bl,
+  &:active .info__repo-button-corner--bl { bottom: 0; left: 0; }
+
+  &:hover .info__repo-button-corner--br,
+  &:active .info__repo-button-corner--br { bottom: 0; right: 0; }
 }
 
 .info__repo-button-box {
@@ -248,7 +223,7 @@ $accent: #3dcfb6;
   height: 100%;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-bg);
+  background-color: transparent;
   overflow: hidden;
 
   &::after {
@@ -307,18 +282,51 @@ $accent: #3dcfb6;
   }
 }
 
-// Touch devices: replicate hover fill animation on tap
-.info__repo-button:active {
-  color: var(--color-bg);
+.info__repo-button-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  transition:
+    top 0.25s ease,
+    left 0.25s ease,
+    right 0.25s ease,
+    bottom 0.25s ease;
+
+  &--tl { top: -4px; left: -4px; border-top: 1px solid rgba(255, 255, 255, 0.55); border-left: 1px solid rgba(255, 255, 255, 0.55); }
+  &--tr { top: -4px; right: -4px; border-top: 1px solid rgba(255, 255, 255, 0.55); border-right: 1px solid rgba(255, 255, 255, 0.55); }
+  &--bl { bottom: -4px; left: -4px; border-bottom: 1px solid rgba(255, 255, 255, 0.55); border-left: 1px solid rgba(255, 255, 255, 0.55); }
+  &--br { bottom: -4px; right: -4px; border-bottom: 1px solid rgba(255, 255, 255, 0.55); border-right: 1px solid rgba(255, 255, 255, 0.55); }
 }
 
-.info__repo-button:active .info__repo-button-sl {
-  width: calc(100% + 15px);
-}
+@media (hover: none) {
+  // Slower transitions so the entrance animation is clearly visible on touch
+  .info__repo-button { transition: color 0.5s ease; }
+  .info__repo-button-sl { transition: width 0.5s ease; }
+  .info__repo-button-box::after {
+    transition:
+      left 0.5s ease,
+      background-color 0.4s ease;
+  }
+  .info__repo-button-corner {
+    transition:
+      top 0.45s ease,
+      left 0.45s ease,
+      right 0.45s ease,
+      bottom 0.45s ease;
+  }
 
-.info__repo-button:active .info__repo-button-box::after {
-  left: calc(100% - 4px);
-  background-color: #fff;
+  // Full hover state plays as entrance animation when dialog opens
+  .info__actions--in-view .info__repo-button { color: var(--color-bg); }
+  .info__actions--in-view .info__repo-button-sl { width: calc(100% + 15px); }
+  .info__actions--in-view .info__repo-button-box::after {
+    left: calc(100% - 4px);
+    background-color: #fff;
+  }
+  .info__actions--in-view .info__repo-button-corner--tl { top: 0; left: 0; }
+  .info__actions--in-view .info__repo-button-corner--tr { top: 0; right: 0; }
+  .info__actions--in-view .info__repo-button-corner--bl { bottom: 0; left: 0; }
+  .info__actions--in-view .info__repo-button-corner--br { bottom: 0; right: 0; }
 }
 
 // Responsive Styles
@@ -348,7 +356,6 @@ $accent: #3dcfb6;
   .info__actions {
     justify-content: center;
     width: 100%;
-    gap: 3rem;
   }
 }
 
@@ -393,7 +400,6 @@ $accent: #3dcfb6;
   .info__actions {
     justify-content: center;
     width: 100%;
-    gap: 3rem;
   }
 
   .info__repo-button {

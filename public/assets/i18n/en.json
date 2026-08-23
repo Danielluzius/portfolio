@@ -13,7 +13,9 @@
       "available": "Available for remote work",
       "role": "Fullstack Developer",
       "location": "Based in Seligenstadt",
-      "openToWork": "Open to work"
+      "openToWork": "Open to work",
+      "frontend": "Frontend Specialist",
+      "backend": "Backend Enthusiast"
     }
   },
   "nav": {

@@ -8,4 +8,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './left-lateral.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LeftLateral {}
+export class LeftLateral {
+  scrollToAbout(): void {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  }
+}

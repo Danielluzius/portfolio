@@ -59,6 +59,10 @@
         </ng-template>
 
         <ng-template #repoButtonInner let-label="label">
+            <span class="info__repo-button-corner info__repo-button-corner--tl" aria-hidden="true"></span>
+            <span class="info__repo-button-corner info__repo-button-corner--tr" aria-hidden="true"></span>
+            <span class="info__repo-button-corner info__repo-button-corner--bl" aria-hidden="true"></span>
+            <span class="info__repo-button-corner info__repo-button-corner--br" aria-hidden="true"></span>
             <span class="info__repo-button-box">
                 <span class="info__repo-button-sl" aria-hidden="true"></span>
                 <span class="info__repo-button-text">{{ label | transloco }}</span>

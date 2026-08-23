@@ -2,9 +2,15 @@
     <p class="hero-title__subtitle">{{ 'hero.subtitle' | transloco }}</p>
     <h1 class="hero-title__headline" id="hero-title-heading">{{ 'hero.headline' | transloco }}</h1>
     <nav class="hero-title__actions" aria-label="Primary actions">
-        <a *ngFor="let action of callToActions; let i = index" class="hero-title__button"
-            [class.hero-title__button--primary]="i === 0" [href]="action.href">
-            <span class="hero-title__button-text">{{ action.translationKey | transloco }}</span>
+        <a *ngFor="let action of callToActions; let i = index" class="hero-title__button" [href]="action.href">
+            <span class="hero-title__button-corner hero-title__button-corner--tl" aria-hidden="true"></span>
+            <span class="hero-title__button-corner hero-title__button-corner--tr" aria-hidden="true"></span>
+            <span class="hero-title__button-corner hero-title__button-corner--bl" aria-hidden="true"></span>
+            <span class="hero-title__button-corner hero-title__button-corner--br" aria-hidden="true"></span>
+            <span class="hero-title__button-box">
+                <span class="hero-title__button-sl" aria-hidden="true"></span>
+                <span class="hero-title__button-text">{{ action.translationKey | transloco }}</span>
+            </span>
         </a>
     </nav>
 </section>
