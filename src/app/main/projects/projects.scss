@@ -301,12 +301,11 @@ $accent: #3dcfb6;
 .projects__preview-card::before {
   content: '';
   position: absolute;
-  top: 1.25rem;
-  right: -1.25rem;
+  top: 0.75rem;
+  right: -0.75rem;
   width: 100%;
   height: 100%;
   background: url('/assets/img/capa_2.png') center/cover no-repeat;
-  border-radius: 20px;
   opacity: 0.65;
   z-index: -1;
   pointer-events: none;
@@ -315,7 +314,6 @@ $accent: #3dcfb6;
 .projects__preview-frame {
   width: 100%;
   aspect-ratio: 16 / 10;
-  border-radius: 16px;
   overflow: hidden;
   position: relative;
   isolation: isolate;

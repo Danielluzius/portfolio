@@ -33,7 +33,6 @@ $accent: #3dcfb6;
   padding: 3.5rem 5rem;
   background: linear-gradient(55.22deg, #1c1c1c 36.26%, #08463b 93.28%);
   border: 1px solid $accent;
-  border-radius: 20px;
   color: #fff;
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
   overflow: hidden;
@@ -113,7 +112,6 @@ app-project-info {
   max-width: 32.5rem;
   height: auto;
   aspect-ratio: 520 / 370;
-  border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 
@@ -335,7 +333,6 @@ app-project-info {
   .dialog__visual {
     max-width: 100%;
     aspect-ratio: 16 / 9;
-    border-radius: 0.75rem;
   }
 }
 
@@ -366,6 +363,5 @@ app-project-info {
 
   .dialog__visual {
     aspect-ratio: 16 / 10;
-    border-radius: 0.5rem;
   }
 }

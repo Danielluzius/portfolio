@@ -151,7 +151,6 @@ $accent: #3dcfb6;
 .project-card {
   display: flex;
   flex-direction: column;
-  border-radius: 20px;
   overflow: visible;
   background: rgba(61, 207, 182, 0.1);
   border: 1px solid transparent;
@@ -169,7 +168,7 @@ $accent: #3dcfb6;
     opacity: 1;
   }
 
-  @include cb.card-bracket-before(13px, 20px, rgba(255, 255, 255, 0.55));
+  @include cb.card-bracket-before(13px, rgba(255, 255, 255, 0.55));
 
   &::before {
     clip-path: polygon(
@@ -241,7 +240,6 @@ $accent: #3dcfb6;
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  border-radius: 20px 20px 0 0;
 
   img {
     width: 100%;
