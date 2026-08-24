@@ -1,7 +1,6 @@
 <div class="navigation-wrapper">
-    <button class="scroll-button scroll-button-left" (click)="onNavigate('left')" aria-label="Previous reference">
-        <img src="assets/icon/references-icon/arrow_left.png" alt="" />
-    </button>
+    <button class="scroll-button scroll-button-left" (click)="onNavigate('left')"
+        aria-label="Previous reference"></button>
 
     <div class="scroll-markers">
         @for (item of [].constructor(totalItems); track $index; let i = $index) {
@@ -9,7 +8,6 @@
         }
     </div>
 
-    <button class="scroll-button scroll-button-right" (click)="onNavigate('right')" aria-label="Next reference">
-        <img src="assets/icon/references-icon/arrow_right.png" alt="" />
-    </button>
+    <button class="scroll-button scroll-button-right" (click)="onNavigate('right')"
+        aria-label="Next reference"></button>
 </div>

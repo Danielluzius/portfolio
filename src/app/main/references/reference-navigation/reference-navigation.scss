@@ -8,27 +8,24 @@
 
 .scroll-button {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border: none;
-  border-radius: 50%;
-  background: transparent;
+  padding: 0;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  z-index: 10;
-
-  img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    transition: opacity 0.3s ease;
-  }
+  background-size: 200% 100%;
+  transition:
+    background-position 0.4s ease,
+    transform 0.3s ease;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 
   &:active {
@@ -37,15 +34,31 @@
 
   &:focus-visible {
     outline: 2px solid #3dcfb6;
-    outline-offset: 2px;
+    outline-offset: 4px;
   }
+}
 
-  &.scroll-button-left:hover img {
-    content: url('/assets/icon/references-icon/arrow_left_hover.png');
+.scroll-button-right {
+  background: linear-gradient(to right, #3dcfb6 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right center;
+  -webkit-mask-image: url('/assets/icon/references-icon/arrow_right.png');
+  mask-image: url('/assets/icon/references-icon/arrow_right.png');
+
+  &:hover {
+    background-position: left center;
   }
+}
 
-  &.scroll-button-right:hover img {
-    content: url('/assets/icon/references-icon/arrow_right_hover.png');
+.scroll-button-left {
+  background: linear-gradient(to left, #3dcfb6 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: left center;
+  -webkit-mask-image: url('/assets/icon/references-icon/arrow_left.png');
+  mask-image: url('/assets/icon/references-icon/arrow_left.png');
+
+  &:hover {
+    background-position: right center;
   }
 }
 
@@ -60,7 +73,7 @@
   width: 8px;
   height: 8px;
   border: none;
-  border-radius: 50%;
+  border-radius: 0;
   background-color: #ffffff;
   transition: all 0.3s ease;
 
@@ -76,13 +89,8 @@
   }
 
   .scroll-button {
-    width: 36px;
-    height: 36px;
-
-    img {
-      width: 28px;
-      height: 28px;
-    }
+    width: 28px;
+    height: 28px;
   }
 }
 
@@ -93,13 +101,8 @@
   }
 
   .scroll-button {
-    width: 32px;
-    height: 32px;
-
-    img {
-      width: 24px;
-      height: 24px;
-    }
+    width: 24px;
+    height: 24px;
   }
 
   .scroll-markers {
