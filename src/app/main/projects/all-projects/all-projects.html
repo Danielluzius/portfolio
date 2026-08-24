@@ -1,10 +1,12 @@
 <section class="all-projects-section">
     <div class="all-projects-container">
-        <button class="back-button" (click)="goBack()">
-            <img src="assets/icon/project-icon/arrow_left.png" alt="Back" class="arrow-icon">
-        </button>
-
-        <span class="all-projects-eyebrow">{{ 'allProjects.eyebrow' | transloco }}</span>
+        <div class="all-projects-header-row">
+            <span class="all-projects-eyebrow">{{ 'allProjects.eyebrow' | transloco }}</span>
+            <button class="back-button" (click)="goBack()">
+                <img src="assets/icon/project-icon/arrow_left.png" alt="Back" class="arrow-icon">
+                <span class="back-button__label">{{ 'allProjects.back' | transloco }}</span>
+            </button>
+        </div>
         <h1 class="all-projects-title">{{ 'allProjects.title' | transloco }}</h1>
         <p class="all-projects-lead">{{ 'allProjects.lead' | transloco }}</p>
 

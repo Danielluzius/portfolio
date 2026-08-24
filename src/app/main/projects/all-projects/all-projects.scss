@@ -26,11 +26,11 @@ $accent: #3dcfb6;
 .back-button {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 12px 0;
-  margin-bottom: 24px;
+  padding: 8px;
   transition: transform 0.3s ease;
 
   &:hover {
@@ -39,13 +39,36 @@ $accent: #3dcfb6;
     .arrow-icon {
       content: url('/assets/icon/project-icon/arrow_left_hover.png');
     }
+
+    .back-button__label {
+      color: $accent;
+    }
   }
 
   .arrow-icon {
     width: 32px;
     height: 32px;
     display: block;
+    flex-shrink: 0;
   }
+}
+
+.back-button__label {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.all-projects-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.75rem;
 }
 
 .all-projects-eyebrow {

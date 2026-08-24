@@ -107,7 +107,10 @@ export class AllProjects implements OnInit, AfterViewInit, OnDestroy {
 
   goBack(): void {
     this.router.navigate(['/']).then(() => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      setTimeout(() => {
+        const el = document.getElementById('projects');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
     });
   }
 }
