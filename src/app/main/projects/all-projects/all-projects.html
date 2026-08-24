@@ -9,9 +9,17 @@
         <p class="all-projects-lead">{{ 'allProjects.lead' | transloco }}</p>
 
         <div class="all-projects-grid">
-            <article class="project-card" *ngFor="let project of projects">
+            <article class="project-card" *ngFor="let project of projects; let i = index">
                 <div class="project-card__image">
                     <img [src]="project.preview" [alt]="project.previewAlt" />
+                    <ul class="project-card__stack" aria-label="Technologies">
+                        <li class="project-card__stack-item" *ngFor="let tech of project.stack">
+                            <span class="project-card__stack-icon"
+                                [style.--icon-url]="'url(' + tech.icon + ')'"
+                                [attr.aria-label]="tech.alt"
+                                role="img"></span>
+                        </li>
+                    </ul>
                 </div>
 
                 <div class="project-card__body">
@@ -19,25 +27,57 @@
                     <p class="project-card__subtitle">{{ project.subtitle | transloco }}</p>
                     <p class="project-card__description">{{ project.description | transloco }}</p>
 
-                    <ul class="project-card__tech" aria-label="Technologies">
-                        <li *ngFor="let tech of project.technologies">{{ tech }}</li>
-                    </ul>
+                    <div class="project-card__bottom">
 
-                    <div class="project-card__actions">
-                        <a *ngIf="project.githubUrl" class="project-card__button" [href]="project.githubUrl"
-                            target="_blank" rel="noopener noreferrer">
-                            {{ 'projects.dialog.github' | transloco }}
-                        </a>
-                        <a *ngIf="project.backendUrl" class="project-card__button" [href]="project.backendUrl"
-                            target="_blank" rel="noopener noreferrer">
-                            {{ 'projects.dialog.backend' | transloco }}
-                        </a>
-                        <a *ngIf="project.liveUrl" class="project-card__button" [href]="project.liveUrl" target="_blank"
-                            rel="noopener noreferrer">
-                            {{ 'projects.dialog.liveTest' | transloco }}
-                        </a>
-                    </div>
-                </div>
+                        <div class="project-card__actions" (click)="$event.stopPropagation()">
+                        <ng-container *ngIf="hasTwoRepos(project); else singleGithub">
+                            <ng-container *ngIf="openRepoCardIndex !== i; else repoChoice">
+                                <button type="button" class="project-card__btn" (click)="openRepoChoice(i, $event)">
+                                    <ng-container *ngTemplateOutlet="btnInner; context: { label: 'projects.dialog.github' }"></ng-container>
+                                </button>
+                                <span class="project-card__repo-ghost" aria-hidden="true"></span>
+                                <a *ngIf="project.liveUrl" class="project-card__btn" [href]="project.liveUrl"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <ng-container *ngTemplateOutlet="btnInner; context: { label: 'projects.dialog.liveTest' }"></ng-container>
+                                </a>
+                            </ng-container>
+                            <ng-template #repoChoice>
+                                <a class="project-card__btn" [href]="project.githubUrl" target="_blank" rel="noopener noreferrer">
+                                    <ng-container *ngTemplateOutlet="btnInner; context: { label: 'projects.dialog.frontend' }"></ng-container>
+                                </a>
+                                <button type="button" class="project-card__repo-close" (click)="closeRepoChoice()"
+                                    [attr.aria-label]="'projects.dialog.closeChoice' | transloco">
+                                    <span aria-hidden="true">&#10005;</span>
+                                </button>
+                                <a class="project-card__btn" [href]="project.backendUrl" target="_blank" rel="noopener noreferrer">
+                                    <ng-container *ngTemplateOutlet="btnInner; context: { label: 'projects.dialog.backend' }"></ng-container>
+                                </a>
+                            </ng-template>
+                        </ng-container>
+
+                        <ng-template #singleGithub>
+                            <a *ngIf="project.githubUrl" class="project-card__btn" [href]="project.githubUrl"
+                                target="_blank" rel="noopener noreferrer">
+                                <ng-container *ngTemplateOutlet="btnInner; context: { label: 'projects.dialog.github' }"></ng-container>
+                            </a>
+                            <span class="project-card__repo-ghost" aria-hidden="true"></span>
+                            <a *ngIf="project.liveUrl" class="project-card__btn" [href]="project.liveUrl"
+                                target="_blank" rel="noopener noreferrer">
+                                <ng-container *ngTemplateOutlet="btnInner; context: { label: 'projects.dialog.liveTest' }"></ng-container>
+                            </a>
+                        </ng-template>
+
+                        <ng-template #btnInner let-label="label">
+                            <span class="project-card__btn-corner project-card__btn-corner--tl" aria-hidden="true"></span>
+                            <span class="project-card__btn-corner project-card__btn-corner--tr" aria-hidden="true"></span>
+                            <span class="project-card__btn-corner project-card__btn-corner--bl" aria-hidden="true"></span>
+                            <span class="project-card__btn-corner project-card__btn-corner--br" aria-hidden="true"></span>
+                            <span class="project-card__btn-box">
+                                <span class="project-card__btn-sl" aria-hidden="true"></span>
+                                <span class="project-card__btn-text">{{ label | transloco }}</span>
+                            </span>
+                        </ng-template>
+                    </div>                    </div>                </div>
             </article>
         </div>
     </div>
