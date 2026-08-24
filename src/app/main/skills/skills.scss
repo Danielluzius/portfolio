@@ -98,6 +98,19 @@
     box-sizing: border-box;
     transition: border-color 0.45s ease;
 
+    .skills__headline,
+    .skills__copy,
+    .skills__cta-block {
+      opacity: 0.65;
+      transition: opacity 0.45s ease;
+    }
+
+    &.bracket-active .skills__headline,
+    &.bracket-active .skills__copy,
+    &.bracket-active .skills__cta-block {
+      opacity: 1;
+    }
+
     @include cb.card-bracket-before(13px, 20px, rgba(255, 255, 255, 0.55));
 
     &::before {
@@ -356,6 +369,12 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    opacity: 0.65;
+    transition: opacity 0.45s ease;
+
+    &.icons-visible {
+      opacity: 1;
+    }
 
     @media (max-width: 600px) {
       grid-template-columns: repeat(3, 1fr);

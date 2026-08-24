@@ -15,7 +15,7 @@ export class Skills implements AfterViewInit, OnDestroy {
   private el = inject(ElementRef);
   private zone = inject(NgZone);
   private observer?: IntersectionObserver;
-
+  private iconsObserver?: IntersectionObserver;
   public readonly skillIcons = this.skillsService.getSkills();
 
   private btnObserver?: IntersectionObserver;
@@ -33,6 +33,19 @@ export class Skills implements AfterViewInit, OnDestroy {
       );
       this.observer.observe(card);
     });
+
+    const icons = this.el.nativeElement.querySelector('.skills__icons-grid');
+    if (icons) {
+      this.zone.runOutsideAngular(() => {
+        this.iconsObserver = new IntersectionObserver(
+          ([entry]) => {
+            icons.classList.toggle('icons-visible', entry.intersectionRatio >= 0.25);
+          },
+          { threshold: 0.25 },
+        );
+        this.iconsObserver.observe(icons);
+      });
+    }
 
     if (!window.matchMedia('(hover: none)').matches) return;
 
@@ -52,6 +65,7 @@ export class Skills implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.observer?.disconnect();
+    this.iconsObserver?.disconnect();
     this.btnObserver?.disconnect();
   }
 }

@@ -27,9 +27,9 @@ export class Photo implements AfterViewInit, OnDestroy {
     this.zone.runOutsideAngular(() => {
       this.observer = new IntersectionObserver(
         ([entry]) => {
-          element.classList.toggle('photo-visible', entry.intersectionRatio >= 0.4);
+          element.classList.toggle('photo-visible', entry.intersectionRatio >= 0.25);
         },
-        { threshold: 0.4 },
+        { threshold: 0.25 },
       );
       this.observer.observe(element);
     });

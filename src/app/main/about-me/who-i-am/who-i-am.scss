@@ -42,6 +42,17 @@
   box-sizing: border-box;
   transition: border-color 0.45s ease;
 
+  .about-me__header,
+  .about-me__list {
+    opacity: 0.65;
+    transition: opacity 0.45s ease;
+  }
+
+  &.bracket-active .about-me__header,
+  &.bracket-active .about-me__list {
+    opacity: 1;
+  }
+
   @include cb.card-bracket-before(13px, 20px, rgba(255, 255, 255, 0.55));
 
   &::before {
