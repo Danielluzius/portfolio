@@ -1,5 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, NgZone, OnDestroy, OnInit, ViewEncapsulation, inject } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  NgZone,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation,
+  inject,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Footer } from '../../../shared/footer/footer';
@@ -38,7 +48,10 @@ export class AllProjects implements OnInit, AfterViewInit, OnDestroy {
       this.cardObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            (entry.target as HTMLElement).classList.toggle('bracket-active', entry.intersectionRatio >= threshold);
+            (entry.target as HTMLElement).classList.toggle(
+              'bracket-active',
+              entry.intersectionRatio >= threshold,
+            );
           });
         },
         { threshold },
@@ -48,7 +61,8 @@ export class AllProjects implements OnInit, AfterViewInit, OnDestroy {
 
     if (!window.matchMedia('(hover: none)').matches) return;
 
-    const actionsList: NodeListOf<HTMLElement> = this.el.nativeElement.querySelectorAll('.project-card__actions');
+    const actionsList: NodeListOf<HTMLElement> =
+      this.el.nativeElement.querySelectorAll('.project-card__actions');
     this.zone.runOutsideAngular(() => {
       this.actionsObserver = new IntersectionObserver(
         (entries) => {
