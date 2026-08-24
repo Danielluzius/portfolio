@@ -10,7 +10,7 @@
   margin-top: clamp(-2rem, -4vw, -0.5rem);
 }
 
-// Decorative background – offset bottom-left, shifts to top-right on hover
+// Decorative background – fixed offset bottom-left
 .about-me__photo::before {
   content: '';
   position: absolute;
@@ -24,19 +24,11 @@
   z-index: -1;
   pointer-events: none;
   transform: translate(-0.6rem, 0.6rem);
-  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 // Corner bracket frame – same system as the about-me card
 .about-me__photo::after {
   display: none;
-}
-
-@media (hover: hover) {
-  .about-me__photo:hover::before,
-  .about-me__photo.hovered::before {
-    transform: translate(0.6rem, -0.6rem);
-  }
 }
 
 .about-me__photo-frame {
@@ -56,6 +48,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.about-me__photo.photo-visible .about-me__photo-frame img {
+  opacity: 1;
 }
 
 @media (min-width: 1920px) {
