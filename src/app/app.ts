@@ -31,12 +31,21 @@ export class App implements AfterViewInit, OnDestroy {
    */
   constructor(private renderer: Renderer2) {
     this.detectTouchDevice();
+    this.handleHeroIntro();
   }
 
   /**
    * Detects if the user is on a touch device and adds appropriate CSS class.
    * @private
    */
+  private handleHeroIntro(): void {
+    if (sessionStorage.getItem('heroAnimated')) {
+      document.documentElement.classList.add('hero-intro-done');
+    } else {
+      sessionStorage.setItem('heroAnimated', '1');
+    }
+  }
+
   private detectTouchDevice(): void {
     this.isTouchDevice =
       'ontouchstart' in window ||

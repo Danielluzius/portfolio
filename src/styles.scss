@@ -7,6 +7,19 @@
   --color-text: #f4f9f8;
 }
 
+html.hero-intro-done {
+  .hero-title__subtitle,
+  .hero-title__headline,
+  .hero-title__actions,
+  .hero__left-lateral,
+  .hero__right-lateral,
+  .hero__marquee {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
