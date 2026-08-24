@@ -466,31 +466,31 @@
   }
 }
 
-// Touch devices: button always appears filled
+// Touch devices: filled hover state activates when button scrolls into the middle of the viewport
 @media (hover: none) {
-  .skills__cta-button {
+  .skills__cta-button--in-view {
     color: var(--color-bg);
   }
-  .skills__cta-button .skills__cta-btn-sl {
+  .skills__cta-button--in-view .skills__cta-btn-sl {
     width: calc(100% + 15px);
   }
-  .skills__cta-button .skills__cta-btn-box::after {
+  .skills__cta-button--in-view .skills__cta-btn-box::after {
     left: calc(100% - 4px);
     background-color: #fff;
   }
-  .skills__cta-button .skills__cta-btn-corner--tl {
+  .skills__cta-button--in-view .skills__cta-btn-corner--tl {
     top: 0;
     left: 0;
   }
-  .skills__cta-button .skills__cta-btn-corner--tr {
+  .skills__cta-button--in-view .skills__cta-btn-corner--tr {
     top: 0;
     right: 0;
   }
-  .skills__cta-button .skills__cta-btn-corner--bl {
+  .skills__cta-button--in-view .skills__cta-btn-corner--bl {
     bottom: 0;
     left: 0;
   }
-  .skills__cta-button .skills__cta-btn-corner--br {
+  .skills__cta-button--in-view .skills__cta-btn-corner--br {
     bottom: 0;
     right: 0;
   }

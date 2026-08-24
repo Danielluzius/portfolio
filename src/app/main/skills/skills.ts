@@ -18,6 +18,8 @@ export class Skills implements AfterViewInit, OnDestroy {
 
   public readonly skillIcons = this.skillsService.getSkills();
 
+  private btnObserver?: IntersectionObserver;
+
   ngAfterViewInit(): void {
     const card = this.el.nativeElement.querySelector('.skills__info-card');
     if (!card) return;
@@ -31,9 +33,25 @@ export class Skills implements AfterViewInit, OnDestroy {
       );
       this.observer.observe(card);
     });
+
+    if (!window.matchMedia('(hover: none)').matches) return;
+
+    const btn = this.el.nativeElement.querySelector('.skills__cta-button');
+    if (!btn) return;
+
+    this.zone.runOutsideAngular(() => {
+      this.btnObserver = new IntersectionObserver(
+        ([entry]) => {
+          btn.classList.toggle('skills__cta-button--in-view', entry.isIntersecting);
+        },
+        { rootMargin: '-15% 0px -15% 0px' },
+      );
+      this.btnObserver.observe(btn);
+    });
   }
 
   ngOnDestroy(): void {
     this.observer?.disconnect();
+    this.btnObserver?.disconnect();
   }
 }
