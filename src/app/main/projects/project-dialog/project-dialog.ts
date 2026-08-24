@@ -1,12 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  animate,
-  AnimationEvent,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
 import {
   Component,
   EventEmitter,
