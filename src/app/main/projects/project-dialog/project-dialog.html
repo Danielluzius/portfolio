@@ -11,10 +11,11 @@
                     src="assets/icon/project-icon/close_button_hover.png" alt="" aria-hidden="true" />
             </button>
 
-            <app-project-info [project]="project" [projectIndex]="projectIndex!" />
+            <app-project-info [@contentState]="contentState"
+                [project]="displayedProject!" [projectIndex]="displayedIndex!" />
 
-            <div class="dialog__visual">
-                <img class="dialog__image" [src]="project.preview" [alt]="project.previewAlt" />
+            <div class="dialog__visual" [@contentState]="contentState" (@contentState.done)="onContentAnimDone($event)">
+                <img class="dialog__image" [src]="displayedProject?.preview" [alt]="displayedProject?.previewAlt" />
             </div>
 
             <button class="dialog__next" type="button" (click)="onNext($event)" (mouseenter)="setNextHover(true)"
