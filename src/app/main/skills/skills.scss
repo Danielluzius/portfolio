@@ -134,10 +134,6 @@
         box-shadow 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
-    &.bracket-active {
-      border-color: #3dcfb6;
-    }
-
     &.bracket-active::before {
       left: 0;
       top: 0;
