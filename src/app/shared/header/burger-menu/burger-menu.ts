@@ -12,11 +12,12 @@ import {
 import { Router } from '@angular/router';
 import { TranslocoService, TranslocoPipe } from '@jsverse/transloco';
 import { BodyScrollService } from '../../services/body-scroll.service';
+import { LanguageSwitch } from '../language-switch/language-switch';
 
 @Component({
   standalone: true,
   selector: 'app-burger-menu',
-  imports: [TranslocoPipe],
+  imports: [TranslocoPipe, LanguageSwitch],
   templateUrl: './burger-menu.html',
   styleUrl: './burger-menu.scss',
 })

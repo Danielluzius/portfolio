@@ -33,10 +33,40 @@ $accent: #3dcfb6;
   padding: 3.5rem 5rem;
   background: linear-gradient(55.22deg, #1c1c1c 36.26%, #08463b 93.28%);
   border: 1px solid $accent;
-  border-radius: 30px;
+  border-radius: 8px;
   color: #fff;
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
   overflow: hidden;
+  position: relative;
+
+  // Corner-bracket: plays once on dialog creation via *ngIf
+  &::before {
+    content: '';
+    display: block;
+    --card-ax: 14px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 1px rgba(61, 207, 182, 0.55);
+    clip-path: polygon(
+      var(--card-ax) 0, 0 0, 0 var(--card-ax), var(--card-ax) var(--card-ax),
+      var(--card-ax) calc(100% - var(--card-ax)),
+      0 calc(100% - var(--card-ax)),
+      0 100%, var(--card-ax) 100%, var(--card-ax) calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) 100%, 100% 100%,
+      100% calc(100% - var(--card-ax)), calc(100% - var(--card-ax)) calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) var(--card-ax), 100% var(--card-ax),
+      100% 0, calc(100% - var(--card-ax)) 0,
+      calc(100% - var(--card-ax)) var(--card-ax), var(--card-ax) var(--card-ax)
+    );
+    animation: dialogBracketIn 0.55s 0.1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
 
   @media (min-width: 1920px) {
     width: min(90rem, 100%);
@@ -45,6 +75,11 @@ $accent: #3dcfb6;
     column-gap: clamp(4rem, 5vw, 5rem);
     padding: 4.5rem 6rem;
   }
+}
+
+@keyframes dialogBracketIn {
+  from { --card-ax: 8px; opacity: 0; transform: scale(0.92); }
+  to   { --card-ax: 26px; opacity: 1; transform: scale(1); }
 }
 
 app-project-info {

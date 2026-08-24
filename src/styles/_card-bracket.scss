@@ -1,0 +1,54 @@
+// Shared mixin: corner-bracket frame via ::before (reference: clip-path polygon technique)
+// --card-ax controls arm length and is @property-animated in styles.scss
+@mixin card-bracket-before($offset: 8px, $radius: 12px, $color: rgba(61, 207, 182, 0.55)) {
+  &::before {
+    content: '';
+    display: block;
+    --card-ax: 14px;
+    width: calc(100% + #{$offset * 2});
+    height: calc(100% + #{$offset * 2});
+    position: absolute;
+    left: -#{$offset};
+    top: -#{$offset};
+    pointer-events: none;
+    z-index: 2;
+    border-radius: #{$radius};
+    box-shadow: inset 0 0 0 1px #{$color};
+    clip-path: polygon(
+      var(--card-ax) 0,
+      0 0,
+      0 var(--card-ax),
+      var(--card-ax) var(--card-ax),
+      var(--card-ax) calc(100% - var(--card-ax)),
+      0 calc(100% - var(--card-ax)),
+      0 100%,
+      var(--card-ax) 100%,
+      var(--card-ax) calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) 100%,
+      100% 100%,
+      100% calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) var(--card-ax),
+      100% var(--card-ax),
+      100% 0,
+      calc(100% - var(--card-ax)) 0,
+      calc(100% - var(--card-ax)) var(--card-ax),
+      var(--card-ax) var(--card-ax)
+    );
+    // Pull-in entrance: starts scaled up (brackets further out), settles to natural size
+    opacity: 0;
+    transform: scale(1.1);
+    transform-origin: center;
+    transition:
+      opacity 0.35s ease,
+      transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+      --card-ax 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  &.card-corners-in-view::before {
+    --card-ax: 24px;
+    opacity: 1;
+    transform: scale(1);
+  }
+}

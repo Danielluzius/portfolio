@@ -367,74 +367,212 @@ $transition-fast: 0.2s ease;
 }
 
 .submit-button {
+  appearance: none;
   position: relative;
   box-sizing: border-box;
   display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0 24px;
-  gap: $gap-small;
-  width: 139px;
+  min-width: 139px;
   height: 48px;
-  background: transparent;
-  border: 1px solid $text-color-faded;
-  border-radius: 100px;
+  padding: 4px;
+  border: none;
+  background: none;
   font-family: $font-primary;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: $line-height-default;
-  color: $text-color-light;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
   cursor: default;
-  transition: border-color $transition-fast, color $transition-fast;
+  transition: color 0.15s ease;
   align-self: stretch;
-  overflow: hidden;
 
   &.active {
-    border-color: $text-color-white;
-    color: $text-color-white;
+    color: #fff;
     cursor: pointer;
 
-    &:hover,
-    &:focus-visible {
-      background: transparent;
-      border-color: $primary-color;
-      color: $primary-color;
+    .submit-button__corner {
+      border-color: rgba(255, 255, 255, 0.55);
     }
-
-    &:hover .button-text {
-      animation: slideTextLoop 2s linear infinite;
+    .submit-button__corner--tl {
+      top: -4px;
+      left: -4px;
     }
-
-    &:focus-visible {
-      outline: 2px solid $primary-color-glow;
-      outline-offset: 3px;
+    .submit-button__corner--tr {
+      top: -4px;
+      right: -4px;
+    }
+    .submit-button__corner--bl {
+      bottom: -4px;
+      left: -4px;
+    }
+    .submit-button__corner--br {
+      bottom: -4px;
+      right: -4px;
     }
   }
 
   &:disabled {
-    opacity: 0.5;
     cursor: not-allowed;
   }
 
+  &:focus-visible {
+    outline: 2px solid $primary-color-glow;
+    outline-offset: 3px;
+  }
+
   @media (max-width: $breakpoint-tablet) {
-    font-size: 16px;
-    width: 120px;
+    font-size: 0.875rem;
     min-width: 120px;
   }
 }
 
+.submit-button__corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0.18);
+  transition:
+    top 0.25s ease,
+    left 0.25s ease,
+    right 0.25s ease,
+    bottom 0.25s ease;
+
+  &--tl {
+    top: 0;
+    left: 0;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+  &--tr {
+    top: 0;
+    right: 0;
+    border-top: 1px solid;
+    border-right: 1px solid;
+  }
+  &--bl {
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+  }
+  &--br {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+  }
+}
+
+.submit-button__box {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color: $primary-color;
+    transition:
+      left 0.2s ease,
+      background-color 0.15s ease;
+  }
+}
+
+.submit-button__sl {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: -8px;
+  width: 0;
+  background-color: $primary-color;
+  transform: skew(-15deg);
+  transform-origin: center;
+  transition: width 0.2s ease;
+}
+
 .button-text {
   position: relative;
+  z-index: 1;
   display: block;
 }
 
-@keyframes slideTextLoop {
-  0% {
-    transform: translateX(150%);
+// Hover: active button only
+@media (hover: hover) {
+  .submit-button.active:not(:disabled):hover,
+  .submit-button.active:focus-visible {
+    color: var(--color-bg);
   }
-  100% {
-    transform: translateX(-150%);
+
+  .submit-button.active:not(:disabled):hover .submit-button__sl,
+  .submit-button.active:focus-visible .submit-button__sl {
+    width: calc(100% + 15px);
+  }
+
+  .submit-button.active:not(:disabled):hover .submit-button__box::after,
+  .submit-button.active:focus-visible .submit-button__box::after {
+    left: calc(100% - 4px);
+    background-color: #fff;
+  }
+
+  .submit-button.active:not(:disabled):hover .submit-button__corner--tl,
+  .submit-button.active:focus-visible .submit-button__corner--tl {
+    top: 0;
+    left: 0;
+  }
+  .submit-button.active:not(:disabled):hover .submit-button__corner--tr,
+  .submit-button.active:focus-visible .submit-button__corner--tr {
+    top: 0;
+    right: 0;
+  }
+  .submit-button.active:not(:disabled):hover .submit-button__corner--bl,
+  .submit-button.active:focus-visible .submit-button__corner--bl {
+    bottom: 0;
+    left: 0;
+  }
+  .submit-button.active:not(:disabled):hover .submit-button__corner--br,
+  .submit-button.active:focus-visible .submit-button__corner--br {
+    bottom: 0;
+    right: 0;
+  }
+}
+
+// Touch devices: active button always appears filled
+@media (hover: none) {
+  .submit-button.active:not(:disabled) {
+    color: var(--color-bg);
+  }
+  .submit-button.active:not(:disabled) .submit-button__sl {
+    width: calc(100% + 15px);
+  }
+  .submit-button.active:not(:disabled) .submit-button__box::after {
+    left: calc(100% - 4px);
+    background-color: #fff;
+  }
+  .submit-button.active:not(:disabled) .submit-button__corner--tl {
+    top: 0;
+    left: 0;
+  }
+  .submit-button.active:not(:disabled) .submit-button__corner--tr {
+    top: 0;
+    right: 0;
+  }
+  .submit-button.active:not(:disabled) .submit-button__corner--bl {
+    bottom: 0;
+    left: 0;
+  }
+  .submit-button.active:not(:disabled) .submit-button__corner--br {
+    bottom: 0;
+    right: 0;
   }
 }

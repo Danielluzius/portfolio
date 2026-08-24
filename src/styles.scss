@@ -80,6 +80,16 @@ body.body--no-scroll {
   overflow: hidden;
 }
 
+// ============================================================
+// Design System: Card Corner Bracket (::before clip-path technique)
+// Arm-length custom property – animatable in modern browsers
+// ============================================================
+@property --card-ax {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 16px;
+}
+
 .cursor-shadow {
   position: fixed;
   width: 150px;
@@ -90,7 +100,11 @@ body.body--no-scroll {
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width 0.5s ease, height 0.5s ease, background 0.5s ease, opacity 0.3s ease,
+  transition:
+    width 0.5s ease,
+    height 0.5s ease,
+    background 0.5s ease,
+    opacity 0.3s ease,
     filter 0.5s ease;
 
   &.cursor-hover {

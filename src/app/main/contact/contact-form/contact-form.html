@@ -55,8 +55,15 @@
         <div class="button-wrapper">
             <button type="button" class="submit-button" [class.active]="privacyAccepted && !isSubmitting"
                 [disabled]="isSubmitting" (click)="onSubmit()">
-                <span class="button-text" *ngIf="!isSubmitting">{{ 'contact.form.submit' | transloco }}</span>
-                <span class="button-text" *ngIf="isSubmitting">{{ 'contact.form.sending' | transloco }}</span>
+                <span class="submit-button__corner submit-button__corner--tl" aria-hidden="true"></span>
+                <span class="submit-button__corner submit-button__corner--tr" aria-hidden="true"></span>
+                <span class="submit-button__corner submit-button__corner--bl" aria-hidden="true"></span>
+                <span class="submit-button__corner submit-button__corner--br" aria-hidden="true"></span>
+                <span class="submit-button__box">
+                    <span class="submit-button__sl" aria-hidden="true"></span>
+                    <span class="button-text" *ngIf="!isSubmitting">{{ 'contact.form.submit' | transloco }}</span>
+                    <span class="button-text" *ngIf="isSubmitting">{{ 'contact.form.sending' | transloco }}</span>
+                </span>
             </button>
         </div>
     </div>

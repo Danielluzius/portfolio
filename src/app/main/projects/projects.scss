@@ -152,6 +152,12 @@ $accent: #3dcfb6;
 
 .projects__item-label {
   display: inline-flex;
+  transition: transform 0.25s ease;
+}
+
+.projects__item:hover .projects__item-label,
+.projects__item.is-active .projects__item-label {
+  transform: scale(1.04);
 }
 
 .projects__item-icon {

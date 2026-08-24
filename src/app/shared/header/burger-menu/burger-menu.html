@@ -23,14 +23,7 @@
         </ul>
 
         <div class="burger-menu__language-switch">
-            <button class="burger-menu__language-btn"
-                [class.burger-menu__language-btn--active]="currentLanguage === 'en'" (click)="switchLanguage('en')">
-                EN
-            </button>
-            <button class="burger-menu__language-btn"
-                [class.burger-menu__language-btn--active]="currentLanguage === 'de'" (click)="switchLanguage('de')">
-                DE
-            </button>
+            <app-language-switch></app-language-switch>
         </div>
     </nav>
 </div>

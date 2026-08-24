@@ -1,4 +1,5 @@
 .carousel-item {
+  position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -8,11 +9,64 @@
 
   background: rgba(61, 207, 182, 0.1);
   border: 1px solid #3dcfb6;
-  border-radius: 32px;
-  transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+  border-radius: 8px;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    opacity 0.3s ease;
   opacity: 0.6;
   transform: scale(0.9);
-  position: relative;
+
+  // Corner-bracket via ::before; active state triggers the pull-in
+  &::before {
+    content: '';
+    display: block;
+    --card-ax: 14px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px rgba(61, 207, 182, 0.55);
+    clip-path: polygon(
+      var(--card-ax) 0,
+      0 0,
+      0 var(--card-ax),
+      var(--card-ax) var(--card-ax),
+      var(--card-ax) calc(100% - var(--card-ax)),
+      0 calc(100% - var(--card-ax)),
+      0 100%,
+      var(--card-ax) 100%,
+      var(--card-ax) calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) 100%,
+      100% 100%,
+      100% calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) calc(100% - var(--card-ax)),
+      calc(100% - var(--card-ax)) var(--card-ax),
+      100% var(--card-ax),
+      100% 0,
+      calc(100% - var(--card-ax)) 0,
+      calc(100% - var(--card-ax)) var(--card-ax),
+      var(--card-ax) var(--card-ax)
+    );
+    opacity: 0;
+    transform: scale(1.1);
+    transform-origin: center;
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+      --card-ax 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  &.active::before {
+    --card-ax: 22px;
+    opacity: 1;
+    transform: scale(1);
+  }
   height: 100%;
 
   .quote-icon {
