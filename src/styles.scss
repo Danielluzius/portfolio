@@ -16,6 +16,13 @@ html.hero-intro-done {
   .hero__marquee {
     animation: none !important;
     opacity: 1 !important;
+  }
+
+  .hero-title__subtitle,
+  .hero-title__headline,
+  .hero-title__actions,
+  .hero__left-lateral,
+  .hero__right-lateral {
     transform: none !important;
   }
 }

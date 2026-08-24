@@ -43,6 +43,8 @@ export class App implements AfterViewInit, OnDestroy {
       document.documentElement.classList.add('hero-intro-done');
     } else {
       sessionStorage.setItem('heroAnimated', '1');
+      // Add class after all intro animations finish (longest: 1.5s delay + 0.8s duration)
+      setTimeout(() => document.documentElement.classList.add('hero-intro-done'), 2400);
     }
   }
 
