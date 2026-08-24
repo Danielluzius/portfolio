@@ -20,12 +20,9 @@ export class WhoIAm implements AfterViewInit, OnDestroy {
     this.zone.runOutsideAngular(() => {
       this.observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) {
-            card.classList.add('card-corners-in-view');
-            this.observer?.disconnect();
-          }
+          card.classList.toggle('bracket-active', entry.intersectionRatio >= 0.75);
         },
-        { threshold: 0.15 },
+        { threshold: 0.75 },
       );
       this.observer.observe(card);
     });

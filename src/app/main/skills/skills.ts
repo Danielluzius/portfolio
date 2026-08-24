@@ -25,12 +25,9 @@ export class Skills implements AfterViewInit, OnDestroy {
     this.zone.runOutsideAngular(() => {
       this.observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) {
-            card.classList.add('card-corners-in-view');
-            this.observer?.disconnect();
-          }
+          card.classList.toggle('bracket-active', entry.intersectionRatio >= 0.75);
         },
-        { threshold: 0.1 },
+        { threshold: 0.75 },
       );
       this.observer.observe(card);
     });

@@ -34,60 +34,82 @@
   gap: clamp(2rem, 5vw, 2.5rem);
   width: 100%;
   padding: clamp(2rem, 4vw, 2.5rem);
-  border-radius: 8px;
+  border-radius: 20px;
   background: rgba(61, 207, 182, 0.1);
-  border: 1px solid #3dcfb6;
+  border: 1px solid transparent;
   backdrop-filter: blur(2px);
   color: rgba(255, 255, 255, 0.9);
   box-sizing: border-box;
+  transition: border-color 0.45s ease;
 
-  @include cb.card-bracket-before(18px, 20px, rgba(255, 255, 255, 0.55));
+  @include cb.card-bracket-before(13px, 20px, rgba(255, 255, 255, 0.55));
 
   &::before {
     clip-path: polygon(
-      20% 0,   0    0,   0    20%,
-      20% 20%, 20% 80%,
-      0    80%, 0   100%, 20% 100%,
-      20% 80%, 80% 80%,
-      80% 100%, 100% 100%, 100% 80%,
-      80% 80%, 80% 20%,
-      100% 20%, 100% 0,   80%  0,
-      80% 20%, 20% 20%
+      20% 0,
+      0 0,
+      0 20%,
+      20% 20%,
+      20% 80%,
+      0 80%,
+      0 100%,
+      20% 100%,
+      20% 80%,
+      80% 80%,
+      80% 100%,
+      100% 100%,
+      100% 80%,
+      80% 80%,
+      80% 20%,
+      100% 20%,
+      100% 0,
+      80% 0,
+      80% 20%,
+      20% 20%
     );
     opacity: 1;
     transform: none;
-    // Transition clip-path for arm growth; left/top/width/height for offset change
     transition:
-      clip-path 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-      left      0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-      top       0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-      width     0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-      height    0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+      clip-path 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+      left 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+      top 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+      width 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+      height 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+      box-shadow 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  @media (hover: hover) {
-    &:hover::before {
-      // Closer (10px offset) and longer arms (30%)
-      left: -10px;
-      top: -10px;
-      width: calc(100% + 20px);
-      height: calc(100% + 20px);
-      clip-path: polygon(
-        30% 0,   0    0,   0    30%,
-        30% 30%, 30% 70%,
-        0    70%, 0   100%, 30% 100%,
-        30% 70%, 70% 70%,
-        70% 100%, 100% 100%, 100% 70%,
-        70% 70%, 70% 30%,
-        100% 30%, 100% 0,   70%  0,
-        70% 30%, 30% 30%
-      );
-    }
+  &.bracket-active {
+    border-color: #3dcfb6;
   }
 
-  &.card-corners-in-view::before {
-    opacity: 1;
-    transform: none;
+  &.bracket-active::before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 1px #3dcfb6;
+    clip-path: polygon(
+      50% 0,
+      0 0,
+      0 50%,
+      50% 50%,
+      50% 50%,
+      0 50%,
+      0 100%,
+      50% 100%,
+      50% 50%,
+      50% 50%,
+      50% 100%,
+      100% 100%,
+      100% 50%,
+      50% 50%,
+      50% 50%,
+      100% 50%,
+      100% 0,
+      50% 0,
+      50% 50%,
+      50% 50%
+    );
   }
 }
 
@@ -160,6 +182,53 @@
 .about-me__item:hover p,
 .about-me__item:focus-within p {
   color: rgba(255, 255, 255, 1);
+}
+
+// item 1 – location pin bounce
+@keyframes locationBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-6px);
+  }
+  55% {
+    transform: translateY(-2px);
+  }
+  75% {
+    transform: translateY(-4px);
+  }
+}
+
+// item 2 – counter-clockwise slow spin
+@keyframes counterSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (hover: hover) {
+  .about-me__item:nth-child(1):hover .about-me__icon img {
+    animation: locationBounce 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+
+  .about-me__item:nth-child(2):hover .about-me__icon img {
+    animation: counterSpin 0.5s linear 1 forwards;
+  }
+
+  .about-me__item:nth-child(3):hover .about-me__icon img {
+    transform: scale(1.3);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+// ensure icon img has transition for item 3 scale reset
+.about-me__item:nth-child(3) .about-me__icon img {
+  transition: transform 0.3s ease;
 }
 
 @media (min-width: 1920px) {
