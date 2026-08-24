@@ -18,11 +18,13 @@ export class WhoIAm implements AfterViewInit, OnDestroy {
     if (!card) return;
 
     this.zone.runOutsideAngular(() => {
+      const isMobile = window.matchMedia('(max-width: 1200px)').matches;
+      const threshold = isMobile ? 0.3 : 0.75;
       this.observer = new IntersectionObserver(
         ([entry]) => {
-          card.classList.toggle('bracket-active', entry.intersectionRatio >= 0.75);
+          card.classList.toggle('bracket-active', entry.intersectionRatio >= threshold);
         },
-        { threshold: 0.75 },
+        { threshold },
       );
       this.observer.observe(card);
     });

@@ -5,6 +5,17 @@
 
 $accent: #3dcfb6;
 
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-title {
   display: flex;
   flex-direction: column;
@@ -23,6 +34,8 @@ $accent: #3dcfb6;
   line-height: 1;
   letter-spacing: 0.12em;
   color: #d9d9d9;
+  animation: heroFadeIn 0.8s ease both;
+  animation-delay: 0.3s;
 }
 
 .hero-title__headline {
@@ -34,6 +47,8 @@ $accent: #3dcfb6;
   color: #d9d9d9;
   margin: 0 0 clamp(24px, 6dvh, 40px);
   white-space: nowrap;
+  animation: heroFadeIn 0.8s ease both;
+  animation-delay: 0.9s;
 }
 
 .hero-title__actions {
@@ -41,6 +56,8 @@ $accent: #3dcfb6;
   flex-wrap: wrap;
   justify-content: center;
   gap: clamp(16px, 6vw, 48px);
+  animation: heroFadeIn 0.8s ease both;
+  animation-delay: 1.5s;
 }
 
 .hero-title__button {

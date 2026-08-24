@@ -25,11 +25,13 @@ export class Photo implements AfterViewInit, OnDestroy {
     const element = this.photoElement.nativeElement;
 
     this.zone.runOutsideAngular(() => {
+      const isMobile = window.matchMedia('(max-width: 1200px)').matches;
+      const threshold = isMobile ? 0.15 : 0.25;
       this.observer = new IntersectionObserver(
         ([entry]) => {
-          element.classList.toggle('photo-visible', entry.intersectionRatio >= 0.25);
+          element.classList.toggle('photo-visible', entry.intersectionRatio >= threshold);
         },
-        { threshold: 0.25 },
+        { threshold },
       );
       this.observer.observe(element);
     });

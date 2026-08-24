@@ -25,11 +25,13 @@ export class Skills implements AfterViewInit, OnDestroy {
     if (!card) return;
 
     this.zone.runOutsideAngular(() => {
+      const isMobile = window.matchMedia('(max-width: 1200px)').matches;
+      const cardThreshold = isMobile ? 0.3 : 0.75;
       this.observer = new IntersectionObserver(
         ([entry]) => {
-          card.classList.toggle('bracket-active', entry.intersectionRatio >= 0.75);
+          card.classList.toggle('bracket-active', entry.intersectionRatio >= cardThreshold);
         },
-        { threshold: 0.75 },
+        { threshold: cardThreshold },
       );
       this.observer.observe(card);
     });
@@ -37,11 +39,13 @@ export class Skills implements AfterViewInit, OnDestroy {
     const icons = this.el.nativeElement.querySelector('.skills__icons-grid');
     if (icons) {
       this.zone.runOutsideAngular(() => {
+        const isMobile = window.matchMedia('(max-width: 1200px)').matches;
+        const iconsThreshold = isMobile ? 0.15 : 0.25;
         this.iconsObserver = new IntersectionObserver(
           ([entry]) => {
-            icons.classList.toggle('icons-visible', entry.intersectionRatio >= 0.25);
+            icons.classList.toggle('icons-visible', entry.intersectionRatio >= iconsThreshold);
           },
-          { threshold: 0.25 },
+          { threshold: iconsThreshold },
         );
         this.iconsObserver.observe(icons);
       });
