@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import {
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
   ElementRef,
   HostListener,
+  NgZone,
   OnDestroy,
   ViewChild,
   inject,
@@ -22,16 +24,23 @@ import { BodyScrollService } from '../../shared/services/body-scroll.service';
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
-export class Projects implements OnDestroy {
+export class Projects implements AfterViewInit, OnDestroy {
   @ViewChild('projectsLayout', { static: true })
   private layoutRef!: ElementRef<HTMLElement>;
 
   @ViewChild('projectsPreview', { static: true })
   private previewRef!: ElementRef<HTMLElement>;
 
+  @ViewChild('viewAllLink')
+  private viewAllLinkRef!: ElementRef<HTMLAnchorElement>;
+
   private readonly projectsService = inject(ProjectsService);
   private readonly bodyScrollService = inject(BodyScrollService);
   private readonly cdr = inject(ChangeDetectorRef);
+  private readonly zone = inject(NgZone);
+
+  private viewAllObserver?: IntersectionObserver;
+  private viewAllAnimTimer: ReturnType<typeof setTimeout> | null = null;
 
   protected readonly projects: Project[] = this.projectsService.getProjects();
 
@@ -43,8 +52,38 @@ export class Projects implements OnDestroy {
    * Angular lifecycle hook that runs when the component is destroyed.
    * Ensures body scroll is unlocked on cleanup.
    */
+  ngAfterViewInit(): void {
+    if (!window.matchMedia('(hover: none)').matches) return;
+    const link = this.viewAllLinkRef?.nativeElement;
+    if (!link) return;
+    this.zone.runOutsideAngular(() => {
+      this.viewAllObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              this.viewAllAnimTimer = setTimeout(
+                () => link.classList.add('projects__view-all-link--animate'),
+                250,
+              );
+            } else {
+              if (this.viewAllAnimTimer) {
+                clearTimeout(this.viewAllAnimTimer);
+                this.viewAllAnimTimer = null;
+              }
+              link.classList.remove('projects__view-all-link--animate');
+            }
+          });
+        },
+        { threshold: 0, rootMargin: '-33% 0px -33% 0px' },
+      );
+      this.viewAllObserver.observe(link);
+    });
+  }
+
   ngOnDestroy(): void {
     this.bodyScrollService.unlock();
+    this.viewAllObserver?.disconnect();
+    if (this.viewAllAnimTimer) clearTimeout(this.viewAllAnimTimer);
   }
 
   /**

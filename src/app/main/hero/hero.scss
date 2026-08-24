@@ -121,3 +121,10 @@
     transform: translateY(-40px);
   }
 }
+
+@media (max-height: 620px) {
+  .hero__left-lateral,
+  .hero__right-lateral {
+    bottom: clamp(40px, 6dvh, 80px);
+  }
+}

@@ -2,9 +2,21 @@
     <div class="all-projects-container">
         <div class="all-projects-header-row">
             <span class="all-projects-eyebrow">{{ 'allProjects.eyebrow' | transloco }}</span>
-            <button class="back-button" (click)="goBack()">
-                <img src="assets/icon/project-icon/arrow_left.png" alt="Back" class="arrow-icon">
-                <span class="back-button__label">{{ 'allProjects.back' | transloco }}</span>
+            <button class="back-button" #backBtn (click)="goBack()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="back-button__arr back-button__arr--1" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path
+                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+                </svg>
+                <span class="back-button__text">
+                    <span>{{ 'allProjects.back' | transloco }}</span>
+                    <span aria-hidden="true">{{ 'allProjects.back' | transloco }}</span>
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="back-button__arr back-button__arr--2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path
+                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+                </svg>
             </button>
         </div>
         <h1 class="all-projects-title">{{ 'allProjects.title' | transloco }}</h1>

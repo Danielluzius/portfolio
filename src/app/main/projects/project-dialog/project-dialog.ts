@@ -38,7 +38,6 @@ export class ProjectDialog implements OnInit, OnChanges {
   @Output() close = new EventEmitter<void>();
   @Output() nextProject = new EventEmitter<void>();
 
-  protected isNextHovered = false;
   protected displayedProject: Project | null = null;
   protected displayedIndex: number | null = null;
   protected contentState: 'visible' | 'hidden' = 'visible';
@@ -62,10 +61,6 @@ export class ProjectDialog implements OnInit, OnChanges {
         this.displayedIndex = this.projectIndex;
       }
     }
-  }
-
-  protected setNextHover(state: boolean): void {
-    this.isNextHovered = state;
   }
 
   protected onClose(): void {

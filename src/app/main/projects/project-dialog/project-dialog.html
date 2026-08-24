@@ -18,11 +18,17 @@
                 <img class="dialog__image" [src]="displayedProject?.preview" [alt]="displayedProject?.previewAlt" />
             </div>
 
-            <button class="dialog__next" type="button" (click)="onNext($event)" (mouseenter)="setNextHover(true)"
-                (mouseleave)="setNextHover(false)" (focus)="setNextHover(true)" (blur)="setNextHover(false)">
-                <span>{{ 'projects.dialog.nextProject' | transloco }}</span>
-                <img [src]="isNextHovered ? 'assets/icon/project-icon/arrow_right_hover.png' : 'assets/icon/project-icon/arrow_right.png'"
-                    alt="" aria-hidden="true" />
+            <button class="dialog__next" type="button" (click)="onNext($event)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="dialog__next-arr dialog__next-arr--2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+                </svg>
+                <span class="dialog__next-text">
+                    <span>{{ 'projects.dialog.nextProject' | transloco }}</span>
+                    <span aria-hidden="true">{{ 'projects.dialog.nextProject' | transloco }}</span>
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="dialog__next-arr dialog__next-arr--1" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" />
+                </svg>
             </button>
         </article>
     </div>

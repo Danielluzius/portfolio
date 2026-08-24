@@ -31,6 +31,7 @@ export class AllProjects implements OnInit, AfterViewInit, OnDestroy {
   private readonly zone = inject(NgZone);
   private cardObserver?: IntersectionObserver;
   private actionsObserver?: IntersectionObserver;
+  private backBtnObserver?: IntersectionObserver;
 
   protected readonly projects: Project[] = this.projectsService.getAllProjects();
   protected openRepoCardIndex: number | null = null;
@@ -61,6 +62,26 @@ export class AllProjects implements OnInit, AfterViewInit, OnDestroy {
 
     if (!window.matchMedia('(hover: none)').matches) return;
 
+    const backBtn: HTMLElement | null = this.el.nativeElement.querySelector('.back-button');
+    if (backBtn) {
+      this.zone.runOutsideAngular(() => {
+        this.backBtnObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              backBtn.classList.remove('back-button--animate');
+              if (entry.isIntersecting) {
+                requestAnimationFrame(() =>
+                  requestAnimationFrame(() => backBtn.classList.add('back-button--animate')),
+                );
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+        this.backBtnObserver.observe(backBtn);
+      });
+    }
+
     const actionsList: NodeListOf<HTMLElement> =
       this.el.nativeElement.querySelectorAll('.project-card__actions');
     this.zone.runOutsideAngular(() => {
@@ -85,6 +106,7 @@ export class AllProjects implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.cardObserver?.disconnect();
     this.actionsObserver?.disconnect();
+    this.backBtnObserver?.disconnect();
   }
 
   @HostListener('document:click')
