@@ -1,4 +1,12 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy, NgZone, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  OnDestroy,
+  NgZone,
+  inject,
+} from '@angular/core';
 
 @Component({
   standalone: true,
@@ -19,10 +27,7 @@ export class Photo implements AfterViewInit, OnDestroy {
     this.zone.runOutsideAngular(() => {
       this.observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.intersectionRatio >= 0.4) {
-            element.classList.add('photo-visible');
-            this.observer?.disconnect();
-          }
+          element.classList.toggle('photo-visible', entry.intersectionRatio >= 0.4);
         },
         { threshold: 0.4 },
       );

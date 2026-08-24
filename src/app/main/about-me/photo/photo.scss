@@ -10,7 +10,7 @@
   margin-top: clamp(-2rem, -4vw, -0.5rem);
 }
 
-// Decorative background – fixed offset bottom-left
+// Decorative background – slides to bottom-left when photo becomes visible
 .about-me__photo::before {
   content: '';
   position: absolute;
@@ -23,7 +23,12 @@
   opacity: 0.9;
   z-index: -1;
   pointer-events: none;
-  transform: translate(-0.6rem, 0.6rem);
+  transform: translate(0, 0);
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.about-me__photo.photo-visible::before {
+  transform: translate(-1.2rem, -1.2rem);
 }
 
 // Corner bracket frame – same system as the about-me card
@@ -54,6 +59,7 @@
 
 .about-me__photo.photo-visible .about-me__photo-frame img {
   opacity: 1;
+  transition-delay: 0.15s;
 }
 
 @media (min-width: 1920px) {
