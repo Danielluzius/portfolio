@@ -50,6 +50,7 @@ export class ProjectsService {
       ],
       preview: 'assets/img/projects/videoflix.png',
       previewAlt: 'Videoflix video streaming platform preview',
+      video: 'assets/video/projects/Videoflix.webm',
       githubUrl: 'https://github.com/Danielluzius/videoflix-frontend',
       backendUrl: 'https://github.com/Danielluzius/videoflix-backend',
       liveUrl: 'https://videoflix.danielluzius.dev',

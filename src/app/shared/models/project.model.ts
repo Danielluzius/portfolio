@@ -12,6 +12,7 @@ export interface Project {
   stack: ProjectStack[];
   preview: string;
   previewAlt: string;
+  video?: string;
   githubUrl?: string;
   backendUrl?: string;
   liveUrl?: string;

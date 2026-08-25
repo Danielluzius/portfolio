@@ -15,7 +15,14 @@
                 [project]="displayedProject!" [projectIndex]="displayedIndex!" />
 
             <div class="dialog__visual" [@contentState]="contentState" (@contentState.done)="onContentAnimDone($event)">
-                <img class="dialog__image" [src]="displayedProject?.preview" [alt]="displayedProject?.previewAlt" />
+                @if (displayedProject?.video) {
+                    <video class="dialog__video" [src]="displayedProject!.video" autoplay muted loop playsinline
+                        [attr.aria-label]="displayedProject!.previewAlt">
+                        <img class="dialog__image" [src]="displayedProject!.preview" [alt]="displayedProject!.previewAlt" />
+                    </video>
+                } @else {
+                    <img class="dialog__image" [src]="displayedProject!.preview" [alt]="displayedProject!.previewAlt" />
+                }
             </div>
 
             <button class="dialog__next" type="button" (click)="onNext($event)">
