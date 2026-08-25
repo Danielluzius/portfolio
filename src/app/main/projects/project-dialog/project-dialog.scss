@@ -57,49 +57,124 @@ app-project-info {
   grid-row: 1;
   justify-self: end;
   align-self: start;
+  display: block;
+  width: 34px;
+  height: 34px;
   position: relative;
-  width: 3rem;
-  height: 3rem;
+  overflow: hidden;
   border: none;
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: opacity 0.2s ease;
+
+  > div {
+    position: relative;
+  }
+
+  .dialog__close-in {
+    .dialog__close-block {
+      &::before,
+      &::after {
+        background: $accent;
+      }
+
+      &::before {
+        transition-delay: 280ms;
+        transform: translateX(17px) translateY(-17px) rotate(45deg);
+      }
+
+      &::after {
+        transition-delay: 280ms;
+        transform: translateX(-19px) translateY(-19px) rotate(-45deg);
+      }
+    }
+  }
+
+  .dialog__close-out {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .dialog__close-block {
+      &::before {
+        transform: translateX(-5px) translateY(5px) rotate(45deg);
+      }
+
+      &::after {
+        transform: translateX(5px) translateY(5px) rotate(-45deg);
+      }
+    }
+  }
 
   &:hover,
   &:focus-visible {
     outline: none;
+
+    .dialog__close-in .dialog__close-block {
+      &::before {
+        transform: translateX(-5px) translateY(5px) rotate(45deg);
+      }
+
+      &::after {
+        transform: translateX(5px) translateY(5px) rotate(-45deg);
+      }
+    }
+
+    .dialog__close-out .dialog__close-block {
+      &::before {
+        transform: translateX(-17px) translateY(17px) rotate(45deg);
+      }
+
+      &::after {
+        transform: translateX(17px) translateY(17px) rotate(-45deg);
+      }
+    }
   }
 }
 
-.dialog__close-icon {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
+.dialog__close-block {
+  width: 34px;
+  height: 17px;
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 1px);
+    display: block;
+    width: 2px;
+    height: 21px;
+    transform-origin: bottom center;
+    background: white;
+    transition: all ease-out 280ms;
+  }
+
+  &:last-of-type {
+    transform: rotate(180deg);
+  }
 }
 
-.dialog__close-icon--default {
-  opacity: 1;
+@keyframes dialog-close-out-before {
+  from { transform: translateX(-5px) translateY(5px) rotate(45deg); }
+  to   { transform: translateX(-17px) translateY(17px) rotate(45deg); }
 }
 
-.dialog__close-icon--hover {
-  opacity: 0;
+@keyframes dialog-close-out-after {
+  from { transform: translateX(5px) translateY(5px) rotate(-45deg); }
+  to   { transform: translateX(17px) translateY(17px) rotate(-45deg); }
 }
 
-.dialog__close:hover .dialog__close-icon--default,
-.dialog__close:focus-visible .dialog__close-icon--default {
-  opacity: 0;
+@keyframes dialog-close-in-before {
+  from { transform: translateX(17px) translateY(-17px) rotate(45deg); }
+  to   { transform: translateX(-5px) translateY(5px) rotate(45deg); }
 }
 
-.dialog__close:hover .dialog__close-icon--hover,
-.dialog__close:focus-visible .dialog__close-icon--hover {
-  opacity: 1;
+@keyframes dialog-close-in-after {
+  from { transform: translateX(-19px) translateY(-19px) rotate(-45deg); }
+  to   { transform: translateX(5px) translateY(5px) rotate(-45deg); }
 }
 
 .dialog__visual {
@@ -235,6 +310,17 @@ app-project-info {
     position: absolute;
     top: 2rem;
     right: 2rem;
+
+    // auto-play the hover animation on open (no hover available on touch)
+    .dialog__close-out .dialog__close-block {
+      &::before { animation: dialog-close-out-before 280ms ease-out both; }
+      &::after  { animation: dialog-close-out-after  280ms ease-out both; }
+    }
+
+    .dialog__close-in .dialog__close-block {
+      &::before { animation: dialog-close-in-before 280ms ease-out 280ms both; }
+      &::after  { animation: dialog-close-in-after  280ms ease-out 280ms both; }
+    }
   }
 
   .dialog__next {
@@ -277,8 +363,8 @@ app-project-info {
   .dialog__close {
     top: 1rem;
     right: 1rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
   }
 }
 
@@ -298,8 +384,8 @@ app-project-info {
   }
 
   .dialog__close {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 1.875rem;
+    height: 1.875rem;
   }
 }
 

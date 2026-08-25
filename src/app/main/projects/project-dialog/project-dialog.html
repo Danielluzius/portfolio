@@ -5,10 +5,14 @@
         <article class="dialog" role="dialog" aria-modal="true" [attr.aria-label]="project.title"
             (click)="onDialogClick($event)">
             <button class="dialog__close" type="button" (click)="onClose()" aria-label="Close project dialog">
-                <img class="dialog__close-icon dialog__close-icon--default"
-                    src="assets/icon/project-icon/close_button.png" alt="" aria-hidden="true" />
-                <img class="dialog__close-icon dialog__close-icon--hover"
-                    src="assets/icon/project-icon/close_button_hover.png" alt="" aria-hidden="true" />
+                <div class="dialog__close-in">
+                    <div class="dialog__close-block"></div>
+                    <div class="dialog__close-block"></div>
+                </div>
+                <div class="dialog__close-out">
+                    <div class="dialog__close-block"></div>
+                    <div class="dialog__close-block"></div>
+                </div>
             </button>
 
             <app-project-info [@contentState]="contentState"
