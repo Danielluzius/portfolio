@@ -28,7 +28,12 @@ export class LanguageSwitch {
    * @returns {'en' | 'de' | null} The saved language or null if not set.
    */
   private getSavedLanguage(): 'en' | 'de' | null {
-    return localStorage.getItem('preferredLanguage') as 'en' | 'de' | null;
+    try {
+      const saved = localStorage.getItem('preferredLanguage');
+      return saved === 'de' || saved === 'en' ? saved : null;
+    } catch {
+      return null;
+    }
   }
 
   /**
@@ -56,7 +61,10 @@ export class LanguageSwitch {
 
     this.activeLanguage = language;
     this.translocoService.setActiveLang(language);
-    // Speichere die Sprachwahl im LocalStorage
-    localStorage.setItem('preferredLanguage', language);
+    try {
+      localStorage.setItem('preferredLanguage', language);
+    } catch {
+      // Safari private mode can throw when writing localStorage.
+    }
   }
 }

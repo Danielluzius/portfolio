@@ -11,18 +11,25 @@
 .legal-notice-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0 0 80px 0;
+  align-items: flex-start;
+  padding: 0 clamp(1.5rem, 6vw, 7.5rem) 80px;
   gap: 64px;
-  max-width: 1248px;
+  max-width: 1600px;
   width: 100%;
   margin: 149px auto 0;
   flex: 1;
 }
 
+.legal-notice-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 .back-button {
-  display: none;
   position: relative;
+  display: flex;
   align-items: center;
   gap: 4px;
   padding: 10px 36px;
@@ -224,13 +231,7 @@
 }
 
 @media (max-width: 768px) {
-  .back-button {
-    display: flex;
-    align-self: flex-start;
-  }
-
   .legal-notice-container {
-    max-width: 90%;
     margin-top: 100px;
     gap: 32px;
     padding-bottom: 60px;

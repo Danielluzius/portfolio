@@ -20,9 +20,16 @@ import { routes } from './app.routes';
  *
  * @returns {string} The language code ('de' or 'en')
  */
-const getInitialLanguage = (): string => {
-  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-    return localStorage.getItem('preferredLanguage') || 'en';
+const getInitialLanguage = (): 'de' | 'en' => {
+  try {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      const saved = localStorage.getItem('preferredLanguage');
+      if (saved === 'de' || saved === 'en') {
+        return saved;
+      }
+    }
+  } catch {
+    // Safari private mode can throw when reading localStorage.
   }
   return 'en';
 };
@@ -50,6 +57,7 @@ export const appConfig: ApplicationConfig = {
       config: {
         availableLangs: ['de', 'en'],
         defaultLang: getInitialLanguage(),
+        fallbackLang: 'en',
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
       },

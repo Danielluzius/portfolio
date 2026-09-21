@@ -247,11 +247,13 @@ export class ProjectsService {
   }
 
   /**
-   * Returns all projects, including the featured ones and the additional ones
-   * shown on the "all projects" overview page.
+   * Returns all projects for the overview page.
+   * Fullstack/API work comes first; games and smaller pieces follow.
    * @returns {Project[]} Array of every project.
    */
   getAllProjects(): Project[] {
-    return [...this.projects, ...this.moreProjects];
+    const [videoflix, join, cavernwake] = this.projects;
+    const [coderr, pokedex, goblinSlayer] = this.moreProjects;
+    return [videoflix, join, coderr, cavernwake, pokedex, goblinSlayer];
   }
 }

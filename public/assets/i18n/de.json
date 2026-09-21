@@ -187,6 +187,7 @@
     }
   },
   "privacyPolicy": {
+    "eyebrow": "Datenschutz",
     "title": "Datenschutzerklärung",
     "sections": {
       "responsible": {
