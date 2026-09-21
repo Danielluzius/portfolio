@@ -68,6 +68,11 @@
       "subtitle": "Netflix-style streaming platform",
       "description": "Netflix-style streaming platform with an Angular 19 frontend and Django REST Framework backend. Videos are automatically converted into adaptive HLS quality levels via FFmpeg. Authentication via JWT, deployed with Docker."
     },
+    "cavernwake": {
+      "title": "Cavernwake",
+      "subtitle": "CSS-only pixel adventure",
+      "description": "A cave adventure in HTML and SCSS only — no JavaScript. Characters, world and UI are hand-painted; radios and checkboxes hold the state, sibling selectors drive movement, inventory and puzzles."
+    },
     "coderr": {
       "title": "Coderr",
       "subtitle": "Freelance Marketplace API",

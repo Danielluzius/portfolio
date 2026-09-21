@@ -99,9 +99,36 @@ export class ProjectsService {
       ],
       preview: 'assets/img/projects/join.png',
       previewAlt: 'Join task management application preview',
+      video: 'assets/video/projects/join.webm',
       githubUrl: 'https://github.com/Danielluzius/join-fullstack',
       liveUrl: 'https://join.danielluzius.dev',
     },
+    {
+      title: 'projects.cavernwake.title',
+      subtitle: 'projects.cavernwake.subtitle',
+      description: 'projects.cavernwake.description',
+      technologies: ['HTML', 'SCSS', 'No JavaScript'],
+      stack: [
+        {
+          label: 'HTML',
+          icon: 'assets/icon/skill-icon/html_icon.png',
+          alt: 'HTML icon',
+        },
+        {
+          label: 'SCSS',
+          icon: 'assets/icon/skill-icon/css_icon.png',
+          alt: 'SCSS icon',
+        },
+      ],
+      preview: 'assets/img/projects/cavernwake.png',
+      previewAlt: 'Cavernwake CSS-only pixel adventure preview',
+      video: 'assets/video/projects/cavernwake.webm',
+      githubUrl: 'https://github.com/Danielluzius/cavernwake',
+      liveUrl: 'https://cavernwake.danielluzius.dev',
+    },
+  ];
+
+  private readonly moreProjects: Project[] = [
     {
       title: 'projects.coderr.title',
       subtitle: 'projects.coderr.subtitle',
@@ -130,9 +157,6 @@ export class ProjectsService {
       backendUrl: 'https://github.com/Danielluzius/coderr-backend',
       liveUrl: 'https://coderr.danielluzius.dev',
     },
-  ];
-
-  private readonly moreProjects: Project[] = [
     {
       title: 'projects.pokedex.title',
       subtitle: 'projects.pokedex.subtitle',
